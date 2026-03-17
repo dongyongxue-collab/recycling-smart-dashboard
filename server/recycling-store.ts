@@ -1202,6 +1202,7 @@ function emptyCategorySnapshot(category: CategoryDefinition): CategorySnapshot {
     internationalNews: [],
     detail: {
       subcategories: category.subcategories,
+      painPoints: category.painPoints,
       costStructure: category.costStructure,
       processFlow: category.processFlow,
       regulations: category.regulations,

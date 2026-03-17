@@ -891,6 +891,50 @@ td a:hover {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+.pain-points-panel {
+  display: grid;
+  gap: 12px;
+}
+
+.pain-point-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.pain-point-card {
+  border: 1px solid rgba(118, 169, 225, 0.14);
+  border-radius: 14px;
+  background:
+    linear-gradient(180deg, rgba(14, 27, 44, 0.92), rgba(9, 17, 29, 0.84)),
+    radial-gradient(circle at top right, rgba(102, 183, 255, 0.12), transparent 56%);
+  padding: 14px;
+  min-height: 120px;
+  display: grid;
+  gap: 10px;
+}
+
+.pain-point-index {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 8px;
+  border-radius: 999px;
+  border: 1px solid rgba(112, 255, 212, 0.24);
+  background: rgba(112, 255, 212, 0.1);
+  color: #9dffe6;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+}
+
+.pain-point-card p {
+  margin: 0;
+  color: #d9ebff;
+  font-size: 13px;
+  line-height: 1.58;
+}
+
 .news-list,
 .rule-list,
 .process-list {
@@ -1050,6 +1094,36 @@ td a:hover {
   transition: width 0.34s ease;
 }
 
+.footer-meta-grid {
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.footer-meta-card {
+  display: grid;
+  gap: 10px;
+}
+
+.footer-meta-list {
+  margin: 0;
+  padding-left: 18px;
+  display: grid;
+  gap: 8px;
+  color: var(--text-soft);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.footer-meta-list li::marker {
+  color: #78c6ff;
+}
+
+.footer-meta-list a {
+  color: #dcefff;
+}
+
 .quote-table-wrap::-webkit-scrollbar,
 .compact-list::-webkit-scrollbar,
 .category-list::-webkit-scrollbar {
@@ -1107,6 +1181,11 @@ td a:hover {
   }
 
   .knowledge-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pain-point-list,
+  .footer-meta-grid {
     grid-template-columns: 1fr;
   }
 
@@ -1173,6 +1252,11 @@ td a:hover {
   .news-list-wide,
   .compact-grid-list {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .pain-point-list,
+  .footer-meta-grid {
+    grid-template-columns: 1fr;
   }
 
   .section-card {

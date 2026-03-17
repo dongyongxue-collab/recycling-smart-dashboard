@@ -1,0 +1,65 @@
+name: Site Monitor
+
+on:
+  schedule:
+    - cron: '*/15 * * * *'
+  workflow_dispatch:
+
+jobs:
+  healthcheck:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Warm up site
+        shell: bash
+        run: |
+          set -euo pipefail
+          for attempt in {1..8}; do
+            status="$(curl -L -sS -o /tmp/site.html -w '%{http_code}' https://insight.stargazer.cloud || true)"
+            if [ "${status}" = "200" ]; then
+              echo "Site responded with 200 on attempt ${attempt}"
+              exit 0
+            fi
+            echo "Attempt ${attempt}: site returned ${status:-no-response}, retrying..."
+            sleep 20
+          done
+          echo "Site warm-up failed" >&2
+          exit 1
+
+      - name: Validate API health
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -LfsS https://insight.stargazer.cloud/api/health -o /tmp/health.json
+          python - <<'PY'
+          import json
+          import os
+
+          with open('/tmp/health.json', 'r', encoding='utf-8') as fh:
+              data = json.load(fh)
+
+          ok = data.get('ok') is True
+          category_count = int(data.get('categoryCount') or 0)
+          total_quotes = int(data.get('totalQuotes') or 0)
+          fetched_at = data.get('fetchedAt', 'unknown')
+          city_priority = data.get('cityPriority', 'unknown')
+
+          if not ok:
+              raise SystemExit('API health returned ok=false')
+          if category_count < 16:
+              raise SystemExit(f'categoryCount too low: {category_count}')
+          if total_quotes < 10:
+              raise SystemExit(f'totalQuotes too low: {total_quotes}')
+
+          summary = [
+              '## Recycling Dashboard Health Check',
+              '',
+              f'- fetchedAt: `{fetched_at}`',
+              f'- cityPriority: `{city_priority}`',
+              f'- categoryCount: `{category_count}`',
+              f'- totalQuotes: `{total_quotes}`',
+          ]
+          with open(os.environ['GITHUB_STEP_SUMMARY'], 'a', encoding='utf-8') as fh:
+              fh.write('\n'.join(summary) + '\n')
+          PY

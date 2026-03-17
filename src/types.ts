@@ -44,6 +44,7 @@ export interface CategorySnapshot {
   internationalNews: NewsItem[];
   detail: {
     subcategories: string[];
+    painPoints: string[];
     costStructure: CostPart[];
     processFlow: ProcessStep[];
     regulations: RegulationItem[];

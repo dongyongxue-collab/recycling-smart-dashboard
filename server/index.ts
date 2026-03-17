@@ -33,6 +33,7 @@ let snapshot: RecyclingKnowledgeSnapshot = {
     internationalNews: [],
     detail: {
       subcategories: item.subcategories,
+      painPoints: item.painPoints,
       costStructure: item.costStructure,
       processFlow: item.processFlow,
       regulations: item.regulations,
