@@ -34,12 +34,23 @@ export interface RegulationItem {
   title: string;
   authority: string;
   referenceUrl: string;
+  publishedDate?: string;
+  status?: string;
+  docType?: string;
+}
+
+export interface SubcategoryBoard {
+  name: string;
+  focus: string;
+  handling: string;
+  compliance: string;
 }
 
 export interface CategoryDefinition {
   id: string;
   name: string;
   subcategories: string[];
+  subBoards?: SubcategoryBoard[];
   painPoints: string[];
   quoteKeywords: string[];
   newsKeywordsCn: string[];
@@ -59,6 +70,7 @@ export interface CategorySnapshot {
   detail: {
     subcategories: string[];
     painPoints: string[];
+    subBoards: SubcategoryBoard[];
     costStructure: CostPart[];
     processFlow: ProcessStep[];
     regulations: RegulationItem[];

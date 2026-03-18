@@ -4,18 +4,27 @@ const SOLID_WASTE_LAW: RegulationItem = {
   title: '中华人民共和国固体废物污染环境防治法',
   authority: '全国人大常委会',
   referenceUrl: 'https://www.gov.cn/xinwen/2020-04/30/content_5507561.htm',
+  publishedDate: '2020-04-29',
+  status: '现行有效',
+  docType: '法律',
 };
 
 const RECYCLING_MEASURE: RegulationItem = {
   title: '再生资源回收管理办法',
   authority: '商务部',
   referenceUrl: 'https://www.gov.cn/gongbao/content/2007/content_721184.htm',
+  publishedDate: '2007-05',
+  status: '现行有效',
+  docType: '办法',
 };
 
 const HAZARDOUS_TRANSFER: RegulationItem = {
   title: '危险废物转移管理办法',
   authority: '生态环境部',
   referenceUrl: 'https://www.mee.gov.cn/xxgk2018/xxgk/xxgk02/202111/t20211130_962150.html',
+  publishedDate: '2021-11-30',
+  status: '现行有效',
+  docType: '办法',
 };
 
 const SCRAP_STEEL_GUIDE: RegulationItem = {
@@ -124,54 +133,81 @@ const HAZARDOUS_WASTE_LICENSE: RegulationItem = {
   title: '危险废物经营许可证管理办法',
   authority: '国务院',
   referenceUrl: 'https://www.gov.cn/gongbao/content/2016/content_5139367.htm',
+  publishedDate: '2016-02',
+  status: '现行有效',
+  docType: '办法',
 };
 
 const HAZARDOUS_WASTE_LIST: RegulationItem = {
   title: '国家危险废物名录（2025年版）',
   authority: '生态环境部',
   referenceUrl: 'https://www.mee.gov.cn/xxgk2018/xxgk/xxgk01/202501/t20250120_1100287.html',
+  publishedDate: '2025-01-20',
+  status: '现行有效',
+  docType: '名录',
 };
 
 const HAZARDOUS_STORAGE_STANDARD: RegulationItem = {
   title: '危险废物贮存污染控制标准（GB 18597-2023）',
   authority: '生态环境部',
   referenceUrl: 'https://www.mee.gov.cn/ywgz/fgbz/bz/bzwb/other/qt/202308/t20230824_1039320.shtml',
+  publishedDate: '2023-08-24',
+  status: '现行有效',
+  docType: '国标',
 };
 
 const MEDICAL_WASTE_ORDINANCE: RegulationItem = {
   title: '医疗废物管理条例',
   authority: '国务院',
   referenceUrl: 'https://www.nhc.gov.cn/fzs/s3576/200804/fe983d6a8c7b4c8b8ca284b8af31e01e.shtml',
+  publishedDate: '2003-06',
+  status: '现行有效',
+  docType: '条例',
 };
 
 const MEDICAL_WASTE_MEASURE: RegulationItem = {
   title: '医疗卫生机构医疗废物管理办法',
   authority: '国家卫生健康委',
   referenceUrl: 'https://www.nhc.gov.cn/fzs/c100048/201808/e1f12130a00248558abaea83c77719d0.shtml',
+  publishedDate: '2018-08',
+  status: '现行有效',
+  docType: '办法',
 };
 
 const MEDICAL_WASTE_DIRECTORY: RegulationItem = {
   title: '医疗废物分类目录（2021年版）',
   authority: '国家卫生健康委',
   referenceUrl: 'https://www.nhc.gov.cn/wjw/c100175/202112/cbfa50d4a049466586741e2d6de55d92.shtml',
+  publishedDate: '2021-12',
+  status: '现行有效',
+  docType: '目录',
 };
 
 const MEDICAL_WASTE_POLLUTION_STANDARD: RegulationItem = {
   title: '医疗废物处理处置污染控制标准（GB 39707-2020）',
   authority: '生态环境部',
   referenceUrl: 'https://www.mee.gov.cn/ywgz/fgbz/bz/bzwb/gthw/gtfwwrkzbz/202012/t20201218_813930.shtml',
+  publishedDate: '2020-12-18',
+  status: '现行有效',
+  docType: '国标',
 };
 
 const MEDICAL_WASTE_PACKAGING_STANDARD: RegulationItem = {
   title: '医疗废物专用包装袋、容器和警示标志标准（HJ 421-2008）',
   authority: '生态环境部',
   referenceUrl: 'https://www.mee.gov.cn/ywgz/fgbz/bz/bzwb/gthw/qtxgbz/200803/t20080306_119048.htm',
+  publishedDate: '2008-03-06',
+  status: '现行有效',
+  docType: '行标',
 };
 
 const MEDICAL_WASTE_GOVERNANCE_PLAN: RegulationItem = {
   title: '医疗机构废弃物综合治理工作方案',
   authority: '国家卫生健康委等10部门',
   referenceUrl: 'https://www.nhc.gov.cn/yzygj/c100067/202002/66036c7db7b3410d8ebbc4cb7f80ff97.shtml',
+  publishedDate: '2020-02',
+  status: '现行有效',
+  docType: '方案',
 };
 
 export const COMMON_REGULATIONS: RegulationItem[] = [SOLID_WASTE_LAW, RECYCLING_MEASURE];
@@ -641,6 +677,38 @@ const BASE_RECYCLING_CATEGORIES: Array<Omit<CategoryDefinition, 'painPoints'>> =
     id: 'medical-waste',
     name: '医疗废弃物',
     subcategories: ['感染性废物', '损伤性废物', '病理性废物', '药物性废物', '化学性废物'],
+    subBoards: [
+      {
+        name: '感染性废物',
+        focus: '重点覆盖被病原体污染的敷料、拭子、一次性耗材和隔离防护用品。',
+        handling: '以黄色包装密闭收集，优先走高温焚烧或高温蒸汽灭菌后焚烧协同路线。',
+        compliance: '核心关注院感分类、日产日清、专车转运和全过程台账。',
+      },
+      {
+        name: '损伤性废物',
+        focus: '主要是针头、刀片、安瓿和其他可能刺伤作业人员的锐器类废物。',
+        handling: '必须进入防穿刺专用利器盒，严禁压缩混装，末端以焚烧或破碎灭菌路线处置。',
+        compliance: '重点检查利器盒标识、封口状态和转运交接记录。',
+      },
+      {
+        name: '病理性废物',
+        focus: '包括组织、器官、胎盘和病理切片等高敏感、高风险废物。',
+        handling: '要求独立包装、冷藏暂存或快速转运，优先进入独立焚烧处置环节。',
+        compliance: '最看重人员权限、封闭管理和高风险场景下的留痕链路。',
+      },
+      {
+        name: '药物性废物',
+        focus: '覆盖过期药品、淘汰制剂、疫苗残余和含药污染物。',
+        handling: '按药性和包装形态分类，避免与普通医废混合，必要时走危废协同焚烧。',
+        compliance: '需同步满足药监销毁要求与医疗废物联单管理要求。',
+      },
+      {
+        name: '化学性废物',
+        focus: '主要是实验室废液、显影液、消毒剂残液及含重金属化学残渣。',
+        handling: '先按酸碱、有机溶剂、含汞等属性分流，再决定中和、回收或焚烧处置路径。',
+        compliance: '既受医疗废物制度约束，也可能叠加危废代码判定与转移要求。',
+      },
+    ],
     searchKeyword: '医疗废物 处置',
     quoteKeywords: ['医疗废物', '医废', '医疗垃圾', '感染性废物', '病理性废物', '医疗废弃物处置'],
     newsKeywordsCn: ['医疗废物', '医废', '医疗机构废弃物', '感染性废物', '医废处置'],

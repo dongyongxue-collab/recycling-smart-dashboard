@@ -1060,6 +1060,50 @@ td a:hover {
   align-content: start;
 }
 
+.rich-rule-list {
+  gap: 10px;
+}
+
+.rich-rule-item {
+  display: grid;
+  gap: 8px;
+}
+
+.rule-meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.rule-meta-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 8px;
+  border-radius: 999px;
+  border: 1px solid rgba(118, 169, 225, 0.18);
+  background: rgba(12, 22, 36, 0.72);
+  color: #bad7f6;
+  font-size: 10px;
+  line-height: 1;
+  letter-spacing: 0.04em;
+}
+
+.rule-meta-tag.category {
+  border-color: rgba(122, 255, 217, 0.2);
+  color: #a8ffe8;
+}
+
+.rule-meta-tag.support {
+  border-color: rgba(144, 167, 255, 0.2);
+  color: #c9d1ff;
+}
+
+.rule-meta-tag.update {
+  border-color: rgba(255, 191, 102, 0.2);
+  color: #ffd39f;
+}
+
 .regulation-block {
   display: grid;
   gap: 8px;
@@ -1079,6 +1123,83 @@ td a:hover {
 .pain-points-panel {
   display: grid;
   gap: 12px;
+}
+
+.subboard-panel {
+  display: grid;
+  gap: 12px;
+}
+
+.subboard-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.subboard-card {
+  border: 1px solid rgba(118, 169, 225, 0.14);
+  border-radius: 16px;
+  padding: 14px;
+  display: grid;
+  gap: 12px;
+  background:
+    linear-gradient(180deg, rgba(13, 24, 39, 0.92), rgba(8, 17, 29, 0.84)),
+    radial-gradient(circle at top right, rgba(90, 192, 255, 0.12), transparent 60%);
+}
+
+.subboard-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.subboard-index {
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(112, 255, 212, 0.24);
+  background: rgba(112, 255, 212, 0.1);
+  color: #9dffe6;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  flex: 0 0 auto;
+}
+
+.subboard-head strong {
+  display: block;
+  color: #dcebff;
+  font-size: 14px;
+}
+
+.subboard-head span {
+  display: block;
+  margin-top: 3px;
+  color: var(--text-soft);
+  font-size: 11px;
+}
+
+.subboard-copy {
+  display: grid;
+  gap: 10px;
+}
+
+.subboard-copy p {
+  margin: 0;
+  color: #d7e8fb;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.subboard-copy em {
+  display: block;
+  margin-bottom: 4px;
+  color: #8db7de;
+  font-style: normal;
+  font-size: 11px;
+  letter-spacing: 0.04em;
 }
 
 .pain-point-list {
@@ -1906,6 +2027,10 @@ td a:hover {
     grid-template-columns: 1fr;
   }
 
+  .subboard-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .detail-subnav {
     top: 10px;
   }
@@ -1917,6 +2042,10 @@ td a:hover {
   .detail-subnav,
   .detail-overview-grid,
   .detail-overview-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .subboard-grid {
     grid-template-columns: 1fr;
   }
 

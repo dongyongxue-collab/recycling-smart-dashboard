@@ -1399,7 +1399,7 @@ function emptyCategorySnapshot(category: CategoryDefinition): CategorySnapshot {
       title: rule.title,
       source: rule.authority,
       link: rule.referenceUrl,
-      publishedAt: new Date(0).toISOString(),
+      publishedAt: rule.publishedDate ?? '',
     }));
 
   return {
@@ -1411,6 +1411,7 @@ function emptyCategorySnapshot(category: CategoryDefinition): CategorySnapshot {
     detail: {
       subcategories: category.subcategories,
       painPoints: category.painPoints,
+      subBoards: category.subBoards ?? [],
       costStructure: category.costStructure,
       processFlow: category.processFlow,
       regulations: category.regulations,
@@ -1528,7 +1529,7 @@ async function collectCategorySnapshot(
       title: rule.title,
       source: rule.authority,
       link: rule.referenceUrl,
-      publishedAt: new Date().toISOString(),
+      publishedAt: rule.publishedDate ?? '',
     }));
   const supportMaterials = collectSupportMaterials(category, docs);
   const regulationUpdates = collectRegulationUpdates(category, docs);
@@ -1538,6 +1539,7 @@ async function collectCategorySnapshot(
   categorySnapshot.internationalNews = mergeNews(internationalNews, globalNews.internationalNews, 10);
   categorySnapshot.detail.supportMaterials = supportMaterials.length ? supportMaterials : staticSupportMaterials;
   categorySnapshot.detail.regulationUpdates = regulationUpdates;
+  categorySnapshot.detail.subBoards = category.subBoards ?? [];
   categorySnapshot.analytics = {
     history: buildHistory(category, quotes),
     regionBars: buildRegionBars(quotes),

@@ -34,6 +34,7 @@ let snapshot: RecyclingKnowledgeSnapshot = {
     detail: {
       subcategories: item.subcategories,
       painPoints: item.painPoints,
+      subBoards: item.subBoards ?? [],
       costStructure: item.costStructure,
       processFlow: item.processFlow,
       regulations: item.regulations,

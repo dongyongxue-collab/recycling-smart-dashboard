@@ -29,6 +29,7 @@ import {
   YAxis,
 } from 'recharts';
 import { useRecyclingDashboard } from './useRecyclingDashboard';
+import type { NewsItem, RegulationItem } from './types';
 
 const numberFormatter = new Intl.NumberFormat('zh-CN', { maximumFractionDigits: 2 });
 const CHINA_GEOJSON_PATH = '/china.geo.json';
@@ -175,6 +176,74 @@ const REGION_ALIASES: Record<string, string[]> = {
 };
 function formatTime(value: string): string {
   return new Date(value).toLocaleTimeString('zh-CN', { hour12: false });
+}
+
+function formatPublishedLabel(value?: string): string {
+  if (!value) return '发布日期待核';
+  if (/^\d{4}-\d{2}-\d{2}$/.test(value) || /^\d{4}-\d{2}$/.test(value) || /^\d{4}$/.test(value)) {
+    return value;
+  }
+  const parsed = new Date(value);
+  if (Number.isNaN(parsed.getTime())) {
+    return value;
+  }
+  return parsed.toLocaleDateString('zh-CN');
+}
+
+function inferDocType(title: string, fallback = '资料'): string {
+  if (/法律/.test(title)) return '法律';
+  if (/条例/.test(title)) return '条例';
+  if (/办法/.test(title)) return '办法';
+  if (/方案/.test(title)) return '方案';
+  if (/名录|目录/.test(title)) return '目录';
+  if (/通知|公告|意见/.test(title)) return '公告';
+  if (/GB/.test(title)) return '国标';
+  if (/HJ|导则|指南|规范|标准/.test(title)) return '标准';
+  return fallback;
+}
+
+function inferRulePublishedDate(rule: RegulationItem): string {
+  if (rule.publishedDate) {
+    return formatPublishedLabel(rule.publishedDate);
+  }
+  const yearEdition = rule.title.match(/(20\d{2})年版/);
+  if (yearEdition) {
+    return `${yearEdition[1]}年版`;
+  }
+  const codeYear = rule.title.match(/(?:GB|HJ)\s*\d+(?:\.\d+)?-(20\d{2})/i);
+  if (codeYear) {
+    return `${codeYear[1]}年`;
+  }
+  const urlDate = rule.referenceUrl.match(/(20\d{2})(\d{2})(\d{2})/);
+  if (urlDate) {
+    return `${urlDate[1]}-${urlDate[2]}-${urlDate[3]}`;
+  }
+  const urlMonth = rule.referenceUrl.match(/(20\d{2})(\d{2})/);
+  if (urlMonth) {
+    return `${urlMonth[1]}-${urlMonth[2]}`;
+  }
+  return '发布日期待核';
+}
+
+function inferRuleStatus(rule: RegulationItem): string {
+  return rule.status ?? '现行有效';
+}
+
+function inferRuleDocType(rule: RegulationItem): string {
+  return rule.docType ?? inferDocType(rule.title, '法规');
+}
+
+function inferNewsDocType(item: NewsItem): string {
+  return inferDocType(item.title, '官方动态');
+}
+
+function inferNewsStatus(item: NewsItem): string {
+  const published = new Date(item.publishedAt);
+  if (!Number.isNaN(published.getTime())) {
+    const days = (Date.now() - published.getTime()) / (1000 * 60 * 60 * 24);
+    if (days <= 180) return '近期发布';
+  }
+  return '官方动态';
 }
 
 function normalizeRegion(text?: string): string | undefined {
@@ -357,6 +426,7 @@ function App() {
     () => activeCategory?.detail.regulationUpdates[0] ?? null,
     [activeCategory],
   );
+  const categorySubBoards = useMemo(() => activeCategory?.detail.subBoards ?? [], [activeCategory]);
   const categoryAlertNews = useMemo(() => {
     if (!activeCategory) return [];
     const merged = [...activeCategory.domesticNews, ...activeCategory.internationalNews];
@@ -893,8 +963,192 @@ function App() {
 
             <section ref={knowledgeSectionRef} data-detail-section="knowledge" className="detail-section-stack">
               <div className="section-group-head"><span className="section-group-kicker">知识层</span><h2>{activeCategory.name}工艺、痛点与法规</h2><p>把行业痛点、成本结构、技术流程和法规动态收在知识层，不和价格抢第一视线。</p></div>
-              <section className="glass section-card pain-points-panel"><div className="section-head compact"><h3><TrendingUp size={15} /> {activeCategory.name}行业痛点</h3><span>优先看最影响回收价、成交率和现金流的环节</span></div><div className="pain-point-list">{activeCategory.detail.painPoints.map((item, index) => <article key={item} className="pain-point-card"><span className="pain-point-index">0{index + 1}</span><p>{item}</p></article>)}</div></section>
-              <section className="knowledge-grid"><article className="glass section-card"><div className="section-head compact"><h3><Factory size={15} /> 报价成本架构</h3></div><div className="cost-bars">{activeCategory.detail.costStructure.map((part) => <div key={part.label} className="cost-row"><span>{part.label}</span><strong>{part.percent}%</strong><div className="bar-track"><div className="bar-fill" style={{ width: `${part.percent}%` }} /></div></div>)}</div></article><article className="glass section-card"><div className="section-head compact"><h3><Layers size={15} /> 技术流程</h3><span>改成图标时间线，避免中文横排被挤压</span></div><div className="process-flow-vertical">{activeCategory.detail.processFlow.map((step, index) => { const visual = getProcessStepVisual(step.title, step.description, index); return <div key={step.step} className={`process-timeline-item ${visual.tone}`}><div className="process-timeline-rail"><span className="process-step-index">0{step.step}</span><span className={`process-step-icon ${visual.tone}`}><visual.Icon size={18} /></span>{index < activeCategory.detail.processFlow.length - 1 ? <span className="process-step-line" aria-hidden="true" /> : null}</div><div className="process-step-card vertical"><div className="process-step-head"><strong>{step.title}</strong><em>{visual.label}</em></div><p>{step.description}</p></div></div>; })}</div></article><article className="glass section-card regulation-panel"><div className="section-head compact"><h3><Landmark size={15} /> 法规标准</h3><span>共性法规前置，专属资料与最新动态分层</span></div><div className="regulation-card-grid"><section className="regulation-card tier-common"><div className="regulation-card-head"><div><strong>共性法规</strong><span>适用于多数再生资源经营与处置场景</span></div><em>{activeCategory.detail.commonRegulations.length} 条</em></div><ul className="rule-list regulation-list">{activeCategory.detail.commonRegulations.map((rule) => <li key={rule.title}><a href={rule.referenceUrl} target="_blank" rel="noreferrer">{rule.title}</a><span>{rule.authority}</span></li>)}</ul></section><section className="regulation-card tier-category"><div className="regulation-card-head"><div><strong>品类专属法规</strong><span>{activeCategory.name} 经营、回收、拆解或利用直接相关</span></div><em>{activeCategory.detail.categoryRegulations.length} 条</em></div>{activeCategory.detail.categoryRegulations.length ? <ul className="rule-list regulation-list">{activeCategory.detail.categoryRegulations.map((rule) => <li key={rule.title}><a href={rule.referenceUrl} target="_blank" rel="noreferrer">{rule.title}</a><span>{rule.authority}</span></li>)}</ul> : <div className="empty-news">当前品类暂未沉淀静态专属法规条目，继续看右侧标准资料。</div>}</section><section className="regulation-card tier-support"><div className="regulation-card-head"><div><strong>标准资料</strong><span>技术规范、行业解读和实施指南</span></div><em>{activeCategory.detail.supportMaterials.length} 条</em></div>{activeCategory.detail.supportMaterials.length ? <ul className="rule-list rule-list-compact regulation-list">{activeCategory.detail.supportMaterials.map((rule) => <li key={rule.id}><a href={rule.link} target="_blank" rel="noreferrer">{rule.title}</a><span>{rule.source}</span></li>)}</ul> : <div className="empty-news">当前未抓到更贴近该品类的官方标准资料，后续会继续补充官方源。</div>}</section><section className="regulation-card tier-update"><div className="regulation-card-head"><div><strong>官方最新动态</strong><span>国标、公告、通知与最新政策变更</span></div><em>{activeCategory.detail.regulationUpdates.length} 条</em></div>{activeCategory.detail.regulationUpdates.length ? <ul className="rule-list rule-list-compact regulation-list">{activeCategory.detail.regulationUpdates.map((rule) => <li key={rule.id}><a href={rule.link} target="_blank" rel="noreferrer">{rule.title}</a><span>{rule.source}</span></li>)}</ul> : <div className="empty-news">当前未抓到该品类最新官方法规/国标动态。</div>}</section></div></article></section>
+              <section className="glass section-card pain-points-panel">
+                <div className="section-head compact">
+                  <h3><TrendingUp size={15} /> {activeCategory.name}行业痛点</h3>
+                  <span>优先看最影响回收价、成交率和现金流的环节</span>
+                </div>
+                <div className="pain-point-list">
+                  {activeCategory.detail.painPoints.map((item, index) => (
+                    <article key={item} className="pain-point-card">
+                      <span className="pain-point-index">0{index + 1}</span>
+                      <p>{item}</p>
+                    </article>
+                  ))}
+                </div>
+              </section>
+
+              {categorySubBoards.length ? (
+                <section className="glass section-card subboard-panel">
+                  <div className="section-head compact">
+                    <h3><Sparkles size={15} /> {activeCategory.name}二级子板块</h3>
+                    <span>把同一品类内部的收集、处置和合规差异拆开看</span>
+                  </div>
+                  <div className="subboard-grid">
+                    {categorySubBoards.map((board, index) => (
+                      <article key={board.name} className="subboard-card">
+                        <div className="subboard-head">
+                          <span className="subboard-index">0{index + 1}</span>
+                          <div>
+                            <strong>{board.name}</strong>
+                            <span>二级处置单元</span>
+                          </div>
+                        </div>
+                        <div className="subboard-copy">
+                          <p><em>重点对象</em>{board.focus}</p>
+                          <p><em>处理路径</em>{board.handling}</p>
+                          <p><em>合规重点</em>{board.compliance}</p>
+                        </div>
+                      </article>
+                    ))}
+                  </div>
+                </section>
+              ) : null}
+
+              <section className="knowledge-grid">
+                <article className="glass section-card">
+                  <div className="section-head compact">
+                    <h3><Factory size={15} /> 报价成本架构</h3>
+                  </div>
+                  <div className="cost-bars">
+                    {activeCategory.detail.costStructure.map((part) => (
+                      <div key={part.label} className="cost-row">
+                        <span>{part.label}</span>
+                        <strong>{part.percent}%</strong>
+                        <div className="bar-track"><div className="bar-fill" style={{ width: `${part.percent}%` }} /></div>
+                      </div>
+                    ))}
+                  </div>
+                </article>
+
+                <article className="glass section-card">
+                  <div className="section-head compact">
+                    <h3><Layers size={15} /> 技术流程</h3>
+                    <span>改成图标时间线，避免中文横排被挤压</span>
+                  </div>
+                  <div className="process-flow-vertical">
+                    {activeCategory.detail.processFlow.map((step, index) => {
+                      const visual = getProcessStepVisual(step.title, step.description, index);
+                      return (
+                        <div key={step.step} className={`process-timeline-item ${visual.tone}`}>
+                          <div className="process-timeline-rail">
+                            <span className="process-step-index">0{step.step}</span>
+                            <span className={`process-step-icon ${visual.tone}`}><visual.Icon size={18} /></span>
+                            {index < activeCategory.detail.processFlow.length - 1 ? <span className="process-step-line" aria-hidden="true" /> : null}
+                          </div>
+                          <div className="process-step-card vertical">
+                            <div className="process-step-head">
+                              <strong>{step.title}</strong>
+                              <em>{visual.label}</em>
+                            </div>
+                            <p>{step.description}</p>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </article>
+
+                <article className="glass section-card regulation-panel">
+                  <div className="section-head compact">
+                    <h3><Landmark size={15} /> 法规标准</h3>
+                    <span>把法规、标准、动态都做成可扫读卡片</span>
+                  </div>
+                  <div className="regulation-card-grid">
+                    <section className="regulation-card tier-common">
+                      <div className="regulation-card-head">
+                        <div><strong>共性法规</strong><span>适用于多数再生资源经营与处置场景</span></div>
+                        <em>{activeCategory.detail.commonRegulations.length} 条</em>
+                      </div>
+                      <ul className="rule-list regulation-list rich-rule-list">
+                        {activeCategory.detail.commonRegulations.map((rule) => (
+                          <li key={rule.title} className="rich-rule-item">
+                            <a href={rule.referenceUrl} target="_blank" rel="noreferrer">{rule.title}</a>
+                            <div className="rule-meta-row">
+                              <span className="rule-meta-tag">{inferRuleDocType(rule)}</span>
+                              <span className="rule-meta-tag">{inferRuleStatus(rule)}</span>
+                              <span className="rule-meta-tag">发布 {inferRulePublishedDate(rule)}</span>
+                            </div>
+                            <span>{rule.authority}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </section>
+
+                    <section className="regulation-card tier-category">
+                      <div className="regulation-card-head">
+                        <div><strong>品类专属法规</strong><span>{activeCategory.name} 经营、回收、拆解或利用直接相关</span></div>
+                        <em>{activeCategory.detail.categoryRegulations.length} 条</em>
+                      </div>
+                      {activeCategory.detail.categoryRegulations.length ? (
+                        <ul className="rule-list regulation-list rich-rule-list">
+                          {activeCategory.detail.categoryRegulations.map((rule) => (
+                            <li key={rule.title} className="rich-rule-item">
+                              <a href={rule.referenceUrl} target="_blank" rel="noreferrer">{rule.title}</a>
+                              <div className="rule-meta-row">
+                                <span className="rule-meta-tag category">{inferRuleDocType(rule)}</span>
+                                <span className="rule-meta-tag category">{inferRuleStatus(rule)}</span>
+                                <span className="rule-meta-tag category">发布 {inferRulePublishedDate(rule)}</span>
+                              </div>
+                              <span>{rule.authority}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      ) : (
+                        <div className="empty-news">当前品类暂未沉淀静态专属法规条目，继续看右侧标准资料。</div>
+                      )}
+                    </section>
+
+                    <section className="regulation-card tier-support">
+                      <div className="regulation-card-head">
+                        <div><strong>标准资料</strong><span>技术规范、行业解读和实施指南</span></div>
+                        <em>{activeCategory.detail.supportMaterials.length} 条</em>
+                      </div>
+                      {activeCategory.detail.supportMaterials.length ? (
+                        <ul className="rule-list rule-list-compact regulation-list rich-rule-list">
+                          {activeCategory.detail.supportMaterials.map((rule) => (
+                            <li key={rule.id} className="rich-rule-item">
+                              <a href={rule.link} target="_blank" rel="noreferrer">{rule.title}</a>
+                              <div className="rule-meta-row">
+                                <span className="rule-meta-tag support">{inferNewsDocType(rule)}</span>
+                                <span className="rule-meta-tag support">{inferNewsStatus(rule)}</span>
+                                <span className="rule-meta-tag support">发布 {formatPublishedLabel(rule.publishedAt)}</span>
+                              </div>
+                              <span>{rule.source}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      ) : (
+                        <div className="empty-news">当前未抓到更贴近该品类的官方标准资料，后续会继续补充官方源。</div>
+                      )}
+                    </section>
+
+                    <section className="regulation-card tier-update">
+                      <div className="regulation-card-head">
+                        <div><strong>官方最新动态</strong><span>国标、公告、通知与最新政策变更</span></div>
+                        <em>{activeCategory.detail.regulationUpdates.length} 条</em>
+                      </div>
+                      {activeCategory.detail.regulationUpdates.length ? (
+                        <ul className="rule-list rule-list-compact regulation-list rich-rule-list">
+                          {activeCategory.detail.regulationUpdates.map((rule) => (
+                            <li key={rule.id} className="rich-rule-item">
+                              <a href={rule.link} target="_blank" rel="noreferrer">{rule.title}</a>
+                              <div className="rule-meta-row">
+                                <span className="rule-meta-tag update">{inferNewsDocType(rule)}</span>
+                                <span className="rule-meta-tag update">{inferNewsStatus(rule)}</span>
+                                <span className="rule-meta-tag update">发布 {formatPublishedLabel(rule.publishedAt)}</span>
+                              </div>
+                              <span>{rule.source}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      ) : (
+                        <div className="empty-news">当前未抓到该品类最新官方法规/国标动态。</div>
+                      )}
+                    </section>
+                  </div>
+                </article>
+              </section>
             </section>
           </> : <section className="glass section-card empty-screen">正在加载分类数据...</section>}
           {error && <div className="error-tip">{error}</div>}
