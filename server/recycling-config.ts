@@ -138,6 +138,42 @@ const HAZARDOUS_STORAGE_STANDARD: RegulationItem = {
   referenceUrl: 'https://www.mee.gov.cn/ywgz/fgbz/bz/bzwb/other/qt/202308/t20230824_1039320.shtml',
 };
 
+const MEDICAL_WASTE_ORDINANCE: RegulationItem = {
+  title: '医疗废物管理条例',
+  authority: '国务院',
+  referenceUrl: 'https://www.nhc.gov.cn/fzs/s3576/200804/fe983d6a8c7b4c8b8ca284b8af31e01e.shtml',
+};
+
+const MEDICAL_WASTE_MEASURE: RegulationItem = {
+  title: '医疗卫生机构医疗废物管理办法',
+  authority: '国家卫生健康委',
+  referenceUrl: 'https://www.nhc.gov.cn/fzs/c100048/201808/e1f12130a00248558abaea83c77719d0.shtml',
+};
+
+const MEDICAL_WASTE_DIRECTORY: RegulationItem = {
+  title: '医疗废物分类目录（2021年版）',
+  authority: '国家卫生健康委',
+  referenceUrl: 'https://www.nhc.gov.cn/wjw/c100175/202112/cbfa50d4a049466586741e2d6de55d92.shtml',
+};
+
+const MEDICAL_WASTE_POLLUTION_STANDARD: RegulationItem = {
+  title: '医疗废物处理处置污染控制标准（GB 39707-2020）',
+  authority: '生态环境部',
+  referenceUrl: 'https://www.mee.gov.cn/ywgz/fgbz/bz/bzwb/gthw/gtfwwrkzbz/202012/t20201218_813930.shtml',
+};
+
+const MEDICAL_WASTE_PACKAGING_STANDARD: RegulationItem = {
+  title: '医疗废物专用包装袋、容器和警示标志标准（HJ 421-2008）',
+  authority: '生态环境部',
+  referenceUrl: 'https://www.mee.gov.cn/ywgz/fgbz/bz/bzwb/gthw/qtxgbz/200803/t20080306_119048.htm',
+};
+
+const MEDICAL_WASTE_GOVERNANCE_PLAN: RegulationItem = {
+  title: '医疗机构废弃物综合治理工作方案',
+  authority: '国家卫生健康委等10部门',
+  referenceUrl: 'https://www.nhc.gov.cn/yzygj/c100067/202002/66036c7db7b3410d8ebbc4cb7f80ff97.shtml',
+};
+
 export const COMMON_REGULATIONS: RegulationItem[] = [SOLID_WASTE_LAW, RECYCLING_MEASURE];
 
 export const CITY_PRIORITY = '天津';
@@ -217,6 +253,11 @@ const CATEGORY_PAIN_POINTS: Record<string, string[]> = {
     '危废并不是简单按重量计价，处置类别、热值、含水率和危害代码都会显著影响单吨价值。',
     '跨省转移、经营许可和联单管理要求严格，任何合规缺口都会直接影响接单能力。',
     '资源化危废和无害化处置危废的商业模式完全不同，公开报价往往只反映局部环节。',
+  ],
+  'medical-waste': [
+    '医疗废弃物虽然纳入危废监管体系，但医院、疾控、实验室和宠物诊疗机构的收集口径差异很大，单一报价难反映真实处置成本。',
+    '感染性、损伤性、病理性、药物性和化学性废物必须分流，任何混装都会抬高收运和末端处置风险。',
+    '回收端本质上更接近“收运处置服务”，合规台账、冷链/专车转运和应急能力往往比单吨价格更关键。',
   ],
   'municipal-solid-waste': [
     '生活垃圾中的可回收物价值被分拣效率决定，前端分类质量直接影响回收价。',
@@ -594,6 +635,38 @@ const BASE_RECYCLING_CATEGORIES: Array<Omit<CategoryDefinition, 'painPoints'>> =
       HAZARDOUS_WASTE_LICENSE,
       HAZARDOUS_WASTE_LIST,
       HAZARDOUS_STORAGE_STANDARD,
+    ],
+  },
+  {
+    id: 'medical-waste',
+    name: '医疗废弃物',
+    subcategories: ['感染性废物', '损伤性废物', '病理性废物', '药物性废物', '化学性废物'],
+    searchKeyword: '医疗废物 处置',
+    quoteKeywords: ['医疗废物', '医废', '医疗垃圾', '感染性废物', '病理性废物', '医疗废弃物处置'],
+    newsKeywordsCn: ['医疗废物', '医废', '医疗机构废弃物', '感染性废物', '医废处置'],
+    newsKeywordsEn: ['medical waste', 'healthcare waste', 'clinical waste', 'infectious waste'],
+    costStructure: [
+      { label: '收运/处置费', percent: 58 },
+      { label: '分类收集', percent: 12 },
+      { label: '专车转运', percent: 14 },
+      { label: '焚烧/灭菌与监测', percent: 16 },
+    ],
+    processFlow: [
+      { step: 1, title: '分类收集', description: '院内按感染性、损伤性、病理性、药物性和化学性废物分类收集。' },
+      { step: 2, title: '密闭暂存', description: '使用专用包装、周转箱和警示标志，在规定时限内完成密闭暂存。' },
+      { step: 3, title: '专车转运', description: '联单留痕、专车专运，进入集中处置设施或应急处置体系。' },
+      { step: 4, title: '高温处置', description: '采用焚烧或高温灭菌等工艺，实现无害化处置和全过程监测。' },
+    ],
+    regulations: [
+      SOLID_WASTE_LAW,
+      HAZARDOUS_TRANSFER,
+      HAZARDOUS_WASTE_LIST,
+      MEDICAL_WASTE_ORDINANCE,
+      MEDICAL_WASTE_MEASURE,
+      MEDICAL_WASTE_DIRECTORY,
+      MEDICAL_WASTE_POLLUTION_STANDARD,
+      MEDICAL_WASTE_PACKAGING_STANDARD,
+      MEDICAL_WASTE_GOVERNANCE_PLAN,
     ],
   },
   {

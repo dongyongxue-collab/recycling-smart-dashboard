@@ -69,6 +69,7 @@ const REGION_KEYS = [
   '山西',
   '内蒙古',
   '陕西',
+  '新疆',
   '广西',
 ];
 
@@ -532,6 +533,24 @@ const CATEGORY_REFERENCE_QUOTES: Record<
       source: '搜狐-危废处理价格',
       sourceUrl: 'https://www.sohu.com/a/783437146_121123779',
       region: '江苏',
+    },
+  ],
+  'medical-waste': [
+    {
+      title: '医疗废物处置收费标准上限（北京）',
+      price: 2500,
+      unit: '元/吨',
+      source: '北京市发展改革委-政策解读',
+      sourceUrl: 'https://fgw.beijing.gov.cn/fgwzwgk/2024zcjd/202405/t20240531_3720762.htm',
+      region: '北京',
+    },
+    {
+      title: '医疗废物处置费征求意见价（乌鲁木齐）',
+      price: 3370,
+      unit: '元/吨',
+      source: '乌鲁木齐市人民政府-征求意见公告',
+      sourceUrl: 'https://www.wlmq.gov.cn/wlmqs/c119126/202503/354218bd88be41f8a819bae53ad49f1d.shtml',
+      region: '新疆',
     },
   ],
   'municipal-solid-waste': [
