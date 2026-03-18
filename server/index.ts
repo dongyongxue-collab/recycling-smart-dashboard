@@ -25,30 +25,43 @@ let snapshot: RecyclingKnowledgeSnapshot = {
     domesticNews: [],
     internationalNews: [],
   },
-  categories: RECYCLING_CATEGORIES.map((item) => ({
-    id: item.id,
-    name: item.name,
-    quotes: [],
-    domesticNews: [],
-    internationalNews: [],
-    detail: {
-      subcategories: item.subcategories,
-      painPoints: item.painPoints,
-      subBoards: item.subBoards ?? [],
-      costStructure: item.costStructure,
-      processFlow: item.processFlow,
-      regulations: item.regulations,
-      commonRegulations: COMMON_REGULATIONS,
-      categoryRegulations: item.regulations.filter((rule) => !COMMON_REGULATIONS.some((common) => common.title === rule.title)),
-      supportMaterials: [],
-      regulationUpdates: [],
-    },
-    analytics: {
-      history: [],
-      regionBars: [],
-      subcategoryShares: [],
-    },
-  })),
+  categories: RECYCLING_CATEGORIES.map((item) => {
+    const categoryRegulations = item.regulations.filter(
+      (rule) => !COMMON_REGULATIONS.some((common) => common.title === rule.title),
+    );
+    const supportMaterials = categoryRegulations.map((rule, index) => ({
+      id: `${item.id}-boot-support-${index}`,
+      title: rule.title,
+      source: rule.authority,
+      link: rule.referenceUrl,
+      publishedAt: rule.publishedDate ?? '',
+    }));
+
+    return {
+      id: item.id,
+      name: item.name,
+      quotes: [],
+      domesticNews: [],
+      internationalNews: [],
+      detail: {
+        subcategories: item.subcategories,
+        painPoints: item.painPoints,
+        subBoards: item.subBoards ?? [],
+        costStructure: item.costStructure,
+        processFlow: item.processFlow,
+        regulations: item.regulations,
+        commonRegulations: COMMON_REGULATIONS,
+        categoryRegulations,
+        supportMaterials,
+        regulationUpdates: [],
+      },
+      analytics: {
+        history: [],
+        regionBars: [],
+        subcategoryShares: [],
+      },
+    };
+  }),
 };
 
 let refreshing = false;
