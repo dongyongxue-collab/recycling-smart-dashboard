@@ -1,4 +1,4 @@
-export interface QuoteItem {
+﻿export interface QuoteItem {
   id: string;
   title: string;
   region?: string;
