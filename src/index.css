@@ -1,4 +1,4 @@
-﻿@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700&display=swap');
 
 :root {
   --bg: #071018;
@@ -1912,85 +1912,136 @@ td a:hover {
 .price-delta {
   margin-top: 5px;
 }
-.process-flow-diagram {
+.process-flow-vertical {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 12px;
+  gap: 14px;
+}
+
+.process-timeline-item {
+  display: grid;
+  grid-template-columns: 82px minmax(0, 1fr);
+  gap: 14px;
   align-items: stretch;
 }
 
-.process-flow-node {
+.process-timeline-rail {
   position: relative;
   display: grid;
-  grid-template-columns: auto minmax(0, 1fr) auto;
+  justify-items: center;
+  align-content: start;
   gap: 10px;
-  align-items: center;
 }
 
 .process-step-index {
-  width: 32px;
-  height: 32px;
+  width: 38px;
+  height: 38px;
   border-radius: 999px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: rgba(102, 183, 255, 0.1);
-  border: 1px solid rgba(120, 183, 249, 0.2);
-  color: #9dd6ff;
+  background: rgba(102, 183, 255, 0.08);
+  border: 1px solid rgba(120, 183, 249, 0.18);
+  color: #a7d7ff;
   font-size: 11px;
   letter-spacing: 0.08em;
   flex: 0 0 auto;
 }
 
-.process-step-card {
-  min-height: 118px;
-  border-radius: 14px;
-  border: 1px solid rgba(118, 169, 225, 0.12);
-  background: linear-gradient(180deg, rgba(12, 24, 39, 0.9), rgba(8, 16, 28, 0.82));
-  padding: 12px;
-  display: grid;
-  gap: 8px;
+.process-step-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(118, 169, 225, 0.16);
+  background: linear-gradient(180deg, rgba(14, 29, 49, 0.96), rgba(10, 20, 34, 0.88));
+  color: #9fd8ff;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
 }
 
-.process-step-card strong {
-  font-size: 14px;
+.process-step-icon.cyan {
+  color: #88dfff;
+}
+
+.process-step-icon.blue {
+  color: #7eb5ff;
+}
+
+.process-step-icon.teal {
+  color: #72f0cf;
+}
+
+.process-step-icon.amber {
+  color: #ffd27a;
+}
+
+.process-step-line {
+  width: 2px;
+  min-height: 48px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgba(116, 255, 209, 0.55), rgba(93, 155, 255, 0.12));
+}
+
+.process-step-card {
+  border-radius: 16px;
+  border: 1px solid rgba(118, 169, 225, 0.12);
+  background: linear-gradient(180deg, rgba(12, 24, 39, 0.9), rgba(8, 16, 28, 0.82));
+  padding: 14px 16px;
+  display: grid;
+  gap: 10px;
+}
+
+.process-step-card.vertical {
+  min-height: 112px;
+}
+
+.process-step-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.process-step-head strong {
+  font-size: 15px;
   color: #dcecff;
+}
+
+.process-step-head em {
+  font-style: normal;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #8fb8de;
+  white-space: nowrap;
 }
 
 .process-step-card p {
   margin: 0;
   color: var(--text-soft);
-  font-size: 12px;
-  line-height: 1.55;
-}
-
-.process-flow-arrow {
-  color: rgba(116, 255, 209, 0.72);
-  font-size: 20px;
-  line-height: 1;
-  margin-right: -2px;
-}
-
-@media (max-width: 1250px) {
-  .process-flow-diagram {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .process-flow-node:nth-child(2n) .process-flow-arrow {
-    display: none;
-  }
+  font-size: 13px;
+  line-height: 1.7;
 }
 
 @media (max-width: 760px) {
-  .process-flow-diagram {
-    grid-template-columns: 1fr;
+  .process-timeline-item {
+    grid-template-columns: 64px minmax(0, 1fr);
+    gap: 12px;
   }
 
-  .process-flow-node {
-    grid-template-columns: auto minmax(0, 1fr);
+  .process-step-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 14px;
   }
 
-  .process-flow-arrow {
-    display: none;
+  .process-step-card.vertical {
+    min-height: auto;
+  }
+
+  .process-step-head {
+    align-items: flex-start;
+    flex-direction: column;
   }
 }
