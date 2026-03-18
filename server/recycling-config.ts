@@ -18,6 +18,126 @@ const HAZARDOUS_TRANSFER: RegulationItem = {
   referenceUrl: 'https://www.mee.gov.cn/xxgk2018/xxgk/xxgk02/202111/t20211130_962150.html',
 };
 
+const SCRAP_STEEL_GUIDE: RegulationItem = {
+  title: '加强废钢铁加工行业规范管理 推动钢铁行业绿色高质量发展',
+  authority: '工信部',
+  referenceUrl: 'https://www.miit.gov.cn/jgsj/jns/gzdt/art/2024/art_c312348475c6498e8f3a84d4b6f5a058.html',
+};
+
+const COPPER_ALUMINUM_GUIDE: RegulationItem = {
+  title: '首批符合《废铜铝加工利用行业规范条件》企业名单发布',
+  authority: '工信部',
+  referenceUrl: 'https://www.miit.gov.cn/jgsj/jns/gzdt/art/2024/art_f830c847b82740a98d8a9eddb975fe74.html',
+};
+
+const WASTE_PLASTIC_GUIDE: RegulationItem = {
+  title: '绿色转型，质效双升：废塑料规范企业树立行业新标杆',
+  authority: '工信部',
+  referenceUrl: 'https://www.miit.gov.cn/jgsj/jns/gzdt/art/2024/art_9fd8c22ce264428ab312857fe328e3dc.html',
+};
+
+const WASTE_PAPER_GUIDE: RegulationItem = {
+  title: '《废纸加工行业规范条件》实施三年 行业规范发展成效显著',
+  authority: '工信部',
+  referenceUrl: 'https://www.miit.gov.cn/jgsj/jns/zhlyh/art/2024/art_9011cc395c0f460090e0c36803772ae9.html',
+};
+
+const WASTE_GLASS_STANDARD: RegulationItem = {
+  title: '玻璃工业大气污染防治可行技术指南',
+  authority: '生态环境部',
+  referenceUrl: 'https://www.mee.gov.cn/ywgz/fgbz/bz/bzwb/dqhjbh/dqgdwrywrwpfbz/202601/t20260129_1142888.shtml',
+};
+
+const POWER_BATTERY_GUIDE: RegulationItem = {
+  title: '《新能源汽车废旧动力电池综合利用行业规范条件（2024年本）》解读',
+  authority: '工信部',
+  referenceUrl: 'https://www.miit.gov.cn/zwgk/zcjd/art/2024/art_a2042b19234045b5881e7123f46a8d06.html',
+};
+
+const SCRAPPED_VEHICLE_ENV_STANDARD: RegulationItem = {
+  title: '报废机动车拆解企业污染控制技术规范（HJ 348-2022）',
+  authority: '生态环境部',
+  referenceUrl: 'https://www.mee.gov.cn/xxgk2018/xxgk/xxgk01/202207/t20220722_989474.html',
+};
+
+const SCRAPPED_VEHICLE_TECH_STANDARD: RegulationItem = {
+  title: '报废机动车回收拆解企业技术规范（GB22128）',
+  authority: '商务主管部门公开标准解读',
+  referenceUrl: 'https://zcom.zj.gov.cn/art/2019/12/31/art_1403427_41403438.html',
+};
+
+const E_WASTE_LICENSE: RegulationItem = {
+  title: '废弃电器电子产品处理资格许可管理办法',
+  authority: '生态环境部',
+  referenceUrl: 'https://www.mee.gov.cn/gzk/gz/202112/t20211210_963734.shtml',
+};
+
+const E_WASTE_FUND_NOTICE: RegulationItem = {
+  title: '关于废弃电器电子产品处理专项资金申请企业标准和条件的通知',
+  authority: '生态环境部',
+  referenceUrl: 'https://www.mee.gov.cn/xxgk2018/xxgk/xxgk04/202502/t20250213_1102236.html',
+};
+
+const WASTE_TEXTILE_STANDARD: RegulationItem = {
+  title: '废旧织物回收及综合利用规范',
+  authority: '深圳市市场监管部门政策解读',
+  referenceUrl: 'https://www.sz.gov.cn/zfgb/zcjd/content/post_4978963.html',
+};
+
+const WASTE_RUBBER_GUIDE: RegulationItem = {
+  title: '解读《废旧轮胎综合利用行业规范条件》',
+  authority: '工信部',
+  referenceUrl: 'https://www.miit.gov.cn/jgsj/jns/zyjy/art/2020/art_832784e7b19248c7bc49aa4e1844e29f.html',
+};
+
+const WASTE_WOOD_GUIDE: RegulationItem = {
+  title: '木材剩余物基质化利用助力绿色循环发展',
+  authority: '福建省林业局',
+  referenceUrl: 'https://lyj.fujian.gov.cn/zwgk/hygl/202507/t20250714_6967107.htm',
+};
+
+const KITCHEN_GREASE_OPINION: RegulationItem = {
+  title: '国务院办公厅关于加强地沟油整治和餐厨废弃物管理的意见',
+  authority: '国务院办公厅',
+  referenceUrl: 'https://www.mee.gov.cn/zcwj/gwywj/201811/t20181129_676494.shtml',
+};
+
+const INDUSTRIAL_SLAG_GUIDE: RegulationItem = {
+  title: '一般工业固体废物规范化环境管理指南（征求意见稿）',
+  authority: '生态环境部',
+  referenceUrl: 'https://www.mee.gov.cn/xxgk2018/xxgk/xxgk06/202407/t20240725_1082448.html',
+};
+
+const MUNICIPAL_WASTE_PLAN: RegulationItem = {
+  title: '国务院办公厅转发国家发展改革委住房城乡建设部生活垃圾分类制度实施方案的通知',
+  authority: '国务院办公厅',
+  referenceUrl: 'https://www.nhc.gov.cn/bgt/gwywj2/201703/8201a29abb7a442390c30a0056612c18.shtml',
+};
+
+const CONSTRUCTION_WASTE_OPINION: RegulationItem = {
+  title: '国务院办公厅转发住房城乡建设部《关于进一步加强城市建筑垃圾治理的意见》的通知',
+  authority: '国务院办公厅',
+  referenceUrl: 'https://www.gov.cn/zhengce/content/202506/content_7027026.htm',
+};
+
+const HAZARDOUS_WASTE_LICENSE: RegulationItem = {
+  title: '危险废物经营许可证管理办法',
+  authority: '国务院',
+  referenceUrl: 'https://www.gov.cn/gongbao/content/2016/content_5139367.htm',
+};
+
+const HAZARDOUS_WASTE_LIST: RegulationItem = {
+  title: '国家危险废物名录（2025年版）',
+  authority: '生态环境部',
+  referenceUrl: 'https://www.mee.gov.cn/xxgk2018/xxgk/xxgk01/202501/t20250120_1100287.html',
+};
+
+const HAZARDOUS_STORAGE_STANDARD: RegulationItem = {
+  title: '危险废物贮存污染控制标准（GB 18597-2023）',
+  authority: '生态环境部',
+  referenceUrl: 'https://www.mee.gov.cn/ywgz/fgbz/bz/bzwb/other/qt/202308/t20230824_1039320.shtml',
+};
+
 export const COMMON_REGULATIONS: RegulationItem[] = [SOLID_WASTE_LAW, RECYCLING_MEASURE];
 
 export const CITY_PRIORITY = '天津';
@@ -93,6 +213,11 @@ const CATEGORY_PAIN_POINTS: Record<string, string[]> = {
     '检测、稳定化和资源化加工投入高，价格不仅看吨位还看处置难度。',
     '终端消纳依赖建材和道路工程项目，需求释放往往带有明显项目周期。',
   ],
+  'hazardous-waste': [
+    '危废并不是简单按重量计价，处置类别、热值、含水率和危害代码都会显著影响单吨价值。',
+    '跨省转移、经营许可和联单管理要求严格，任何合规缺口都会直接影响接单能力。',
+    '资源化危废和无害化处置危废的商业模式完全不同，公开报价往往只反映局部环节。',
+  ],
   'municipal-solid-waste': [
     '生活垃圾中的可回收物价值被分拣效率决定，前端分类质量直接影响回收价。',
     '低值可回收物运费和人工占比高，很多场景只能靠规模化摊薄成本。',
@@ -126,7 +251,7 @@ const BASE_RECYCLING_CATEGORIES: Array<Omit<CategoryDefinition, 'painPoints'>> =
       { step: 3, title: '物流进厂', description: '按到厂标准过磅、质检、扣杂。' },
       { step: 4, title: '熔炼再生', description: '进入电炉/转炉配料，形成再生钢原料。' },
     ],
-    regulations: [SOLID_WASTE_LAW, RECYCLING_MEASURE, HAZARDOUS_TRANSFER],
+    regulations: [SOLID_WASTE_LAW, RECYCLING_MEASURE, HAZARDOUS_TRANSFER, SCRAP_STEEL_GUIDE],
   },
   {
     id: 'scrap-copper',
@@ -148,7 +273,7 @@ const BASE_RECYCLING_CATEGORIES: Array<Omit<CategoryDefinition, 'painPoints'>> =
       { step: 3, title: '精炼处理', description: '除杂后进入再生铜冶炼环节。' },
       { step: 4, title: '再生利用', description: '输出再生铜杆、铜锭等产品。' },
     ],
-    regulations: [SOLID_WASTE_LAW, RECYCLING_MEASURE, HAZARDOUS_TRANSFER],
+    regulations: [SOLID_WASTE_LAW, RECYCLING_MEASURE, HAZARDOUS_TRANSFER, COPPER_ALUMINUM_GUIDE],
   },
   {
     id: 'scrap-aluminum',
@@ -170,7 +295,7 @@ const BASE_RECYCLING_CATEGORIES: Array<Omit<CategoryDefinition, 'painPoints'>> =
       { step: 3, title: '熔炼合金化', description: '按牌号进行配比熔炼。' },
       { step: 4, title: '铸锭/再加工', description: '形成再生铝锭和再加工材料。' },
     ],
-    regulations: [SOLID_WASTE_LAW, RECYCLING_MEASURE, HAZARDOUS_TRANSFER],
+    regulations: [SOLID_WASTE_LAW, RECYCLING_MEASURE, HAZARDOUS_TRANSFER, COPPER_ALUMINUM_GUIDE],
   },
   {
     id: 'waste-plastic',
@@ -192,7 +317,7 @@ const BASE_RECYCLING_CATEGORIES: Array<Omit<CategoryDefinition, 'painPoints'>> =
       { step: 3, title: '熔融造粒', description: '挤出、过滤、切粒形成再生颗粒。' },
       { step: 4, title: '改性应用', description: '按下游要求进行改性与配方调整。' },
     ],
-    regulations: [SOLID_WASTE_LAW, RECYCLING_MEASURE, HAZARDOUS_TRANSFER],
+    regulations: [SOLID_WASTE_LAW, RECYCLING_MEASURE, HAZARDOUS_TRANSFER, WASTE_PLASTIC_GUIDE],
   },
   {
     id: 'waste-paper',
@@ -214,7 +339,7 @@ const BASE_RECYCLING_CATEGORIES: Array<Omit<CategoryDefinition, 'painPoints'>> =
       { step: 3, title: '制浆脱墨', description: '碎解、筛选、净化形成再生浆。' },
       { step: 4, title: '抄纸成品', description: '进入瓦楞、箱板等纸机生产线。' },
     ],
-    regulations: [SOLID_WASTE_LAW, RECYCLING_MEASURE, HAZARDOUS_TRANSFER],
+    regulations: [SOLID_WASTE_LAW, RECYCLING_MEASURE, HAZARDOUS_TRANSFER, WASTE_PAPER_GUIDE],
   },
   {
     id: 'waste-glass',
@@ -236,7 +361,7 @@ const BASE_RECYCLING_CATEGORIES: Array<Omit<CategoryDefinition, 'painPoints'>> =
       { step: 3, title: '粒度控制', description: '筛分后形成稳定粒径玻璃砂。' },
       { step: 4, title: '再熔利用', description: '回到玻璃窑炉或建材体系。' },
     ],
-    regulations: [SOLID_WASTE_LAW, RECYCLING_MEASURE, HAZARDOUS_TRANSFER],
+    regulations: [SOLID_WASTE_LAW, RECYCLING_MEASURE, HAZARDOUS_TRANSFER, WASTE_GLASS_STANDARD],
   },
   {
     id: 'power-battery',
@@ -266,6 +391,7 @@ const BASE_RECYCLING_CATEGORIES: Array<Omit<CategoryDefinition, 'painPoints'>> =
         referenceUrl: 'https://www.gov.cn/xinwen/2018-02/26/content_5268846.htm',
       },
       HAZARDOUS_TRANSFER,
+      POWER_BATTERY_GUIDE,
     ],
   },
   {
@@ -296,6 +422,8 @@ const BASE_RECYCLING_CATEGORIES: Array<Omit<CategoryDefinition, 'painPoints'>> =
         referenceUrl: 'https://www.gov.cn/zhengce/content/2019-05/06/content_5389987.htm',
       },
       RECYCLING_MEASURE,
+      SCRAPPED_VEHICLE_ENV_STANDARD,
+      SCRAPPED_VEHICLE_TECH_STANDARD,
     ],
   },
   {
@@ -326,6 +454,8 @@ const BASE_RECYCLING_CATEGORIES: Array<Omit<CategoryDefinition, 'painPoints'>> =
         referenceUrl: 'https://www.gov.cn/zwgk/2011-02/25/content_1815473.htm',
       },
       HAZARDOUS_TRANSFER,
+      E_WASTE_LICENSE,
+      E_WASTE_FUND_NOTICE,
     ],
   },
   {
@@ -348,7 +478,7 @@ const BASE_RECYCLING_CATEGORIES: Array<Omit<CategoryDefinition, 'painPoints'>> =
       { step: 3, title: '再制造', description: '可穿戴品复用，不可穿戴品开松再生。' },
       { step: 4, title: '终端利用', description: '进入再生纤维、保温材料等场景。' },
     ],
-    regulations: [SOLID_WASTE_LAW, RECYCLING_MEASURE, HAZARDOUS_TRANSFER],
+    regulations: [SOLID_WASTE_LAW, RECYCLING_MEASURE, HAZARDOUS_TRANSFER, WASTE_TEXTILE_STANDARD],
   },
   {
     id: 'waste-rubber',
@@ -370,7 +500,7 @@ const BASE_RECYCLING_CATEGORIES: Array<Omit<CategoryDefinition, 'painPoints'>> =
       { step: 3, title: '深加工', description: '制备橡胶粉、再生胶或热解料。' },
       { step: 4, title: '下游应用', description: '路面材料、橡胶制品与燃料利用。' },
     ],
-    regulations: [SOLID_WASTE_LAW, RECYCLING_MEASURE, HAZARDOUS_TRANSFER],
+    regulations: [SOLID_WASTE_LAW, RECYCLING_MEASURE, HAZARDOUS_TRANSFER, WASTE_RUBBER_GUIDE],
   },
   {
     id: 'waste-wood',
@@ -392,7 +522,7 @@ const BASE_RECYCLING_CATEGORIES: Array<Omit<CategoryDefinition, 'painPoints'>> =
       { step: 3, title: '破碎成料', description: '制备木片、木粉或压块。' },
       { step: 4, title: '资源化利用', description: '用于板材、燃料和园林覆盖物。' },
     ],
-    regulations: [SOLID_WASTE_LAW, RECYCLING_MEASURE, HAZARDOUS_TRANSFER],
+    regulations: [SOLID_WASTE_LAW, RECYCLING_MEASURE, HAZARDOUS_TRANSFER, WASTE_WOOD_GUIDE],
   },
   {
     id: 'kitchen-grease',
@@ -414,7 +544,7 @@ const BASE_RECYCLING_CATEGORIES: Array<Omit<CategoryDefinition, 'painPoints'>> =
       { step: 3, title: '精炼转化', description: '制备工业级油脂或生物柴油原料。' },
       { step: 4, title: '终端利用', description: '进入生物燃料和化工体系。' },
     ],
-    regulations: [SOLID_WASTE_LAW, RECYCLING_MEASURE, HAZARDOUS_TRANSFER],
+    regulations: [SOLID_WASTE_LAW, RECYCLING_MEASURE, HAZARDOUS_TRANSFER, KITCHEN_GREASE_OPINION],
   },
   {
     id: 'industrial-slag',
@@ -436,7 +566,35 @@ const BASE_RECYCLING_CATEGORIES: Array<Omit<CategoryDefinition, 'painPoints'>> =
       { step: 3, title: '加工改性', description: '破碎、筛分、稳定化处理。' },
       { step: 4, title: '建材利用', description: '进入水泥掺合料和道路材料。' },
     ],
-    regulations: [SOLID_WASTE_LAW, HAZARDOUS_TRANSFER, RECYCLING_MEASURE],
+    regulations: [SOLID_WASTE_LAW, HAZARDOUS_TRANSFER, RECYCLING_MEASURE, INDUSTRIAL_SLAG_GUIDE],
+  },
+  {
+    id: 'hazardous-waste',
+    name: '危险废弃物',
+    subcategories: ['废矿物油', '废活性炭', '废酸/废碱', '污泥', '含重金属残渣'],
+    searchKeyword: '危险废物 回收',
+    quoteKeywords: ['危险废物', '危废', '废矿物油', '废活性炭', '危废处置', '资源化利用'],
+    newsKeywordsCn: ['危险废物', '危废', '危废处置', '危险废物资源化'],
+    newsKeywordsEn: ['hazardous waste', 'hazardous waste disposal', 'hazardous waste recycling'],
+    costStructure: [
+      { label: '收购/接收费', percent: 52 },
+      { label: '检测分级', percent: 14 },
+      { label: '包装转运', percent: 16 },
+      { label: '环保合规', percent: 18 },
+    ],
+    processFlow: [
+      { step: 1, title: '来源鉴别', description: '按危废代码、组分和危险特性完成来源鉴别。' },
+      { step: 2, title: '分类贮存', description: '按酸碱、油类、污泥和含重金属物料分类暂存。' },
+      { step: 3, title: '转运处置', description: '联单转移后进入资源化利用或无害化处置。' },
+      { step: 4, title: '闭环留痕', description: '形成经营许可、转移联单和末端去向闭环台账。' },
+    ],
+    regulations: [
+      SOLID_WASTE_LAW,
+      HAZARDOUS_TRANSFER,
+      HAZARDOUS_WASTE_LICENSE,
+      HAZARDOUS_WASTE_LIST,
+      HAZARDOUS_STORAGE_STANDARD,
+    ],
   },
   {
     id: 'municipal-solid-waste',
@@ -458,7 +616,7 @@ const BASE_RECYCLING_CATEGORIES: Array<Omit<CategoryDefinition, 'painPoints'>> =
       { step: 3, title: '资源化处理', description: '金属、塑料、纸类进入再生链条。' },
       { step: 4, title: '闭环去向', description: '不可回收部分焚烧或填埋处置。' },
     ],
-    regulations: [SOLID_WASTE_LAW, RECYCLING_MEASURE, HAZARDOUS_TRANSFER],
+    regulations: [SOLID_WASTE_LAW, RECYCLING_MEASURE, HAZARDOUS_TRANSFER, MUNICIPAL_WASTE_PLAN],
   },
   {
     id: 'construction-waste',
@@ -480,7 +638,7 @@ const BASE_RECYCLING_CATEGORIES: Array<Omit<CategoryDefinition, 'painPoints'>> =
       { step: 3, title: '杂质剔除', description: '去除木材、塑料和轻质杂物。' },
       { step: 4, title: '再生应用', description: '用于垫层、再生砖和道路基层。' },
     ],
-    regulations: [SOLID_WASTE_LAW, RECYCLING_MEASURE, HAZARDOUS_TRANSFER],
+    regulations: [SOLID_WASTE_LAW, RECYCLING_MEASURE, HAZARDOUS_TRANSFER, CONSTRUCTION_WASTE_OPINION],
   },
 ];
 

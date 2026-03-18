@@ -50,6 +50,7 @@ export interface CategorySnapshot {
     regulations: RegulationItem[];
     commonRegulations: RegulationItem[];
     categoryRegulations: RegulationItem[];
+    supportMaterials: NewsItem[];
     regulationUpdates: NewsItem[];
   };
   analytics: {

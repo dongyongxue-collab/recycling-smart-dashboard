@@ -39,6 +39,7 @@ let snapshot: RecyclingKnowledgeSnapshot = {
       regulations: item.regulations,
       commonRegulations: COMMON_REGULATIONS,
       categoryRegulations: item.regulations.filter((rule) => !COMMON_REGULATIONS.some((common) => common.title === rule.title)),
+      supportMaterials: [],
       regulationUpdates: [],
     },
     analytics: {

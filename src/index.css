@@ -1912,3 +1912,85 @@ td a:hover {
 .price-delta {
   margin-top: 5px;
 }
+.process-flow-diagram {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  align-items: stretch;
+}
+
+.process-flow-node {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 10px;
+  align-items: center;
+}
+
+.process-step-index {
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(102, 183, 255, 0.1);
+  border: 1px solid rgba(120, 183, 249, 0.2);
+  color: #9dd6ff;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  flex: 0 0 auto;
+}
+
+.process-step-card {
+  min-height: 118px;
+  border-radius: 14px;
+  border: 1px solid rgba(118, 169, 225, 0.12);
+  background: linear-gradient(180deg, rgba(12, 24, 39, 0.9), rgba(8, 16, 28, 0.82));
+  padding: 12px;
+  display: grid;
+  gap: 8px;
+}
+
+.process-step-card strong {
+  font-size: 14px;
+  color: #dcecff;
+}
+
+.process-step-card p {
+  margin: 0;
+  color: var(--text-soft);
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+.process-flow-arrow {
+  color: rgba(116, 255, 209, 0.72);
+  font-size: 20px;
+  line-height: 1;
+  margin-right: -2px;
+}
+
+@media (max-width: 1250px) {
+  .process-flow-diagram {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .process-flow-node:nth-child(2n) .process-flow-arrow {
+    display: none;
+  }
+}
+
+@media (max-width: 760px) {
+  .process-flow-diagram {
+    grid-template-columns: 1fr;
+  }
+
+  .process-flow-node {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  .process-flow-arrow {
+    display: none;
+  }
+}
