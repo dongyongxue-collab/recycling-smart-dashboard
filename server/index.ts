@@ -5,7 +5,7 @@ import { existsSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { buildRecyclingSnapshot, RECYCLING_POLL_INTERVAL_MS } from './recycling-store.js';
-import { RECYCLING_CATEGORIES, CITY_PRIORITY } from './recycling-config.js';
+import { RECYCLING_CATEGORIES, CITY_PRIORITY, COMMON_REGULATIONS } from './recycling-config.js';
 import type { RecyclingKnowledgeSnapshot } from './types.js';
 
 const port = Number(process.env.PORT ?? 8787);
@@ -37,6 +37,8 @@ let snapshot: RecyclingKnowledgeSnapshot = {
       costStructure: item.costStructure,
       processFlow: item.processFlow,
       regulations: item.regulations,
+      commonRegulations: COMMON_REGULATIONS,
+      categoryRegulations: item.regulations.filter((rule) => !COMMON_REGULATIONS.some((common) => common.title === rule.title)),
       regulationUpdates: [],
     },
     analytics: {

@@ -62,6 +62,8 @@ export interface CategorySnapshot {
     costStructure: CostPart[];
     processFlow: ProcessStep[];
     regulations: RegulationItem[];
+    commonRegulations: RegulationItem[];
+    categoryRegulations: RegulationItem[];
     regulationUpdates: NewsItem[];
   };
   analytics: {

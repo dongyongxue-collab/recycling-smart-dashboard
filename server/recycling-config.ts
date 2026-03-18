@@ -18,6 +18,8 @@ const HAZARDOUS_TRANSFER: RegulationItem = {
   referenceUrl: 'https://www.mee.gov.cn/xxgk2018/xxgk/xxgk02/202111/t20211130_962150.html',
 };
 
+export const COMMON_REGULATIONS: RegulationItem[] = [SOLID_WASTE_LAW, RECYCLING_MEASURE];
+
 export const CITY_PRIORITY = '天津';
 
 const CATEGORY_PAIN_POINTS: Record<string, string[]> = {

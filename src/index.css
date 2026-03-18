@@ -1837,3 +1837,78 @@ td a:hover {
     max-height: 260px;
   }
 }
+.category-filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.category-filter-chip {
+  border: 1px solid rgba(118, 169, 225, 0.12);
+  border-radius: 999px;
+  background: rgba(10, 18, 31, 0.62);
+  color: var(--text-soft);
+  padding: 7px 11px;
+  font-size: 11px;
+  line-height: 1;
+  letter-spacing: 0.06em;
+  transition: transform 0.22s ease, border-color 0.22s ease, background 0.22s ease, color 0.22s ease;
+}
+
+.category-filter-chip:hover,
+.category-filter-chip.active {
+  transform: translateY(-1px);
+  border-color: rgba(132, 193, 255, 0.34);
+  background: linear-gradient(145deg, rgba(19, 39, 62, 0.88), rgba(10, 18, 31, 0.9));
+  color: #dcecff;
+}
+
+.category-empty {
+  padding: 12px;
+  border-radius: 14px;
+  border: 1px dashed rgba(118, 169, 225, 0.16);
+}
+
+.focus-price-card .quote-delta-line,
+.price-delta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 11px;
+  line-height: 1.2;
+}
+
+.quote-delta-line span,
+.price-delta span {
+  font-weight: 600;
+}
+
+.quote-delta-line em,
+.price-delta em {
+  font-style: normal;
+  color: var(--text-soft);
+}
+
+.quote-delta-line.up span,
+.price-delta.up span {
+  color: #9dffe6;
+}
+
+.quote-delta-line.down span,
+.price-delta.down span {
+  color: #ffb8c1;
+}
+
+.quote-delta-line.steady span,
+.price-delta.steady span {
+  color: #b9d2ee;
+}
+
+.price-cell strong {
+  display: block;
+}
+
+.price-delta {
+  margin-top: 5px;
+}

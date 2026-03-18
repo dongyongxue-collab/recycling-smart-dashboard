@@ -1,5 +1,5 @@
 ﻿import axios from 'axios';
-import { RECYCLING_CATEGORIES, CITY_PRIORITY } from './recycling-config.js';
+import { RECYCLING_CATEGORIES, CITY_PRIORITY, COMMON_REGULATIONS } from './recycling-config.js';
 import type {
   CategoryDefinition,
   CategorySnapshot,
@@ -1302,6 +1302,10 @@ function emptyCategorySnapshot(category: CategoryDefinition): CategorySnapshot {
       costStructure: category.costStructure,
       processFlow: category.processFlow,
       regulations: category.regulations,
+      commonRegulations: COMMON_REGULATIONS,
+      categoryRegulations: category.regulations.filter(
+        (rule) => !COMMON_REGULATIONS.some((common) => common.title === rule.title),
+      ),
       regulationUpdates: [],
     },
     analytics: {

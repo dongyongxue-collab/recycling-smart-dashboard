@@ -252,9 +252,32 @@ function inferMomentum(title: string): { label: string; tone: 'up' | 'down' | 's
   return { label: '平稳', tone: 'steady' };
 }
 
+function inferQuoteDelta(title: string, price: number) {
+  const amountMatch = title.match(/(上调|上涨|反弹|下调|下跌|回落)[^0-9]{0,10}(\d+(?:\.\d+)?)\s*元(?:\/吨)?/);
+  const fallbackMatch = title.match(/(\d+(?:\.\d+)?)\s*元(?:\/吨)?/);
+  const rawAmount = amountMatch ? Number(amountMatch[2]) : 0;
+  const direction = /上调|上涨|反弹/.test(title) ? 'up' : /下调|下跌|回落/.test(title) ? 'down' : 'steady';
+  const amount = direction === 'steady' ? 0 : direction === 'up' ? rawAmount : -rawAmount;
+  const basePrice = rawAmount > 0 ? Math.max(direction === 'up' ? price - rawAmount : price + rawAmount, 1) : price;
+  const percent = rawAmount > 0 ? Math.abs((amount / basePrice) * 100) : 0;
+
+  return {
+    direction,
+    amount,
+    percent,
+    amountLabel:
+      rawAmount > 0
+        ? `${direction === 'up' ? '+' : '-'}${numberFormatter.format(rawAmount)}元${/元\/吨|吨/.test(title) ? '/吨' : ''}`
+        : null,
+    percentLabel: rawAmount > 0 ? `${direction === 'up' ? '+' : '-'}${percent.toFixed(percent >= 10 ? 0 : 1)}%` : null,
+    fallbackLabel: fallbackMatch ? fallbackMatch[0] : null,
+  };
+}
+
 function App() {
   const { snapshot, connection, error } = useRecyclingDashboard();
   const [manualCategoryId, setManualCategoryId] = useState('');
+  const [categoryFilter, setCategoryFilter] = useState<'all' | 'quotes' | 'regulations' | 'tianjin'>('all');
   const [nowTick, setNowTick] = useState(() => Date.now());
   const [chinaGeo, setChinaGeo] = useState<GeoJsonFeatureCollection | null>(null);
   const [activeMapRegion, setActiveMapRegion] = useState<string | null>(null);
@@ -286,11 +309,19 @@ function App() {
     };
   }, []);
 
-  const activeCategoryId = useMemo(() => {
+  const filteredCategories = useMemo(() => {
     const categories = snapshot?.categories ?? [];
+    if (categoryFilter === 'all') return categories;
+    if (categoryFilter === 'quotes') return categories.filter((item) => item.quotes.length > 0);
+    if (categoryFilter === 'regulations') return categories.filter((item) => item.detail.regulationUpdates.length > 0);
+    return categories.filter((item) => item.quotes.some((quote) => quote.isTianjinPriority));
+  }, [categoryFilter, snapshot]);
+
+  const activeCategoryId = useMemo(() => {
+    const categories = filteredCategories.length ? filteredCategories : snapshot?.categories ?? [];
     if (!categories.length) return '';
     return categories.some((item) => item.id === manualCategoryId) ? manualCategoryId : categories[0].id;
-  }, [manualCategoryId, snapshot]);
+  }, [filteredCategories, manualCategoryId, snapshot]);
 
   const activeCategory = useMemo(
     () => snapshot?.categories.find((item) => item.id === activeCategoryId) ?? null,
@@ -379,8 +410,35 @@ function App() {
         sourceLabel: compactSourceLabel(quote.source),
         tag: inferQuoteTag(quote.title, activeCategory?.detail.subcategories ?? []),
         momentum: inferMomentum(quote.title),
+        delta: inferQuoteDelta(quote.title, quote.price),
       })),
     [activeCategory, quoteRows],
+  );
+
+  const darkTooltipProps = useMemo(
+    () => ({
+      contentStyle: {
+        background: 'rgba(6, 16, 28, 0.96)',
+        border: '1px solid rgba(118, 176, 235, 0.24)',
+        borderRadius: 14,
+        boxShadow: '0 18px 36px rgba(0, 0, 0, 0.35)',
+        color: '#dcecff',
+      },
+      itemStyle: {
+        color: '#dcecff',
+        fontSize: 12,
+      },
+      labelStyle: {
+        color: '#8fb0d0',
+        fontSize: 11,
+        marginBottom: 6,
+      },
+      cursor: {
+        stroke: 'rgba(102, 183, 255, 0.24)',
+        strokeDasharray: '4 6',
+      },
+    }),
+    [],
   );
 
   const moverCategories = useMemo(() => {
@@ -697,6 +755,7 @@ function App() {
                   <a key={quote.id} href={quote.sourceUrl} target="_blank" rel="noreferrer" className="focus-price-card">
                     <div className="focus-price-top"><em className={`momentum-badge ${quote.momentum.tone}`}>{quote.momentum.label}</em><span>{quote.region ?? (quote.isTianjinPriority ? '天津优先' : '全国')}</span></div>
                     <strong>{numberFormatter.format(quote.price)} {quote.unit}</strong>
+                    {quote.delta.amountLabel ? <div className={`quote-delta-line ${quote.delta.direction}`}><span>{quote.delta.amountLabel}</span><em>{quote.delta.percentLabel}</em></div> : <div className="quote-delta-line steady"><span>暂无显式涨跌额</span><em>{quote.delta.fallbackLabel ?? '参考价'}</em></div>}
                     <span className="focus-price-title">{quote.primary}</span>
                     <i>{formatTime(quote.publishedAt)} · {quote.sourceLabel}</i>
                   </a>
@@ -752,8 +811,32 @@ function App() {
       <section className="main-layout">
         <aside className="category-panel glass">
           <div className="panel-title"><Search size={15} /> 分类导航</div>
-          <div className="category-list">{(snapshot?.categories ?? []).map((category) => <button type="button" key={category.id} className={category.id === activeCategoryId ? 'category-item active' : 'category-item'} onClick={() => setManualCategoryId(category.id)}><div><strong>{category.name}</strong><small>{category.quotes.length}/10</small></div><em>天津 {category.quotes.filter((quote) => quote.isTianjinPriority).length}</em></button>)}</div>
-          {activeCategory ? <div className="category-brief-card"><div className="category-brief-head"><strong>{activeCategory.name}速览</strong><span>补足导航下方信息层</span></div><div className="category-brief-stats"><div><small>细分品类</small><strong>{activeCategory.detail.subcategories.length}</strong></div><div><small>有效报价</small><strong>{activeCategory.quotes.length}</strong></div><div><small>法规动态</small><strong>{activeCategory.detail.regulationUpdates.length}</strong></div><div><small>异动新闻</small><strong>{categoryAlertNews.length}</strong></div></div><div className="category-brief-note"><span>当前重点</span><p>{activeCategory.detail.painPoints[0] ?? '当前未生成行业痛点摘要。'}</p></div>{latestRegulationUpdate ? <div className="category-brief-note"><span>最新官方动态</span><a href={latestRegulationUpdate.link} target="_blank" rel="noreferrer">{latestRegulationUpdate.title}</a></div> : null}</div> : null}
+          <div className="category-filter-row">
+            {[
+              { id: 'all' as const, label: '全部' },
+              { id: 'quotes' as const, label: '有报价' },
+              { id: 'tianjin' as const, label: '天津优先' },
+              { id: 'regulations' as const, label: '法规更新' },
+            ].map((filter) => (
+              <button
+                key={filter.id}
+                type="button"
+                className={categoryFilter === filter.id ? 'category-filter-chip active' : 'category-filter-chip'}
+                onClick={() => setCategoryFilter(filter.id)}
+              >
+                {filter.label}
+              </button>
+            ))}
+          </div>
+          <div className="category-list">
+            {filteredCategories.length ? filteredCategories.map((category) => (
+              <button type="button" key={category.id} className={category.id === activeCategoryId ? 'category-item active' : 'category-item'} onClick={() => setManualCategoryId(category.id)}>
+                <div><strong>{category.name}</strong><small>{category.quotes.length}/10</small></div>
+                <em>天津 {category.quotes.filter((quote) => quote.isTianjinPriority).length}</em>
+              </button>
+            )) : <div className="empty-news category-empty">当前筛选下暂无匹配品类。</div>}
+          </div>
+          {activeCategory ? <div className="category-brief-card"><div className="category-brief-head"><strong>{activeCategory.name}速览</strong><span>补足导航下方信息层</span></div><div className="category-brief-stats"><div><small>细分品类</small><strong>{activeCategory.detail.subcategories.length}</strong></div><div><small>有效报价</small><strong>{activeCategory.quotes.length}</strong></div><div><small>共性法规</small><strong>{activeCategory.detail.commonRegulations.length}</strong></div><div><small>专属法规</small><strong>{activeCategory.detail.categoryRegulations.length}</strong></div></div><div className="category-brief-note"><span>当前重点</span><p>{activeCategory.detail.painPoints[0] ?? '当前未生成行业痛点摘要。'}</p></div>{latestRegulationUpdate ? <div className="category-brief-note"><span>最新官方动态</span><a href={latestRegulationUpdate.link} target="_blank" rel="noreferrer">{latestRegulationUpdate.title}</a></div> : null}</div> : null}
         </aside>
 
         <main className="detail-panel">
@@ -774,8 +857,8 @@ function App() {
 
             <section ref={marketSectionRef} data-detail-section="market" className="detail-section-stack">
               <div className="section-group-head"><span className="section-group-kicker">报价层</span><h2>{activeCategory.name}价格与结构</h2><p>先看走势和区域价量，再看完整回收价表。</p></div>
-              <section className="charts-board"><article className="glass section-card chart-card"><div className="section-head compact"><h3>{activeCategory.name}走势 + 平滑线</h3></div><div className="chart-box"><ResponsiveContainer width="100%" height="100%"><LineChart data={historyTrendData}><CartesianGrid stroke="#1f3449" strokeDasharray="4 6" /><XAxis dataKey="month" tick={{ fill: '#9db4d2', fontSize: 12 }} /><YAxis tick={{ fill: '#9db4d2', fontSize: 12 }} width={80} /><Tooltip formatter={(value, key) => [`${numberFormatter.format(Number(value))} 元`, key === 'avg3' ? '3期均线' : '参考价']} /><Line type="monotone" dataKey="price" stroke="#69c1ff" strokeWidth={2.6} dot={false} /><Line type="monotone" dataKey="avg3" stroke="#7bffd4" strokeWidth={1.8} strokeDasharray="6 6" dot={false} /></LineChart></ResponsiveContainer></div></article><article className="glass section-card chart-card"><div className="section-head compact"><h3>{activeCategory.name}区域价量复合图</h3></div><div className="chart-box"><ResponsiveContainer width="100%" height="100%"><ComposedChart data={regionCompositeData}><CartesianGrid stroke="#1f3449" strokeDasharray="4 6" /><XAxis dataKey="region" tick={{ fill: '#9db4d2', fontSize: 12 }} /><YAxis yAxisId="price" tick={{ fill: '#9db4d2', fontSize: 12 }} width={72} /><YAxis yAxisId="count" orientation="right" tick={{ fill: '#a9c6e7', fontSize: 12 }} width={44} allowDecimals={false} /><Tooltip formatter={(value, key) => key === 'avgPrice' ? [`${numberFormatter.format(Number(value))} 元`, '均价'] : [`${value} 条`, '条目数']} /><Bar yAxisId="price" dataKey="avgPrice" fill="#5ec8ff" radius={[8, 8, 0, 0]} /><Line yAxisId="count" type="monotone" dataKey="quoteCount" stroke="#74ffd1" strokeWidth={2.2} /></ComposedChart></ResponsiveContainer></div></article><article className="glass section-card chart-card"><div className="section-head compact"><h3>{activeCategory.name}双环结构图</h3><span>内环细分 / 外环来源</span></div><div className="chart-box"><ResponsiveContainer width="100%" height="100%"><PieChart><Pie data={sourceRingData} dataKey="value" nameKey="name" cx="50%" cy="50%" innerRadius={62} outerRadius={90} paddingAngle={1.5}>{sourceRingData.map((item, index) => <Cell key={`outer-${item.name}`} fill={outerPieColors[index % outerPieColors.length]} />)}</Pie><Pie data={subcategoryRingData} dataKey="value" nameKey="name" cx="50%" cy="50%" innerRadius={34} outerRadius={56} paddingAngle={2}>{subcategoryRingData.map((item, index) => <Cell key={`inner-${item.name}`} fill={innerPieColors[index % innerPieColors.length]} />)}</Pie><Tooltip formatter={(value, name) => [`${value} 条`, String(name)]} /></PieChart></ResponsiveContainer></div></article></section>
-              <section className="glass section-card quote-panel"><div className="section-head"><h2>{activeCategory.name}回收价</h2><span>前 10 条有效报价</span></div><div className="quote-table-wrap"><table className="quote-table"><colgroup><col className="quote-col-region" /><col className="quote-col-price" /><col className="quote-col-source" /><col className="quote-col-time" /><col className="quote-col-main" /></colgroup><thead><tr><th>地区</th><th>价格</th><th>来源</th><th>时间</th><th>摘要</th></tr></thead><tbody>{quoteDisplayRows.length ? quoteDisplayRows.map((quote) => <tr key={quote.id} className="quote-row"><td className="quote-region-cell">{quote.region ?? (quote.isTianjinPriority ? '天津优先' : '全国')}</td><td className="price-cell">{numberFormatter.format(quote.price)} {quote.unit}</td><td className="quote-source-cell" title={quote.source}><span className="source-badge">{quote.sourceLabel}</span></td><td className="quote-time-cell">{formatTime(quote.publishedAt)}</td><td className="quote-summary-cell"><div className="quote-meta-line"><em className="quote-tag">{quote.tag}</em><em className={`momentum-badge inline ${quote.momentum.tone}`}>{quote.momentum.label}</em>{quote.isTianjinPriority ? <em className="quote-flag">天津优先</em> : null}</div><a href={quote.sourceUrl} target="_blank" rel="noreferrer" className="quote-primary" title={quote.title}>{quote.primary}</a>{quote.secondary ? <span className="quote-secondary" title={quote.title}>{quote.secondary}</span> : null}</td></tr>) : <tr><td colSpan={5} className="empty-cell">当前未解析到可用回收价。</td></tr>}</tbody></table></div></section>
+              <section className="charts-board"><article className="glass section-card chart-card"><div className="section-head compact"><h3>{activeCategory.name}走势 + 平滑线</h3></div><div className="chart-box"><ResponsiveContainer width="100%" height="100%"><LineChart data={historyTrendData}><CartesianGrid stroke="#1f3449" strokeDasharray="4 6" /><XAxis dataKey="month" tick={{ fill: '#9db4d2', fontSize: 12 }} /><YAxis tick={{ fill: '#9db4d2', fontSize: 12 }} width={80} /><Tooltip {...darkTooltipProps} formatter={(value, key) => [`${numberFormatter.format(Number(value))} 元`, key === 'avg3' ? '3期均线' : '参考价']} /><Line type="monotone" dataKey="price" stroke="#69c1ff" strokeWidth={2.6} dot={false} /><Line type="monotone" dataKey="avg3" stroke="#7bffd4" strokeWidth={1.8} strokeDasharray="6 6" dot={false} /></LineChart></ResponsiveContainer></div></article><article className="glass section-card chart-card"><div className="section-head compact"><h3>{activeCategory.name}区域价量复合图</h3></div><div className="chart-box"><ResponsiveContainer width="100%" height="100%"><ComposedChart data={regionCompositeData}><CartesianGrid stroke="#1f3449" strokeDasharray="4 6" /><XAxis dataKey="region" tick={{ fill: '#9db4d2', fontSize: 12 }} /><YAxis yAxisId="price" tick={{ fill: '#9db4d2', fontSize: 12 }} width={72} /><YAxis yAxisId="count" orientation="right" tick={{ fill: '#a9c6e7', fontSize: 12 }} width={44} allowDecimals={false} /><Tooltip {...darkTooltipProps} formatter={(value, key) => key === 'avgPrice' ? [`${numberFormatter.format(Number(value))} 元`, '均价'] : [`${value} 条`, '条目数']} /><Bar yAxisId="price" dataKey="avgPrice" fill="#5ec8ff" radius={[8, 8, 0, 0]} /><Line yAxisId="count" type="monotone" dataKey="quoteCount" stroke="#74ffd1" strokeWidth={2.2} /></ComposedChart></ResponsiveContainer></div></article><article className="glass section-card chart-card"><div className="section-head compact"><h3>{activeCategory.name}双环结构图</h3><span>内环细分 / 外环来源</span></div><div className="chart-box"><ResponsiveContainer width="100%" height="100%"><PieChart><Pie data={sourceRingData} dataKey="value" nameKey="name" cx="50%" cy="50%" innerRadius={62} outerRadius={90} paddingAngle={1.5}>{sourceRingData.map((item, index) => <Cell key={`outer-${item.name}`} fill={outerPieColors[index % outerPieColors.length]} />)}</Pie><Pie data={subcategoryRingData} dataKey="value" nameKey="name" cx="50%" cy="50%" innerRadius={34} outerRadius={56} paddingAngle={2}>{subcategoryRingData.map((item, index) => <Cell key={`inner-${item.name}`} fill={innerPieColors[index % innerPieColors.length]} />)}</Pie><Tooltip {...darkTooltipProps} formatter={(value, name) => [`${value} 条`, String(name)]} /></PieChart></ResponsiveContainer></div></article></section>
+              <section className="glass section-card quote-panel"><div className="section-head"><h2>{activeCategory.name}回收价</h2><span>前 10 条有效报价</span></div><div className="quote-table-wrap"><table className="quote-table"><colgroup><col className="quote-col-region" /><col className="quote-col-price" /><col className="quote-col-source" /><col className="quote-col-time" /><col className="quote-col-main" /></colgroup><thead><tr><th>地区</th><th>价格</th><th>来源</th><th>时间</th><th>摘要</th></tr></thead><tbody>{quoteDisplayRows.length ? quoteDisplayRows.map((quote) => <tr key={quote.id} className="quote-row"><td className="quote-region-cell">{quote.region ?? (quote.isTianjinPriority ? '天津优先' : '全国')}</td><td className="price-cell"><strong>{numberFormatter.format(quote.price)} {quote.unit}</strong>{quote.delta.amountLabel ? <div className={`price-delta ${quote.delta.direction}`}><span>{quote.delta.amountLabel}</span><em>{quote.delta.percentLabel}</em></div> : <div className="price-delta steady"><span>无显式涨跌</span></div>}</td><td className="quote-source-cell"><span className="source-badge">{quote.sourceLabel}</span></td><td className="quote-time-cell">{formatTime(quote.publishedAt)}</td><td className="quote-summary-cell"><div className="quote-meta-line"><em className="quote-tag">{quote.tag}</em><em className={`momentum-badge inline ${quote.momentum.tone}`}>{quote.momentum.label}</em>{quote.isTianjinPriority ? <em className="quote-flag">天津优先</em> : null}</div><a href={quote.sourceUrl} target="_blank" rel="noreferrer" className="quote-primary">{quote.primary}</a>{quote.secondary ? <span className="quote-secondary">{quote.secondary}</span> : null}</td></tr>) : <tr><td colSpan={5} className="empty-cell">当前未解析到可用回收价。</td></tr>}</tbody></table></div></section>
             </section>
             <section ref={newsSectionRef} data-detail-section="news" className="detail-section-stack">
               <div className="section-group-head"><span className="section-group-kicker">资讯层</span><h2>{activeCategory.name}异动与背景新闻</h2><p>把直接影响价格的异动和背景新闻分开，先读原因，再读背景。</p></div>
@@ -786,7 +869,7 @@ function App() {
             <section ref={knowledgeSectionRef} data-detail-section="knowledge" className="detail-section-stack">
               <div className="section-group-head"><span className="section-group-kicker">知识层</span><h2>{activeCategory.name}工艺、痛点与法规</h2><p>把行业痛点、成本结构、技术流程和法规动态收在知识层，不和价格抢第一视线。</p></div>
               <section className="glass section-card pain-points-panel"><div className="section-head compact"><h3><TrendingUp size={15} /> {activeCategory.name}行业痛点</h3><span>优先看最影响回收价、成交率和现金流的环节</span></div><div className="pain-point-list">{activeCategory.detail.painPoints.map((item, index) => <article key={item} className="pain-point-card"><span className="pain-point-index">0{index + 1}</span><p>{item}</p></article>)}</div></section>
-              <section className="knowledge-grid"><article className="glass section-card"><div className="section-head compact"><h3><Factory size={15} /> 报价成本架构</h3></div><div className="cost-bars">{activeCategory.detail.costStructure.map((part) => <div key={part.label} className="cost-row"><span>{part.label}</span><strong>{part.percent}%</strong><div className="bar-track"><div className="bar-fill" style={{ width: `${part.percent}%` }} /></div></div>)}</div></article><article className="glass section-card"><div className="section-head compact"><h3><Layers size={15} /> 技术流程</h3></div><ol className="process-list">{activeCategory.detail.processFlow.map((step) => <li key={step.step}><strong>{step.step}. {step.title}</strong><p>{step.description}</p></li>)}</ol></article><article className="glass section-card"><div className="section-head compact"><h3><Landmark size={15} /> 法规标准</h3><span>核心法规 + 官方最新动态</span></div><div className="regulation-stack"><div className="regulation-block"><h4>现行核心法规</h4><ul className="rule-list">{activeCategory.detail.regulations.map((rule) => <li key={rule.title}><a href={rule.referenceUrl} target="_blank" rel="noreferrer">{rule.title}</a><span>{rule.authority}</span></li>)}</ul></div><div className="regulation-block"><h4>官方最新动态</h4>{activeCategory.detail.regulationUpdates.length ? <ul className="rule-list rule-list-compact">{activeCategory.detail.regulationUpdates.map((rule) => <li key={rule.id}><a href={rule.link} target="_blank" rel="noreferrer">{rule.title}</a><span>{rule.source}</span></li>)}</ul> : <div className="empty-news">当前未抓到最新官方法规/国标动态。</div>}</div></div></article></section>
+              <section className="knowledge-grid"><article className="glass section-card"><div className="section-head compact"><h3><Factory size={15} /> 报价成本架构</h3></div><div className="cost-bars">{activeCategory.detail.costStructure.map((part) => <div key={part.label} className="cost-row"><span>{part.label}</span><strong>{part.percent}%</strong><div className="bar-track"><div className="bar-fill" style={{ width: `${part.percent}%` }} /></div></div>)}</div></article><article className="glass section-card"><div className="section-head compact"><h3><Layers size={15} /> 技术流程</h3></div><ol className="process-list">{activeCategory.detail.processFlow.map((step) => <li key={step.step}><strong>{step.step}. {step.title}</strong><p>{step.description}</p></li>)}</ol></article><article className="glass section-card"><div className="section-head compact"><h3><Landmark size={15} /> 法规标准</h3><span>共性法规前置，品类专属与最新动态分层</span></div><div className="regulation-stack"><div className="regulation-block"><h4>共性法规</h4><ul className="rule-list">{activeCategory.detail.commonRegulations.map((rule) => <li key={rule.title}><a href={rule.referenceUrl} target="_blank" rel="noreferrer">{rule.title}</a><span>{rule.authority}</span></li>)}</ul></div><div className="regulation-block"><h4>品类专属法规</h4>{activeCategory.detail.categoryRegulations.length ? <ul className="rule-list">{activeCategory.detail.categoryRegulations.map((rule) => <li key={rule.title}><a href={rule.referenceUrl} target="_blank" rel="noreferrer">{rule.title}</a><span>{rule.authority}</span></li>)}</ul> : <div className="empty-news">当前品类暂无额外专属法规条目，优先看共性法规与最新动态。</div>}</div><div className="regulation-block"><h4>官方最新动态</h4>{activeCategory.detail.regulationUpdates.length ? <ul className="rule-list rule-list-compact">{activeCategory.detail.regulationUpdates.map((rule) => <li key={rule.id}><a href={rule.link} target="_blank" rel="noreferrer">{rule.title}</a><span>{rule.source}</span></li>)}</ul> : <div className="empty-news">当前未抓到最新官方法规/国标动态。</div>}</div></div></article></section>
             </section>
           </> : <section className="glass section-card empty-screen">正在加载分类数据...</section>}
           {error && <div className="error-tip">{error}</div>}
@@ -794,8 +877,8 @@ function App() {
       </section>
 
       <footer className="footer-meta-grid">
-        <article className="glass section-card footer-meta-card"><div className="section-head compact"><h3>数据来源</h3><span>公开行业站点 + 机构新闻源</span></div><ul className="footer-meta-list"><li>报价优先抓取我的钢铁网、变宝网、中国废品回收网等公开页面。</li><li>国内新闻优先接入中国再生资源回收利用协会等行业来源。</li><li>国际新闻优先接入 Reccessary，并按行业相关性筛选。</li></ul></article>
-        <article className="glass section-card footer-meta-card"><div className="section-head compact"><h3>更新机制</h3><span>后端抓取 + 前端轮询 + GitHub 自动部署</span></div><ul className="footer-meta-list"><li>服务端约每 45 秒刷新一次公开报价和新闻快照。</li><li>前端约每 45 秒重新拉取数据，页面时间会持续跳动。</li><li>当前线上域名为 <a href="https://insight.stargazer.cloud" target="_blank" rel="noreferrer">insight.stargazer.cloud</a>。</li></ul></article>
+        <article className="glass section-card footer-meta-card"><div className="section-head compact"><h3>数据来源</h3><span>公开行业站点 + 官方法规源</span></div><ul className="footer-meta-list"><li>报价优先抓取我的钢铁网、变宝网、中国废品回收网等公开页面。</li><li>国内新闻优先接入中国再生资源回收利用协会等行业来源。</li><li>法规动态优先接入生态环境部、国家标准信息公共服务平台、工信部官方页面。</li></ul></article>
+        <article className="glass section-card footer-meta-card"><div className="section-head compact"><h3>更新机制</h3><span>后端抓取 + 前端轮询 + 官方法规分层</span></div><ul className="footer-meta-list"><li>服务端约每 45 秒刷新一次公开报价、行业新闻和法规快照。</li><li>前端约每 45 秒重新拉取数据，页面时间会持续跳动。</li><li>法规区默认先展示共性法规，再展示品类专属法规和最新官方动态。</li></ul></article>
         <article className="glass section-card footer-meta-card"><div className="section-head compact"><h3>使用说明与免责声明</h3><span>适合个人研判，不替代成交与合规审查</span></div><ul className="footer-meta-list"><li>页面展示的是公开信息整理结果，存在站点延迟、口径差异和抓取误差。</li><li>回收价仅作趋势和参考，实际成交应以当日合同、到厂价和地区条件为准。</li><li>法规标准为快速索引，涉及经营资质、危废和跨省转运时仍应核对原文。</li></ul></article>
       </footer>
     </div>
