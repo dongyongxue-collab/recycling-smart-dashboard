@@ -37,6 +37,7 @@ let snapshot: RecyclingKnowledgeSnapshot = {
       costStructure: item.costStructure,
       processFlow: item.processFlow,
       regulations: item.regulations,
+      regulationUpdates: [],
     },
     analytics: {
       history: [],

@@ -1,4 +1,4 @@
-﻿import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { geoMercator, geoPath } from 'd3-geo';
 import rewind from '@turf/rewind';
 import { Bell, BookOpen, Factory, Globe2, Landmark, Layers, MapPinned, RefreshCw, Search, Sparkles, TrendingUp } from 'lucide-react';
@@ -10,7 +10,7 @@ const CHINA_GEOJSON_PATH = '/china.geo.json';
 const MAP_MIN_LAT = 17;
 const innerPieColors = ['#66b7ff', '#74ffd1', '#ffd166', '#ff9f9f', '#b9a3ff', '#89d8ff'];
 const outerPieColors = ['#2f99ff', '#2ccf9f', '#ffb445', '#ff6f7b', '#8f7aff', '#47d1ff'];
-const CATEGORY_ALERT_NEWS_RE = /大跌|下跌|暴跌|跳水|上涨|飙升|涨价|调价|停产|减产|复产|检修|关停|限产|禁令|关税|政策|补贴|库存|供需|扰动|预警|震荡|回落|反弹|price drop|price surge|plunge|slump|rally|shutdown|policy|tariff|inventory/i;
+const CATEGORY_ALERT_NEWS_RE = /??|??|??|??|??|??|??|??|??|??|??|??|??|??|??|??|??|??|??|??|??|??|??|??|??|price drop|price surge|plunge|slump|rally|shutdown|policy|tariff|inventory/i;
 
 type Position = [number, number];
 type PolygonCoords = Position[][];
@@ -49,23 +49,23 @@ const REGION_COORDINATES: Record<string, [number, number]> = {
 };
 
 const REGION_LABELS: Record<string, string> = {
-  beijing: '北京', tianjin: '天津', shanghai: '上海', chongqing: '重庆', hebei: '河北', shanxi: '山西', neimenggu: '内蒙古',
-  liaoning: '辽宁', jilin: '吉林', heilongjiang: '黑龙江', jiangsu: '江苏', zhejiang: '浙江', anhui: '安徽', fujian: '福建',
-  jiangxi: '江西', shandong: '山东', henan: '河南', hubei: '湖北', hunan: '湖南', guangdong: '广东', guangxi: '广西',
-  hainan: '海南', sichuan: '四川', guizhou: '贵州', yunnan: '云南', shaanxi: '陕西', gansu: '甘肃', qinghai: '青海',
-  ningxia: '宁夏', xinjiang: '新疆', xizang: '西藏', hongkong: '香港', macau: '澳门', taiwan: '台湾',
+  beijing: '??', tianjin: '??', shanghai: '??', chongqing: '??', hebei: '??', shanxi: '??', neimenggu: '???',
+  liaoning: '??', jilin: '??', heilongjiang: '???', jiangsu: '??', zhejiang: '??', anhui: '??', fujian: '??',
+  jiangxi: '??', shandong: '??', henan: '??', hubei: '??', hunan: '??', guangdong: '??', guangxi: '??',
+  hainan: '??', sichuan: '??', guizhou: '??', yunnan: '??', shaanxi: '??', gansu: '??', qinghai: '??',
+  ningxia: '??', xinjiang: '??', xizang: '??', hongkong: '??', macau: '??', taiwan: '??',
 };
 
 const REGION_ALIASES: Record<string, string[]> = {
-  beijing: ['北京', '北京市', 'beijing'], tianjin: ['天津', '天津市', 'tianjin'], shanghai: ['上海', '上海市', 'shanghai'],
-  chongqing: ['重庆', '重庆市', 'chongqing'], hebei: ['河北', 'hebei'], shanxi: ['山西', 'shanxi'], neimenggu: ['内蒙古', '内蒙', 'neimenggu'],
-  liaoning: ['辽宁', 'liaoning'], jilin: ['吉林', 'jilin'], heilongjiang: ['黑龙江', 'heilongjiang'], jiangsu: ['江苏', 'jiangsu'],
-  zhejiang: ['浙江', 'zhejiang'], anhui: ['安徽', 'anhui'], fujian: ['福建', 'fujian'], jiangxi: ['江西', 'jiangxi'],
-  shandong: ['山东', 'shandong'], henan: ['河南', 'henan'], hubei: ['湖北', 'hubei'], hunan: ['湖南', 'hunan'],
-  guangdong: ['广东', 'guangdong'], guangxi: ['广西', 'guangxi'], hainan: ['海南', 'hainan'], sichuan: ['四川', 'sichuan'],
-  guizhou: ['贵州', 'guizhou'], yunnan: ['云南', 'yunnan'], shaanxi: ['陕西', 'shaanxi'], gansu: ['甘肃', 'gansu'],
-  qinghai: ['青海', 'qinghai'], ningxia: ['宁夏', 'ningxia'], xinjiang: ['新疆', 'xinjiang'], xizang: ['西藏', 'xizang', 'tibet'],
-  hongkong: ['香港', 'hongkong', 'hong kong'], macau: ['澳门', 'macau'], taiwan: ['台湾', 'taiwan'],
+  beijing: ['??', '???', 'beijing'], tianjin: ['??', '???', 'tianjin'], shanghai: ['??', '???', 'shanghai'],
+  chongqing: ['??', '???', 'chongqing'], hebei: ['??', 'hebei'], shanxi: ['??', 'shanxi'], neimenggu: ['???', '??', 'neimenggu'],
+  liaoning: ['??', 'liaoning'], jilin: ['??', 'jilin'], heilongjiang: ['???', 'heilongjiang'], jiangsu: ['??', 'jiangsu'],
+  zhejiang: ['??', 'zhejiang'], anhui: ['??', 'anhui'], fujian: ['??', 'fujian'], jiangxi: ['??', 'jiangxi'],
+  shandong: ['??', 'shandong'], henan: ['??', 'henan'], hubei: ['??', 'hubei'], hunan: ['??', 'hunan'],
+  guangdong: ['??', 'guangdong'], guangxi: ['??', 'guangxi'], hainan: ['??', 'hainan'], sichuan: ['??', 'sichuan'],
+  guizhou: ['??', 'guizhou'], yunnan: ['??', 'yunnan'], shaanxi: ['??', 'shaanxi'], gansu: ['??', 'gansu'],
+  qinghai: ['??', 'qinghai'], ningxia: ['??', 'ningxia'], xinjiang: ['??', 'xinjiang'], xizang: ['??', 'xizang', 'tibet'],
+  hongkong: ['??', 'hongkong', 'hong kong'], macau: ['??', 'macau'], taiwan: ['??', 'taiwan'],
 };
 
 function formatTime(value: string): string {
@@ -106,14 +106,14 @@ function cleanSouthSeaGeometry(feature: GeoFeature): GeoFeature | null {
 function splitQuoteTitle(title: string): { primary: string; secondary: string } {
   const normalized = title.replace(/\s+/g, ' ').trim();
   const majorParts = normalized
-    .split(/[。；;]/)
+    .split(/[?;;]/)
     .map((item) => item.trim())
     .filter(Boolean);
 
   const first = majorParts[0] ?? normalized;
   const second = majorParts[1] ?? '';
   const primarySource = first
-    .replace(/^(东北地区|华北地区|华东地区|华中地区|华南地区|西南地区|西北地区)\s*[:：]\s*/g, '')
+    .replace(/^(????|????|????|????|????|????|????)\s*[::]\s*/g, '')
     .replace(/\s+/g, ' ');
   const secondarySource = second.replace(/\s+/g, ' ');
   const primary = primarySource;
@@ -125,7 +125,7 @@ function splitQuoteTitle(title: string): { primary: string; secondary: string } 
 function compactSourceLabel(source: string): string {
   return source
     .replace(/[-_].*$/, '')
-    .replace(/资讯|新闻|行情|价格总览|价格明细|参考价?/g, '')
+    .replace(/??|??|??|????|????|????/g, '')
     .trim();
 }
 
@@ -134,13 +134,13 @@ function inferQuoteTag(title: string, subcategories: string[]): string {
   if (matched) {
     return matched;
   }
-  if (/上调|上涨/.test(title)) {
-    return '上调';
+  if (/??|??/.test(title)) {
+    return '??';
   }
-  if (/下调|下跌/.test(title)) {
-    return '下调';
+  if (/??|??/.test(title)) {
+    return '??';
   }
-  return subcategories[0] ?? '参考';
+  return subcategories[0] ?? '??';
 }
 
 function App() {
@@ -179,6 +179,7 @@ function App() {
 
   const activeCategory = useMemo(() => snapshot?.categories.find((item) => item.id === activeCategoryId) ?? null, [activeCategoryId, snapshot]);
   const quoteRows = useMemo(() => activeCategory?.quotes ?? [], [activeCategory]);
+  const latestRegulationUpdate = useMemo(() => activeCategory?.detail.regulationUpdates[0] ?? null, [activeCategory]);
 
   const categoryAlertNews = useMemo(() => {
     if (!activeCategory) return [];
@@ -209,13 +210,13 @@ function App() {
     if (!activeCategory) return [];
     const countMap = new Map<string, number>();
     activeCategory.quotes.forEach((quote) => {
-      const region = normalizeRegion(quote.region ?? quote.title) ?? quote.region ?? '全国';
+      const region = normalizeRegion(quote.region ?? quote.title) ?? quote.region ?? '??';
       countMap.set(region, (countMap.get(region) ?? 0) + 1);
     });
     return activeCategory.analytics.regionBars.slice(0, 8).map((item) => ({ region: item.region, avgPrice: item.avgPrice, quoteCount: countMap.get(item.region) ?? 0 }));
   }, [activeCategory]);
 
-  const subcategoryRingData = useMemo(() => activeCategory?.analytics.subcategoryShares.length ? activeCategory.analytics.subcategoryShares.slice(0, 6) : [{ name: '综合', value: 1 }], [activeCategory]);
+  const subcategoryRingData = useMemo(() => activeCategory?.analytics.subcategoryShares.length ? activeCategory.analytics.subcategoryShares.slice(0, 6) : [{ name: '??', value: 1 }], [activeCategory]);
   const sourceRingData = useMemo(() => {
     const grouped = new Map<string, number>();
     quoteRows.forEach((quote) => grouped.set(quote.source, (grouped.get(quote.source) ?? 0) + 1));
@@ -241,7 +242,7 @@ function App() {
     const areas = drawableFeatures.map((feature, index) => {
       const path = generator(feature as never);
       if (!path) return null;
-      const name = String(feature.properties?.name ?? `区域${index + 1}`);
+      const name = String(feature.properties?.name ?? `??${index + 1}`);
       return { id: `${name}-${index}`, name, path };
     }).filter((item): item is { id: string; name: string; path: string } => Boolean(item));
 
@@ -313,7 +314,7 @@ function App() {
           id: `${category.id}-${quote.id}`,
           categoryName: category.name,
           primary,
-          region: quote.region ?? (quote.isTianjinPriority ? '天津优先' : '全国'),
+          region: quote.region ?? (quote.isTianjinPriority ? '????' : '??'),
           price: `${numberFormatter.format(quote.price)} ${quote.unit}`,
           publishedAt: quote.publishedAt,
           sourceUrl: quote.sourceUrl,
@@ -331,57 +332,57 @@ function App() {
       <header className="top-header glass">
         <div>
           <div className="brand-line">
-            <img src="/logo.png" alt="再生资源智慧看板 Logo" className="brand-logo" />
-            <div className="brand-meta"><strong>实时智慧看板</strong><small>人工智能观星策划，摘星制作</small></div>
+            <img src="/logo.png" alt="???????? Logo" className="brand-logo" />
+            <div className="brand-meta"><strong>??????</strong><small>????????,????</small></div>
           </div>
-          <h1>再生资源智慧看板<span>Smart Recycling Intelligence Dashboard</span></h1>
-          <p>分类展示回收价、新闻、技术流程与法规标准，支持实时刷新与快速查阅。</p>
+          <h1>????????<span>Smart Recycling Intelligence Dashboard</span></h1>
+          <p>????????????????????,????????????</p>
         </div>
         <div className="header-actions">
-          <span className={`status ${connection}`}>{connection === 'online' ? '实时更新中' : '连接中断'}</span>
-          <span className="status muted"><RefreshCw size={14} /> 数据更新 {snapshot ? formatTime(snapshot.fetchedAt) : '--:--:--'}</span>
-          <span className="status muted"><Sparkles size={14} /> 系统时间 {formatTime(new Date(nowTick).toISOString())}</span>
-          <span className="status muted">最近刷新 {snapshot ? Math.max(0, Math.floor((nowTick - new Date(snapshot.fetchedAt).getTime()) / 1000)) : 0} 秒前</span>
+          <span className={`status ${connection}`}>{connection === 'online' ? '?????' : '????'}</span>
+          <span className="status muted"><RefreshCw size={14} /> ???? {snapshot ? formatTime(snapshot.fetchedAt) : '--:--:--'}</span>
+          <span className="status muted"><Sparkles size={14} /> ???? {formatTime(new Date(nowTick).toISOString())}</span>
+          <span className="status muted">???? {snapshot ? Math.max(0, Math.floor((nowTick - new Date(snapshot.fetchedAt).getTime()) / 1000)) : 0} ??</span>
         </div>
       </header>
 
-      {tickerQuotes.length ? <section className="news-ribbon glass"><div className="news-ribbon-head"><span className="ribbon-live-dot" /> 报价行情流</div><div className="news-ribbon-window"><div className="news-ribbon-track">{[...tickerQuotes, ...tickerQuotes].map((item, index) => <a key={`${item.id}-${index}`} href={item.sourceUrl} target="_blank" rel="noreferrer" className="ticker-chip price-ticker-chip" title={`${item.categoryName} ${item.primary}`}><div className="ticker-chip-top"><em className={item.isTianjinPriority ? 'ticker-badge tianjin' : 'ticker-badge domestic'}>{item.categoryName}</em><span className="ticker-region">{item.region}</span></div><strong className="ticker-price">{item.price}</strong><span className="ticker-copy">{item.primary}</span><i className="ticker-time">{formatTime(item.publishedAt)} 更新</i></a>)}</div></div></section> : null}
+      {tickerQuotes.length ? <section className="news-ribbon glass"><div className="news-ribbon-head"><span className="ribbon-live-dot" /> ?????</div><div className="news-ribbon-window"><div className="news-ribbon-track">{[...tickerQuotes, ...tickerQuotes].map((item, index) => <a key={`${item.id}-${index}`} href={item.sourceUrl} target="_blank" rel="noreferrer" className="ticker-chip price-ticker-chip" title={`${item.categoryName} ${item.primary}`}><div className="ticker-chip-top"><em className={item.isTianjinPriority ? 'ticker-badge tianjin' : 'ticker-badge domestic'}>{item.categoryName}</em><span className="ticker-region">{item.region}</span></div><strong className="ticker-price">{item.price}</strong><span className="ticker-copy">{item.primary}</span><i className="ticker-time">{formatTime(item.publishedAt)} ??</i></a>)}</div></div></section> : null}
 
       <section className="kpi-row">
-        <article className="kpi-card glass"><div className="kpi-head"><Layers size={16} /> 分类</div><strong>{snapshot?.categories.length ?? 16}</strong><small>固定 16 个大类</small></article>
-        <article className="kpi-card glass"><div className="kpi-head"><Factory size={16} /> 报价条目</div><strong>{totalQuotes}</strong><small>每类最多 10 条</small></article>
-        <article className="kpi-card glass"><div className="kpi-head"><TrendingUp size={16} /> 天津优先</div><strong>{tianjinQuotes}</strong><small>天津标记优先展示</small></article>
-        <article className="kpi-card glass"><div className="kpi-head"><Bell size={16} /> 新闻总量</div><strong>{totalGlobalNews}</strong><small>全局新闻持续更新</small></article>
+        <article className="kpi-card glass"><div className="kpi-head"><Layers size={16} /> ??</div><strong>{snapshot?.categories.length ?? 16}</strong><small>?? 16 ???</small></article>
+        <article className="kpi-card glass"><div className="kpi-head"><Factory size={16} /> ????</div><strong>{totalQuotes}</strong><small>???? 10 ?</small></article>
+        <article className="kpi-card glass"><div className="kpi-head"><TrendingUp size={16} /> ????</div><strong>{tianjinQuotes}</strong><small>????????</small></article>
+        <article className="kpi-card glass"><div className="kpi-head"><Bell size={16} /> ????</div><strong>{totalGlobalNews}</strong><small>????????</small></article>
       </section>
 
       <section className="glass section-card map-card">
-        <div className="section-head"><h2><MapPinned size={18} /> 全国资讯与报价热力地图</h2><span>点击点位查看悬浮标注</span></div>
-        {mapView ? <div className="china-map-wrap"><svg className="china-map-svg" viewBox={mapView.viewBox} onClick={() => setActiveMapRegion(null)}><g className="map-areas">{mapView.areas.map((area) => <path key={area.id} d={area.path} className="map-area" fill="rgba(20,44,70,0.88)" strokeWidth={0.9} />)}</g><g className="map-markers">{mapView.points.map((point, index) => <g key={point.region} className="map-marker" onClick={(event) => { event.stopPropagation(); setActiveMapRegion((current) => (current === point.region ? null : point.region)); }}><circle cx={point.x} cy={point.y} r={point.radius * 2.2} className={point.region === 'tianjin' ? 'marker-pulse marker-tianjin' : 'marker-pulse'} style={{ animationDelay: `${index * 0.08}s` }} /><circle cx={point.x} cy={point.y} r={point.radius} className={point.region === 'tianjin' ? `marker-core marker-tianjin ${activeMapRegion === point.region ? 'marker-active' : ''}` : `marker-core ${activeMapRegion === point.region ? 'marker-active' : ''}`} /></g>)}</g>{selectedMapPoint && selectedMapLabel ? <g className="map-float-label"><line className="map-link-line" x1={selectedMapPoint.x} y1={selectedMapPoint.y} x2={selectedMapLabel.anchorX} y2={selectedMapLabel.anchorY} /><rect className="map-float-label-card" x={selectedMapLabel.x} y={selectedMapLabel.y} width={182} height={74} rx={10} ry={10} /><text className="map-float-title" x={selectedMapLabel.x + 12} y={selectedMapLabel.y + 22}>{REGION_LABELS[selectedMapPoint.region] ?? selectedMapPoint.region}</text><text className="map-float-meta" x={selectedMapLabel.x + 12} y={selectedMapLabel.y + 42}>报价 {selectedMapPoint.quotes} / 新闻 {selectedMapPoint.news}</text><text className="map-float-meta" x={selectedMapLabel.x + 12} y={selectedMapLabel.y + 61}>热度 {selectedMapPoint.heat}</text></g> : null}</svg><aside className="map-side-panel"><h4>区域热度 Top</h4><ul>{mapView.points.slice(0, 10).map((point) => <li key={point.region} className={activeMapRegion === point.region ? 'active' : ''} onClick={() => setActiveMapRegion((current) => (current === point.region ? null : point.region))}><strong>{REGION_LABELS[point.region] ?? point.region}</strong><span>报价 {point.quotes} / 新闻 {point.news}</span></li>)}</ul></aside></div> : <div className="empty-screen">地图加载中...</div>}
+        <div className="section-head"><h2><MapPinned size={18} /> ???????????</h2><span>??????????</span></div>
+        {mapView ? <div className="china-map-wrap"><svg className="china-map-svg" viewBox={mapView.viewBox} onClick={() => setActiveMapRegion(null)}><g className="map-areas">{mapView.areas.map((area) => <path key={area.id} d={area.path} className="map-area" fill="rgba(20,44,70,0.88)" strokeWidth={0.9} />)}</g><g className="map-markers">{mapView.points.map((point, index) => <g key={point.region} className="map-marker" onClick={(event) => { event.stopPropagation(); setActiveMapRegion((current) => (current === point.region ? null : point.region)); }}><circle cx={point.x} cy={point.y} r={point.radius * 2.2} className={point.region === 'tianjin' ? 'marker-pulse marker-tianjin' : 'marker-pulse'} style={{ animationDelay: `${index * 0.08}s` }} /><circle cx={point.x} cy={point.y} r={point.radius} className={point.region === 'tianjin' ? `marker-core marker-tianjin ${activeMapRegion === point.region ? 'marker-active' : ''}` : `marker-core ${activeMapRegion === point.region ? 'marker-active' : ''}`} /></g>)}</g>{selectedMapPoint && selectedMapLabel ? <g className="map-float-label"><line className="map-link-line" x1={selectedMapPoint.x} y1={selectedMapPoint.y} x2={selectedMapLabel.anchorX} y2={selectedMapLabel.anchorY} /><rect className="map-float-label-card" x={selectedMapLabel.x} y={selectedMapLabel.y} width={182} height={74} rx={10} ry={10} /><text className="map-float-title" x={selectedMapLabel.x + 12} y={selectedMapLabel.y + 22}>{REGION_LABELS[selectedMapPoint.region] ?? selectedMapPoint.region}</text><text className="map-float-meta" x={selectedMapLabel.x + 12} y={selectedMapLabel.y + 42}>?? {selectedMapPoint.quotes} / ?? {selectedMapPoint.news}</text><text className="map-float-meta" x={selectedMapLabel.x + 12} y={selectedMapLabel.y + 61}>?? {selectedMapPoint.heat}</text></g> : null}</svg><aside className="map-side-panel"><h4>???? Top</h4><ul>{mapView.points.slice(0, 10).map((point) => <li key={point.region} className={activeMapRegion === point.region ? 'active' : ''} onClick={() => setActiveMapRegion((current) => (current === point.region ? null : point.region))}><strong>{REGION_LABELS[point.region] ?? point.region}</strong><span>?? {point.quotes} / ?? {point.news}</span></li>)}</ul></aside></div> : <div className="empty-screen">?????...</div>}
       </section>
 
       <section className="global-news-wide">
-        <article className="glass section-card"><div className="section-head compact"><h3><BookOpen size={15} /> 全局新闻（国内）</h3></div><ul className="news-list news-list-wide">{(snapshot?.globalNews.domesticNews ?? []).slice(0, 10).map((item) => <li key={item.id}><a href={item.link} target="_blank" rel="noreferrer">{item.title}</a><span>{item.source}</span></li>)}</ul></article>
-        <article className="glass section-card"><div className="section-head compact"><h3><Globe2 size={15} /> 全局新闻（国际）</h3></div><ul className="news-list news-list-wide">{(snapshot?.globalNews.internationalNews ?? []).slice(0, 10).map((item) => <li key={item.id}><a href={item.link} target="_blank" rel="noreferrer">{item.title}</a><span>{item.source}</span></li>)}</ul></article>
+        <article className="glass section-card"><div className="section-head compact"><h3><BookOpen size={15} /> ????(??)</h3></div><ul className="news-list news-list-wide">{(snapshot?.globalNews.domesticNews ?? []).slice(0, 10).map((item) => <li key={item.id}><a href={item.link} target="_blank" rel="noreferrer">{item.title}</a><span>{item.source}</span></li>)}</ul></article>
+        <article className="glass section-card"><div className="section-head compact"><h3><Globe2 size={15} /> ????(??)</h3></div><ul className="news-list news-list-wide">{(snapshot?.globalNews.internationalNews ?? []).slice(0, 10).map((item) => <li key={item.id}><a href={item.link} target="_blank" rel="noreferrer">{item.title}</a><span>{item.source}</span></li>)}</ul></article>
       </section>
 
       <section className="main-layout">
-        <aside className="category-panel glass"><div className="panel-title"><Search size={15} /> 分类导航</div><div className="category-list">{(snapshot?.categories ?? []).map((category) => <button type="button" key={category.id} className={category.id === activeCategoryId ? 'category-item active' : 'category-item'} onClick={() => setManualCategoryId(category.id)}><div><strong>{category.name}</strong><small>{category.quotes.length}/10</small></div><em>天津 {category.quotes.filter((quote) => quote.isTianjinPriority).length}</em></button>)}</div></aside>
+        <aside className="category-panel glass"><div className="panel-title"><Search size={15} /> ????</div><div className="category-list">{(snapshot?.categories ?? []).map((category) => <button type="button" key={category.id} className={category.id === activeCategoryId ? 'category-item active' : 'category-item'} onClick={() => setManualCategoryId(category.id)}><div><strong>{category.name}</strong><small>{category.quotes.length}/10</small></div><em>?? {category.quotes.filter((quote) => quote.isTianjinPriority).length}</em></button>)}</div>{activeCategory ? <div className="category-brief-card"><div className="category-brief-head"><strong>{activeCategory.name}??</strong><span>?????????</span></div><div className="category-brief-stats"><div><small>????</small><strong>{activeCategory.detail.subcategories.length}</strong></div><div><small>????</small><strong>{activeCategory.quotes.length}</strong></div><div><small>????</small><strong>{activeCategory.detail.regulationUpdates.length}</strong></div><div><small>????</small><strong>{categoryAlertNews.length}</strong></div></div><div className="category-brief-note"><span>????</span><p>{activeCategory.detail.painPoints[0] ?? '????????????'}</p></div>{latestRegulationUpdate ? <div className="category-brief-note"><span>??????</span><a href={latestRegulationUpdate.link} target="_blank" rel="noreferrer">{latestRegulationUpdate.title}</a></div> : null}</div> : null}</aside>
 
         <main className="detail-panel">
-          {activeCategory ? <><section className="glass section-card"><div className="section-head compact"><h3><Layers size={15} /> {activeCategory.name}细分品类</h3></div><div className="subcat-chips">{activeCategory.detail.subcategories.map((item) => <span key={item} className="subcat-chip">{item}</span>)}</div></section>
-          <section className="charts-board"><article className="glass section-card chart-card"><div className="section-head compact"><h3>{activeCategory.name}走势 + 平滑线</h3></div><div className="chart-box"><ResponsiveContainer width="100%" height="100%"><LineChart data={historyTrendData}><CartesianGrid stroke="#1f3449" strokeDasharray="4 6" /><XAxis dataKey="month" tick={{ fill: '#9db4d2', fontSize: 12 }} /><YAxis tick={{ fill: '#9db4d2', fontSize: 12 }} width={80} /><Tooltip formatter={(value, key) => [`${numberFormatter.format(Number(value))} 元`, key === 'avg3' ? '3期均线' : '参考价']} /><Line type="monotone" dataKey="price" stroke="#69c1ff" strokeWidth={2.6} dot={false} /><Line type="monotone" dataKey="avg3" stroke="#7bffd4" strokeWidth={1.8} strokeDasharray="6 6" dot={false} /></LineChart></ResponsiveContainer></div></article><article className="glass section-card chart-card"><div className="section-head compact"><h3>{activeCategory.name}区域价量复合图</h3></div><div className="chart-box"><ResponsiveContainer width="100%" height="100%"><ComposedChart data={regionCompositeData}><CartesianGrid stroke="#1f3449" strokeDasharray="4 6" /><XAxis dataKey="region" tick={{ fill: '#9db4d2', fontSize: 12 }} /><YAxis yAxisId="price" tick={{ fill: '#9db4d2', fontSize: 12 }} width={72} /><YAxis yAxisId="count" orientation="right" tick={{ fill: '#a9c6e7', fontSize: 12 }} width={44} allowDecimals={false} /><Tooltip formatter={(value, key) => key === 'avgPrice' ? [`${numberFormatter.format(Number(value))} 元`, '均价'] : [`${value} 条`, '条目数']} /><Bar yAxisId="price" dataKey="avgPrice" fill="#5ec8ff" radius={[8, 8, 0, 0]} /><Line yAxisId="count" type="monotone" dataKey="quoteCount" stroke="#74ffd1" strokeWidth={2.2} /></ComposedChart></ResponsiveContainer></div></article><article className="glass section-card chart-card"><div className="section-head compact"><h3>{activeCategory.name}双环结构图</h3><span>内环细分 / 外环来源</span></div><div className="chart-box"><ResponsiveContainer width="100%" height="100%"><PieChart><Pie data={sourceRingData} dataKey="value" nameKey="name" cx="50%" cy="50%" innerRadius={62} outerRadius={90} paddingAngle={1.5}>{sourceRingData.map((item, index) => <Cell key={`outer-${item.name}`} fill={outerPieColors[index % outerPieColors.length]} />)}</Pie><Pie data={subcategoryRingData} dataKey="value" nameKey="name" cx="50%" cy="50%" innerRadius={34} outerRadius={56} paddingAngle={2}>{subcategoryRingData.map((item, index) => <Cell key={`inner-${item.name}`} fill={innerPieColors[index % innerPieColors.length]} />)}</Pie><Tooltip formatter={(value, name) => [`${value} 条`, String(name)]} /></PieChart></ResponsiveContainer></div></article></section>
-          <section className="glass section-card quote-panel"><div className="section-head"><h2>{activeCategory.name}回收价</h2><span>前 10 条有效报价</span></div><div className="quote-table-wrap"><table className="quote-table"><colgroup><col className="quote-col-region" /><col className="quote-col-price" /><col className="quote-col-source" /><col className="quote-col-time" /><col className="quote-col-main" /></colgroup><thead><tr><th>地区</th><th>价格</th><th>来源</th><th>时间</th><th>摘要</th></tr></thead><tbody>{quoteDisplayRows.length ? quoteDisplayRows.map((quote) => <tr key={quote.id} className="quote-row"><td className="quote-region-cell">{quote.region ?? (quote.isTianjinPriority ? '天津优先' : '全国')}</td><td className="price-cell">{numberFormatter.format(quote.price)} {quote.unit}</td><td className="quote-source-cell" title={quote.source}><span className="source-badge">{quote.sourceLabel}</span></td><td className="quote-time-cell">{formatTime(quote.publishedAt)}</td><td className="quote-summary-cell"><div className="quote-meta-line"><em className="quote-tag">{quote.tag}</em>{quote.isTianjinPriority ? <em className="quote-flag">天津优先</em> : null}</div><a href={quote.sourceUrl} target="_blank" rel="noreferrer" className="quote-primary" title={quote.title}>{quote.primary}</a>{quote.secondary ? <span className="quote-secondary" title={quote.title}>{quote.secondary}</span> : null}</td></tr>) : <tr><td colSpan={5} className="empty-cell">当前未解析到可用回收价。</td></tr>}</tbody></table></div></section>
-          <section className="glass section-card"><div className="section-head compact"><h3><Bell size={15} /> {activeCategory.name}异动新闻</h3><span>价格波动 / 政策 / 供需事件</span></div>{categoryAlertNews.length ? <ul className="news-list compact-list compact-grid-list">{categoryAlertNews.map((item) => <li key={item.id}><a href={item.link} target="_blank" rel="noreferrer">{item.title}</a><span>{item.source}</span></li>)}</ul> : <div className="empty-news">暂无品类异动新闻，系统会持续追新。</div>}</section>
-          <section className="news-grid"><article className="glass section-card"><div className="section-head compact"><h3><BookOpen size={15} /> {activeCategory.name}相关新闻（国内）</h3></div><ul className="news-list compact-list compact-grid-list">{categoryDomesticGeneralNews.length ? categoryDomesticGeneralNews.map((item) => <li key={item.id}><a href={item.link} target="_blank" rel="noreferrer">{item.title}</a><span>{item.source}</span></li>) : <li className="empty-news">暂无更多国内新闻。</li>}</ul></article><article className="glass section-card"><div className="section-head compact"><h3><Globe2 size={15} /> {activeCategory.name}相关新闻（国际）</h3></div><ul className="news-list compact-list compact-grid-list">{categoryInternationalGeneralNews.length ? categoryInternationalGeneralNews.map((item) => <li key={item.id}><a href={item.link} target="_blank" rel="noreferrer">{item.title}</a><span>{item.source}</span></li>) : <li className="empty-news">暂无更多国际新闻。</li>}</ul></article></section>
-          <section className="glass section-card pain-points-panel"><div className="section-head compact"><h3><TrendingUp size={15} /> {activeCategory.name}行业痛点</h3><span>优先看最影响回收价、成交率和现金流的环节</span></div><div className="pain-point-list">{activeCategory.detail.painPoints.map((item, index) => <article key={item} className="pain-point-card"><span className="pain-point-index">0{index + 1}</span><p>{item}</p></article>)}</div></section>
-          <section className="knowledge-grid"><article className="glass section-card"><div className="section-head compact"><h3><Factory size={15} /> 报价成本架构</h3></div><div className="cost-bars">{activeCategory.detail.costStructure.map((part) => <div key={part.label} className="cost-row"><span>{part.label}</span><strong>{part.percent}%</strong><div className="bar-track"><div className="bar-fill" style={{ width: `${part.percent}%` }} /></div></div>)}</div></article><article className="glass section-card"><div className="section-head compact"><h3><Layers size={15} /> 技术流程</h3></div><ol className="process-list">{activeCategory.detail.processFlow.map((step) => <li key={step.step}><strong>{step.step}. {step.title}</strong><p>{step.description}</p></li>)}</ol></article><article className="glass section-card"><div className="section-head compact"><h3><Landmark size={15} /> 法规标准</h3></div><ul className="rule-list">{activeCategory.detail.regulations.map((rule) => <li key={rule.title}><a href={rule.referenceUrl} target="_blank" rel="noreferrer">{rule.title}</a><span>{rule.authority}</span></li>)}</ul></article></section></> : <section className="glass section-card empty-screen">正在加载分类数据...</section>}
+          {activeCategory ? <><section className="glass section-card"><div className="section-head compact"><h3><Layers size={15} /> {activeCategory.name}????</h3></div><div className="subcat-chips">{activeCategory.detail.subcategories.map((item) => <span key={item} className="subcat-chip">{item}</span>)}</div></section>
+          <section className="charts-board"><article className="glass section-card chart-card"><div className="section-head compact"><h3>{activeCategory.name}?? + ???</h3></div><div className="chart-box"><ResponsiveContainer width="100%" height="100%"><LineChart data={historyTrendData}><CartesianGrid stroke="#1f3449" strokeDasharray="4 6" /><XAxis dataKey="month" tick={{ fill: '#9db4d2', fontSize: 12 }} /><YAxis tick={{ fill: '#9db4d2', fontSize: 12 }} width={80} /><Tooltip formatter={(value, key) => [`${numberFormatter.format(Number(value))} ?`, key === 'avg3' ? '3???' : '???']} /><Line type="monotone" dataKey="price" stroke="#69c1ff" strokeWidth={2.6} dot={false} /><Line type="monotone" dataKey="avg3" stroke="#7bffd4" strokeWidth={1.8} strokeDasharray="6 6" dot={false} /></LineChart></ResponsiveContainer></div></article><article className="glass section-card chart-card"><div className="section-head compact"><h3>{activeCategory.name}???????</h3></div><div className="chart-box"><ResponsiveContainer width="100%" height="100%"><ComposedChart data={regionCompositeData}><CartesianGrid stroke="#1f3449" strokeDasharray="4 6" /><XAxis dataKey="region" tick={{ fill: '#9db4d2', fontSize: 12 }} /><YAxis yAxisId="price" tick={{ fill: '#9db4d2', fontSize: 12 }} width={72} /><YAxis yAxisId="count" orientation="right" tick={{ fill: '#a9c6e7', fontSize: 12 }} width={44} allowDecimals={false} /><Tooltip formatter={(value, key) => key === 'avgPrice' ? [`${numberFormatter.format(Number(value))} ?`, '??'] : [`${value} ?`, '???']} /><Bar yAxisId="price" dataKey="avgPrice" fill="#5ec8ff" radius={[8, 8, 0, 0]} /><Line yAxisId="count" type="monotone" dataKey="quoteCount" stroke="#74ffd1" strokeWidth={2.2} /></ComposedChart></ResponsiveContainer></div></article><article className="glass section-card chart-card"><div className="section-head compact"><h3>{activeCategory.name}?????</h3><span>???? / ????</span></div><div className="chart-box"><ResponsiveContainer width="100%" height="100%"><PieChart><Pie data={sourceRingData} dataKey="value" nameKey="name" cx="50%" cy="50%" innerRadius={62} outerRadius={90} paddingAngle={1.5}>{sourceRingData.map((item, index) => <Cell key={`outer-${item.name}`} fill={outerPieColors[index % outerPieColors.length]} />)}</Pie><Pie data={subcategoryRingData} dataKey="value" nameKey="name" cx="50%" cy="50%" innerRadius={34} outerRadius={56} paddingAngle={2}>{subcategoryRingData.map((item, index) => <Cell key={`inner-${item.name}`} fill={innerPieColors[index % innerPieColors.length]} />)}</Pie><Tooltip formatter={(value, name) => [`${value} ?`, String(name)]} /></PieChart></ResponsiveContainer></div></article></section>
+          <section className="glass section-card quote-panel"><div className="section-head"><h2>{activeCategory.name}???</h2><span>? 10 ?????</span></div><div className="quote-table-wrap"><table className="quote-table"><colgroup><col className="quote-col-region" /><col className="quote-col-price" /><col className="quote-col-source" /><col className="quote-col-time" /><col className="quote-col-main" /></colgroup><thead><tr><th>??</th><th>??</th><th>??</th><th>??</th><th>??</th></tr></thead><tbody>{quoteDisplayRows.length ? quoteDisplayRows.map((quote) => <tr key={quote.id} className="quote-row"><td className="quote-region-cell">{quote.region ?? (quote.isTianjinPriority ? '????' : '??')}</td><td className="price-cell">{numberFormatter.format(quote.price)} {quote.unit}</td><td className="quote-source-cell" title={quote.source}><span className="source-badge">{quote.sourceLabel}</span></td><td className="quote-time-cell">{formatTime(quote.publishedAt)}</td><td className="quote-summary-cell"><div className="quote-meta-line"><em className="quote-tag">{quote.tag}</em>{quote.isTianjinPriority ? <em className="quote-flag">????</em> : null}</div><a href={quote.sourceUrl} target="_blank" rel="noreferrer" className="quote-primary" title={quote.title}>{quote.primary}</a>{quote.secondary ? <span className="quote-secondary" title={quote.title}>{quote.secondary}</span> : null}</td></tr>) : <tr><td colSpan={5} className="empty-cell">????????????</td></tr>}</tbody></table></div></section>
+          <section className="glass section-card"><div className="section-head compact"><h3><Bell size={15} /> {activeCategory.name}????</h3><span>???? / ?? / ????</span></div>{categoryAlertNews.length ? <ul className="news-list compact-list compact-grid-list">{categoryAlertNews.map((item) => <li key={item.id}><a href={item.link} target="_blank" rel="noreferrer">{item.title}</a><span>{item.source}</span></li>)}</ul> : <div className="empty-news">????????,????????</div>}</section>
+          <section className="news-grid"><article className="glass section-card"><div className="section-head compact"><h3><BookOpen size={15} /> {activeCategory.name}????(??)</h3></div><ul className="news-list compact-list compact-grid-list">{categoryDomesticGeneralNews.length ? categoryDomesticGeneralNews.map((item) => <li key={item.id}><a href={item.link} target="_blank" rel="noreferrer">{item.title}</a><span>{item.source}</span></li>) : <li className="empty-news">?????????</li>}</ul></article><article className="glass section-card"><div className="section-head compact"><h3><Globe2 size={15} /> {activeCategory.name}????(??)</h3></div><ul className="news-list compact-list compact-grid-list">{categoryInternationalGeneralNews.length ? categoryInternationalGeneralNews.map((item) => <li key={item.id}><a href={item.link} target="_blank" rel="noreferrer">{item.title}</a><span>{item.source}</span></li>) : <li className="empty-news">?????????</li>}</ul></article></section>
+          <section className="glass section-card pain-points-panel"><div className="section-head compact"><h3><TrendingUp size={15} /> {activeCategory.name}????</h3><span>????????????????????</span></div><div className="pain-point-list">{activeCategory.detail.painPoints.map((item, index) => <article key={item} className="pain-point-card"><span className="pain-point-index">0{index + 1}</span><p>{item}</p></article>)}</div></section>
+          <section className="knowledge-grid"><article className="glass section-card"><div className="section-head compact"><h3><Factory size={15} /> ??????</h3></div><div className="cost-bars">{activeCategory.detail.costStructure.map((part) => <div key={part.label} className="cost-row"><span>{part.label}</span><strong>{part.percent}%</strong><div className="bar-track"><div className="bar-fill" style={{ width: `${part.percent}%` }} /></div></div>)}</div></article><article className="glass section-card"><div className="section-head compact"><h3><Layers size={15} /> ????</h3></div><ol className="process-list">{activeCategory.detail.processFlow.map((step) => <li key={step.step}><strong>{step.step}. {step.title}</strong><p>{step.description}</p></li>)}</ol></article><article className="glass section-card"><div className="section-head compact"><h3><Landmark size={15} /> ????</h3><span>???? + ??????</span></div><div className="regulation-stack"><div className="regulation-block"><h4>??????</h4><ul className="rule-list">{activeCategory.detail.regulations.map((rule) => <li key={rule.title}><a href={rule.referenceUrl} target="_blank" rel="noreferrer">{rule.title}</a><span>{rule.authority}</span></li>)}</ul></div><div className="regulation-block"><h4>??????</h4>{activeCategory.detail.regulationUpdates.length ? <ul className="rule-list rule-list-compact">{activeCategory.detail.regulationUpdates.map((rule) => <li key={rule.id}><a href={rule.link} target="_blank" rel="noreferrer">{rule.title}</a><span>{rule.source}</span></li>)}</ul> : <div className="empty-news">???????????/?????</div>}</div></div></article></section></> : <section className="glass section-card empty-screen">????????...</section>}
           {error && <div className="error-tip">{error}</div>}
         </main>
       </section>
       <footer className="footer-meta-grid">
-        <article className="glass section-card footer-meta-card"><div className="section-head compact"><h3>数据来源</h3><span>公开行业站点 + 机构新闻源</span></div><ul className="footer-meta-list"><li>报价优先抓取我的钢铁网、变宝网、中国废品回收网等公开页面。</li><li>国内新闻优先接入中国再生资源回收利用协会等行业来源。</li><li>国际新闻优先接入 Reccessary，并按行业相关性筛选。</li></ul></article>
-        <article className="glass section-card footer-meta-card"><div className="section-head compact"><h3>更新机制</h3><span>后端抓取 + 前端轮询 + GitHub 自动部署</span></div><ul className="footer-meta-list"><li>服务端约每 45 秒刷新一次公开报价和新闻快照。</li><li>前端约每 45 秒重新拉取数据，页面时间会持续跳动。</li><li>当前线上域名为 <a href="https://insight.stargazer.cloud" target="_blank" rel="noreferrer">insight.stargazer.cloud</a>。</li></ul></article>
-        <article className="glass section-card footer-meta-card"><div className="section-head compact"><h3>使用说明与免责声明</h3><span>适合个人研判，不替代成交与合规审查</span></div><ul className="footer-meta-list"><li>页面展示的是公开信息整理结果，存在站点延迟、口径差异和抓取误差。</li><li>回收价仅作趋势和参考，实际成交应以当日合同、到厂价和地区条件为准。</li><li>法规标准为快速索引，涉及经营资质、危废和跨省转运时仍应核对原文。</li></ul></article>
+        <article className="glass section-card footer-meta-card"><div className="section-head compact"><h3>????</h3><span>?????? + ?????</span></div><ul className="footer-meta-list"><li>?????????????????????????????</li><li>??????????????????????????</li><li>???????? Reccessary,??????????</li></ul></article>
+        <article className="glass section-card footer-meta-card"><div className="section-head compact"><h3>????</h3><span>???? + ???? + GitHub ????</span></div><ul className="footer-meta-list"><li>????? 45 ???????????????</li><li>???? 45 ???????,??????????</li><li>??????? <a href="https://insight.stargazer.cloud" target="_blank" rel="noreferrer">insight.stargazer.cloud</a>?</li></ul></article>
+        <article className="glass section-card footer-meta-card"><div className="section-head compact"><h3>?????????</h3><span>??????,??????????</span></div><ul className="footer-meta-list"><li>??????????????,?????????????????</li><li>??????????,??????????????????????</li><li>?????????,??????????????????????</li></ul></article>
       </footer>
     </div>
   );

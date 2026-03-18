@@ -1,4 +1,4 @@
-﻿export interface QuoteItem {
+export interface QuoteItem {
   id: string;
   title: string;
   region?: string;
@@ -62,6 +62,7 @@ export interface CategorySnapshot {
     costStructure: CostPart[];
     processFlow: ProcessStep[];
     regulations: RegulationItem[];
+    regulationUpdates: NewsItem[];
   };
   analytics: {
     history: Array<{ month: string; price: number }>;

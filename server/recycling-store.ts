@@ -1,4 +1,4 @@
-﻿import axios from 'axios';
+import axios from 'axios';
 import { RECYCLING_CATEGORIES, CITY_PRIORITY } from './recycling-config.js';
 import type {
   CategoryDefinition,
@@ -13,37 +13,37 @@ const FETCH_TIMEOUT_MS = 15_000;
 const BASE_CACHE_TTL_MS = 90_000;
 const TRADE_CACHE_TTL_MS = 5 * 60_000;
 
-const PRICE_CAPTURE_REGEX = /(\d{1,7}(?:\.\d+)?)\s*元\s*\/?\s*(吨|公斤|千克|斤|台|辆|个|套|立方米|mwh|kwh)?/gi;
-const DEAL_PRICE_REGEX = /交易金额\s*(\d{2,7}(?:\.\d+)?)\s*元/i;
-const ADJUSTMENT_REGEX = /上调|下调|上涨|下跌|调整|变动|涨|跌|降|升/;
+const PRICE_CAPTURE_REGEX = /(\d{1,7}(?:\.\d+)?)\s*?\s*\/?\s*(?|??|??|?|?|?|?|?|???|mwh|kwh)?/gi;
+const DEAL_PRICE_REGEX = /????\s*(\d{2,7}(?:\.\d+)?)\s*?/i;
+const ADJUSTMENT_REGEX = /??|??|??|??|??|??|?|?|?|?/;
 
 const REGION_KEYS = [
-  '天津',
-  '北京',
-  '上海',
-  '河北',
-  '山东',
-  '江苏',
-  '浙江',
-  '广东',
-  '辽宁',
-  '河南',
-  '四川',
-  '湖北',
-  '湖南',
-  '福建',
-  '重庆',
-  '安徽',
-  '山西',
-  '内蒙古',
-  '陕西',
-  '广西',
+  '??',
+  '??',
+  '??',
+  '??',
+  '??',
+  '??',
+  '??',
+  '??',
+  '??',
+  '??',
+  '??',
+  '??',
+  '??',
+  '??',
+  '??',
+  '??',
+  '??',
+  '???',
+  '??',
+  '??',
 ];
 
 interface SourceDoc {
   source: string;
   url: string;
-  kind: 'quotes' | 'domestic' | 'international';
+  kind: 'quotes' | 'domestic' | 'international' | 'official';
   text: string;
   fetchedAt: string;
 }
@@ -67,122 +67,142 @@ const textCache = new Map<string, CacheEntry>();
 
 const BASE_SOURCES: Array<Omit<SourceDoc, 'text' | 'fetchedAt'>> = [
   {
-    source: '我的钢铁网-废钢',
+    source: '?????-??',
     url: 'https://feigang.mysteel.com/',
     kind: 'quotes',
   },
   {
-    source: '我的钢铁网-建材',
+    source: '?????-??',
     url: 'https://list1.mysteel.com/market/p-228-----0101-0--------1.html',
     kind: 'domestic',
   },
   {
-    source: '变宝网-行情中心',
+    source: '???-????',
     url: 'http://www.bianbao.net/quotes.html',
     kind: 'quotes',
   },
   {
-    source: '变宝网-新闻资讯',
+    source: '???-????',
     url: 'http://www.bianbao.net/news.html',
     kind: 'domestic',
   },
   {
-    source: '中国再生资源回收利用协会',
+    source: '????????????',
     url: 'https://crra.org.cn/news/',
     kind: 'domestic',
   },
   {
-    source: '隆众资讯-造纸',
+    source: '?????-???',
+    url: 'http://www.mee.gov.cn/zcwj/bwj/',
+    kind: 'official',
+  },
+  {
+    source: '????????????-????',
+    url: 'http://std.samr.gov.cn/noc',
+    kind: 'official',
+  },
+  {
+    source: '???-????????????',
+    url: 'http://www.miit.gov.cn/jgsj/jns/wjfb/index.html',
+    kind: 'official',
+  },
+  {
+    source: '???-????????????',
+    url: 'http://www.miit.gov.cn/jgsj/jns/zhlyh/index.html',
+    kind: 'official',
+  },
+  {
+    source: '????-??',
     url: 'https://paper.oilchem.net/',
     kind: 'domestic',
   },
   {
-    source: '隆众资讯-再生聚酯',
+    source: '????-????',
     url: 'https://fiber.oilchem.net/fiber/RePolyester.shtml',
     kind: 'domestic',
   },
   {
-    source: '东方财富-国内经济',
+    source: '????-????',
     url: 'http://finance.eastmoney.com/a/cgnjj.html',
     kind: 'domestic',
   },
   {
-    source: '中国废品回收网-价格总览',
+    source: '???????-????',
     url: 'http://www.zgfeipin.cn/expo/',
     kind: 'quotes',
   },
   {
-    source: '中国废品回收网-价格明细',
+    source: '???????-????',
     url: 'http://www.zgfeipin.cn/expo_17561_1/',
     kind: 'quotes',
   },
   {
-    source: '中国废品回收网-2025行情',
+    source: '???????-2025??',
     url: 'http://www.zgfeipin.cn/expo_17556_1/',
     kind: 'quotes',
   },
   {
-    source: '中国废品回收网-2025收购价',
+    source: '???????-2025???',
     url: 'http://www.zgfeipin.cn/expo_17604_1/',
     kind: 'quotes',
   },
   {
-    source: '中国废品回收网-2024价格表',
+    source: '???????-2024???',
     url: 'http://www.zgfeipin.cn/expo_17109_1/',
     kind: 'quotes',
   },
   {
-    source: '中国废品回收网-废塑料',
+    source: '???????-???',
     url: 'http://www.zgfeipin.cn/expo_17606_1/',
     kind: 'quotes',
   },
   {
-    source: '中国废品回收网-废电子',
+    source: '???????-???',
     url: 'http://www.zgfeipin.cn/expo_17611_1/',
     kind: 'quotes',
   },
   {
-    source: '中国废品回收网-废电池',
+    source: '???????-???',
     url: 'http://www.zgfeipin.cn/expo_17183_1/',
     kind: 'quotes',
   },
   {
-    source: '中国废品回收网-废轮胎',
+    source: '???????-???',
     url: 'http://www.zgfeipin.cn/expo_17245_1/',
     kind: 'quotes',
   },
   {
-    source: '中国废品回收网-报废车辆',
+    source: '???????-????',
     url: 'http://www.zgfeipin.cn/expo_17246_1/',
     kind: 'quotes',
   },
   {
-    source: '中国废品回收网-轻纺参考',
+    source: '???????-????',
     url: 'http://www.zgfeipin.cn/expo_442_1/',
     kind: 'quotes',
   },
   {
-    source: '中国废品回收网-轻纺参考2',
+    source: '???????-????2',
     url: 'http://www.zgfeipin.cn/expo_385_1/',
     kind: 'quotes',
   },
   {
-    source: '搜狐-动力电池回收',
+    source: '??-??????',
     url: 'https://www.sohu.com/a/776725046_121923007',
     kind: 'quotes',
   },
   {
-    source: '搜狐-废旧纺织参考',
+    source: '??-??????',
     url: 'https://www.sohu.com/a/715126486_121468736',
     kind: 'quotes',
   },
   {
-    source: '搜狐-危废处置价格',
+    source: '??-??????',
     url: 'https://www.sohu.com/a/783437146_121123779',
     kind: 'quotes',
   },
   {
-    source: '搜狐-废弃油脂',
+    source: '??-????',
     url: 'https://www.sohu.com/a/883963083_100180709',
     kind: 'quotes',
   },
@@ -214,290 +234,290 @@ const CATEGORY_REFERENCE_QUOTES: Record<
 > = {
   'scrap-steel': [
     {
-      title: '重废回收参考价（天津）',
+      title: '???????(??)',
       price: 2260,
-      unit: '元/吨',
-      source: '中国废品回收网-价格明细',
+      unit: '?/?',
+      source: '???????-????',
       sourceUrl: 'http://www.zgfeipin.cn/expo_17561_1/',
-      region: '天津',
+      region: '??',
     },
     {
-      title: '钢筋头回收参考价（河北）',
+      title: '????????(??)',
       price: 2380,
-      unit: '元/吨',
-      source: '中国废品回收网-2025行情',
+      unit: '?/?',
+      source: '???????-2025??',
       sourceUrl: 'http://www.zgfeipin.cn/expo_17556_1/',
-      region: '河北',
+      region: '??',
     },
   ],
   'scrap-copper': [
     {
-      title: '1#光亮铜回收参考价（天津）',
+      title: '1#????????(??)',
       price: 69400,
-      unit: '元/吨',
-      source: '中国废品回收网-价格明细',
+      unit: '?/?',
+      source: '???????-????',
       sourceUrl: 'http://www.zgfeipin.cn/expo_17561_1/',
-      region: '天津',
+      region: '??',
     },
     {
-      title: '黄铜回收参考价（华东）',
+      title: '???????(??)',
       price: 47300,
-      unit: '元/吨',
-      source: '中国废品回收网-2025收购价',
+      unit: '?/?',
+      source: '???????-2025???',
       sourceUrl: 'http://www.zgfeipin.cn/expo_17604_1/',
-      region: '江苏',
+      region: '??',
     },
   ],
   'scrap-aluminum': [
     {
-      title: '工业生铝回收参考价（天津）',
+      title: '?????????(??)',
       price: 15400,
-      unit: '元/吨',
-      source: '中国废品回收网-价格明细',
+      unit: '?/?',
+      source: '???????-????',
       sourceUrl: 'http://www.zgfeipin.cn/expo_17561_1/',
-      region: '天津',
+      region: '??',
     },
     {
-      title: '易拉罐铝回收参考价（华南）',
+      title: '?????????(??)',
       price: 13200,
-      unit: '元/吨',
-      source: '中国废品回收网-2025行情',
+      unit: '?/?',
+      source: '???????-2025??',
       sourceUrl: 'http://www.zgfeipin.cn/expo_17556_1/',
-      region: '广东',
+      region: '??',
     },
   ],
   'waste-plastic': [
     {
-      title: '再生塑料公开回收参考价（PET/通用塑料）',
+      title: '???????????(PET/????)',
       price: 3500,
-      unit: '元/吨',
-      source: '中国废品回收网-最新各种废品回收价格明细表',
+      unit: '?/?',
+      source: '???????-?????????????',
       sourceUrl: 'http://www.zgfeipin.cn/expo_17561_1/',
-      region: '全国',
+      region: '??',
     },
     {
-      title: '废塑料公开回收参考价（高值料）',
+      title: '??????????(???)',
       price: 21300,
-      unit: '元/吨',
-      source: '中国废品回收网-废塑料价格',
+      unit: '?/?',
+      source: '???????-?????',
       sourceUrl: 'http://www.zgfeipin.cn/expo_17606_1/',
-      region: '全国',
+      region: '??',
     },
   ],
   'power-battery': [
     {
-      title: '动力电池回收参考区间（行业公开样本）',
+      title: '??????????(??????)',
       price: 25000,
-      unit: '元/吨',
-      source: '搜狐-动力电池回收',
+      unit: '?/?',
+      source: '??-??????',
       sourceUrl: 'https://www.sohu.com/a/776725046_121923007',
-      region: '全国',
+      region: '??',
     },
     {
-      title: '磷酸铁锂电池包回收参考价',
+      title: '????????????',
       price: 18000,
-      unit: '元/吨',
-      source: '新浪财经-动力电池回收工艺',
+      unit: '?/?',
+      source: '????-????????',
       sourceUrl: 'https://finance.sina.com.cn/roll/2024-12-16/doc-inczrzsr2528559.shtml',
-      region: '江苏',
+      region: '??',
     },
   ],
   'scrapped-vehicle': [
     {
-      title: '报废汽车整车回收参考价（华北）',
+      title: '???????????(??)',
       price: 3200,
-      unit: '元/辆',
-      source: '中国废品回收网-报废车辆',
+      unit: '?/?',
+      source: '???????-????',
       sourceUrl: 'http://www.zgfeipin.cn/expo_17246_1/',
-      region: '天津',
+      region: '??',
     },
     {
-      title: '报废车拆解钢料参考价（华东）',
+      title: '??????????(??)',
       price: 2480,
-      unit: '元/吨',
-      source: '中国废品回收网-报废车辆',
+      unit: '?/?',
+      source: '???????-????',
       sourceUrl: 'http://www.zgfeipin.cn/expo_17246_1/',
-      region: '江苏',
+      region: '??',
     },
   ],
   'e-waste': [
     {
-      title: '废电子元器件回收参考价',
+      title: '???????????',
       price: 9000,
-      unit: '元/吨',
-      source: '中国废品回收网-废电子板',
+      unit: '?/?',
+      source: '???????-????',
       sourceUrl: 'http://www.zgfeipin.cn/expo_17611_1/',
-      region: '全国',
+      region: '??',
     },
     {
-      title: '废电子板高品位回收参考价',
+      title: '????????????',
       price: 200,
-      unit: '元/公斤',
-      source: '中国废品回收网-废电子板',
+      unit: '?/??',
+      source: '???????-????',
       sourceUrl: 'http://www.zgfeipin.cn/expo_17611_1/',
-      region: '广东',
+      region: '??',
     },
   ],
   'waste-textile': [
     {
-      title: '废纺织品回收参考价（普通布料）',
+      title: '?????????(????)',
       price: 500,
-      unit: '元/吨',
-      source: '再生资源回收平台-废纺织品报价',
+      unit: '?/?',
+      source: '????????-??????',
       sourceUrl: 'https://www.zgzszyhs.cn/quote/show.php?itemid=243',
-      region: '全国',
+      region: '??',
     },
     {
-      title: '废纺织品回收参考价（高档面料）',
+      title: '?????????(????)',
       price: 1200,
-      unit: '元/吨',
-      source: '再生资源回收平台-废纺织品报价',
+      unit: '?/?',
+      source: '????????-??????',
       sourceUrl: 'https://www.zgzszyhs.cn/quote/show.php?itemid=243',
-      region: '全国',
+      region: '??',
     },
   ],
   'waste-rubber': [
     {
-      title: '废旧轮胎回收参考价',
+      title: '?????????',
       price: 2500,
-      unit: '元/吨',
-      source: '中国废品回收网-废轮胎回收',
+      unit: '?/?',
+      source: '???????-?????',
       sourceUrl: 'http://www.zgfeipin.cn/expo_17245_1/',
-      region: '全国',
+      region: '??',
     },
     {
-      title: '天然橡胶回收参考价',
+      title: '?????????',
       price: 14000,
-      unit: '元/吨',
-      source: '中国废品回收网-废橡胶行情',
+      unit: '?/?',
+      source: '???????-?????',
       sourceUrl: 'http://www.zgfeipin.cn/expo_15_1_0/',
-      region: '全国',
+      region: '??',
     },
   ],
   'waste-wood': [
     {
-      title: '废木托盘回收参考价（华北）',
+      title: '?????????(??)',
       price: 760,
-      unit: '元/吨',
-      source: '中国废品回收网-2025行情',
+      unit: '?/?',
+      source: '???????-2025??',
       sourceUrl: 'http://www.zgfeipin.cn/expo_17556_1/',
-      region: '河北',
+      region: '??',
     },
     {
-      title: '混合废木料回收参考价（华东）',
+      title: '??????????(??)',
       price: 430,
-      unit: '元/吨',
-      source: '中国废品回收网-2025行情',
+      unit: '?/?',
+      source: '???????-2025??',
       sourceUrl: 'http://www.zgfeipin.cn/expo_17556_1/',
-      region: '山东',
+      region: '??',
     },
   ],
   'waste-paper': [
     {
-      title: 'AA级黄板纸回收参考价（华北）',
+      title: 'AA?????????(??)',
       price: 1480,
-      unit: '元/吨',
-      source: '中国废品回收网-2025收购价',
+      unit: '?/?',
+      source: '???????-2025???',
       sourceUrl: 'http://www.zgfeipin.cn/expo_17604_1/',
-      region: '天津',
+      region: '??',
     },
     {
-      title: 'A级黄板纸回收参考价（华东）',
+      title: 'A?????????(??)',
       price: 1320,
-      unit: '元/吨',
-      source: '中国废品回收网-2025收购价',
+      unit: '?/?',
+      source: '???????-2025???',
       sourceUrl: 'http://www.zgfeipin.cn/expo_17604_1/',
-      region: '浙江',
+      region: '??',
     },
   ],
   'waste-glass': [
     {
-      title: '白料玻璃回收参考价（华北）',
+      title: '?????????(??)',
       price: 280,
-      unit: '元/吨',
-      source: '中国废品回收网-2025行情',
+      unit: '?/?',
+      source: '???????-2025??',
       sourceUrl: 'http://www.zgfeipin.cn/expo_17556_1/',
-      region: '河北',
+      region: '??',
     },
     {
-      title: '青料玻璃回收参考价（华东）',
+      title: '?????????(??)',
       price: 190,
-      unit: '元/吨',
-      source: '中国废品回收网-2025行情',
+      unit: '?/?',
+      source: '???????-2025??',
       sourceUrl: 'http://www.zgfeipin.cn/expo_17556_1/',
-      region: '山东',
+      region: '??',
     },
   ],
   'kitchen-grease': [
     {
-      title: '餐厨废油回收参考价（华北送到）',
+      title: '?????????(????)',
       price: 6000,
-      unit: '元/吨',
-      source: 'China5e-餐厨废油市场',
+      unit: '?/?',
+      source: 'China5e-??????',
       sourceUrl: 'https://www.china5e.com/news/news-1188528-1.html',
-      region: '华北',
+      region: '??',
     },
     {
-      title: '餐厨废油回收参考价（华东送到）',
+      title: '?????????(????)',
       price: 6450,
-      unit: '元/吨',
-      source: 'China5e-餐厨废油市场',
+      unit: '?/?',
+      source: 'China5e-??????',
       sourceUrl: 'https://www.china5e.com/news/news-1188528-1.html',
-      region: '华东',
+      region: '??',
     },
   ],
   'industrial-slag': [
     {
-      title: '工业废渣资源化处理参考价（物化）',
+      title: '????????????(??)',
       price: 1300,
-      unit: '元/吨',
-      source: '搜狐-危废处理价格',
+      unit: '?/?',
+      source: '??-??????',
       sourceUrl: 'https://www.sohu.com/a/783437146_121123779',
-      region: '全国',
+      region: '??',
     },
     {
-      title: '工业废渣资源化处理参考价（固化）',
+      title: '????????????(??)',
       price: 2000,
-      unit: '元/吨',
-      source: '搜狐-危废处理价格',
+      unit: '?/?',
+      source: '??-??????',
       sourceUrl: 'https://www.sohu.com/a/783437146_121123779',
-      region: '全国',
+      region: '??',
     },
   ],
   'municipal-solid-waste': [
     {
-      title: '生活可回收物参考价（低值混合）',
+      title: '?????????(????)',
       price: 230,
-      unit: '元/吨',
-      source: '中国废品回收网-2025行情',
+      unit: '?/?',
+      source: '???????-2025??',
       sourceUrl: 'http://www.zgfeipin.cn/expo_17556_1/',
-      region: '全国',
+      region: '??',
     },
     {
-      title: '生活可回收物参考价（高值分拣）',
+      title: '?????????(????)',
       price: 660,
-      unit: '元/吨',
-      source: '中国废品回收网-2025行情',
+      unit: '?/?',
+      source: '???????-2025??',
       sourceUrl: 'http://www.zgfeipin.cn/expo_17556_1/',
-      region: '全国',
+      region: '??',
     },
   ],
   'construction-waste': [
     {
-      title: '建筑废弃物资源化处理参考价',
+      title: '?????????????',
       price: 150,
-      unit: '元/吨',
-      source: 'Baidu Legal-建筑垃圾处置费',
+      unit: '?/?',
+      source: 'Baidu Legal-???????',
       sourceUrl: 'https://ailegal.baidu.com/legalarticle/qadetail?id=000ca241cf9d36241227',
-      region: '全国',
+      region: '??',
     },
     {
-      title: '建筑垃圾处理参考价（政策口径）',
+      title: '?????????(????)',
       price: 45,
-      unit: '元/吨',
-      source: '红星机器-建筑垃圾处理成本',
+      unit: '?/?',
+      source: '????-????????',
       sourceUrl: 'https://www.hnhxjq.com/news/news4286.htm',
-      region: '全国',
+      region: '??',
     },
   ],
 };
@@ -599,7 +619,7 @@ function buildQuoteId(categoryId: string, source: string, title: string, price: 
 function parsePriceCandidates(line: string): Array<{ price: number; unit: string; isAdjustmentContext: boolean }> {
   const dealMatch = DEAL_PRICE_REGEX.exec(line);
   if (dealMatch) {
-    return [{ price: Number(dealMatch[1]), unit: '元/单', isAdjustmentContext: false }];
+    return [{ price: Number(dealMatch[1]), unit: '?/?', isAdjustmentContext: false }];
   }
 
   const candidates: Array<{ price: number; unit: string; isAdjustmentContext: boolean }> = [];
@@ -610,7 +630,7 @@ function parsePriceCandidates(line: string): Array<{ price: number; unit: string
     }
 
     const unitRaw = match[2]?.trim();
-    const unit = unitRaw ? `元/${unitRaw}` : '元';
+    const unit = unitRaw ? `?/${unitRaw}` : '?';
     const index = match.index ?? 0;
     const contextStart = Math.max(0, index - 10);
     const contextEnd = Math.min(line.length, index + 14);
@@ -631,7 +651,7 @@ function parsePriceCandidates(line: string): Array<{ price: number; unit: string
   const pool = (preferred.length ? preferred : candidates).sort((left, right) => right.price - left.price);
 
   if (!preferred.length && pool.length) {
-    return pool.filter((item) => !(item.isAdjustmentContext && item.price < 120 && item.unit.includes('吨')));
+    return pool.filter((item) => !(item.isAdjustmentContext && item.price < 120 && item.unit.includes('?')));
   }
 
   return pool;
@@ -642,13 +662,13 @@ function quoteScore(line: string, price: number): number {
   if (line.includes(CITY_PRIORITY)) {
     score += 200;
   }
-  if (line.includes('回收') || line.includes('收购')) {
+  if (line.includes('??') || line.includes('??')) {
     score += 60;
   }
-  if (line.includes('今日') || line.includes('最新')) {
+  if (line.includes('??') || line.includes('??')) {
     score += 30;
   }
-  if (line.includes('价格') || line.includes('报价')) {
+  if (line.includes('??') || line.includes('??')) {
     score += 20;
   }
   score += Math.min(price / 300, 80);
@@ -670,7 +690,7 @@ function extractQuoteItemsFromText(
         return [line];
       }
       return line
-        .split(/[。；;]+/)
+        .split(/[?;;]+/)
         .map((item) => item.trim())
         .filter(Boolean);
     })
@@ -760,7 +780,7 @@ async function fetchBianbaoTradeFallback(category: CategoryDefinition, limit: nu
       category.searchKeyword,
       category.name,
       category.searchKeyword.split(/\s+/)[0],
-      ...category.quoteKeywords.slice(0, 4).map((keyword) => `${keyword} 回收`),
+      ...category.quoteKeywords.slice(0, 4).map((keyword) => `${keyword} ??`),
     ]),
   ];
   const tradeLinkSet = new Set<string>();
@@ -785,28 +805,28 @@ async function fetchBianbaoTradeFallback(category: CategoryDefinition, limit: nu
     }
 
     const plainSearch = htmlToPlainText(searchText);
-    for (const context of plainSearch.matchAll(/(.{0,34})(\d{2,7}(?:\.\d+)?)\s*元\s*\/?\s*(吨|公斤|千克|台|辆|套)?(.{0,34})/g)) {
-      const snippet = cleanTextLine(`${context[1]} ${context[2]} 元 ${context[4]}`);
+    for (const context of plainSearch.matchAll(/(.{0,34})(\d{2,7}(?:\.\d+)?)\s*?\s*\/?\s*(?|??|??|?|?|?)?(.{0,34})/g)) {
+      const snippet = cleanTextLine(`${context[1]} ${context[2]} ? ${context[4]}`);
       const likelyRelated =
         includesAny(snippet, category.quoteKeywords) ||
-        /回收|收购|废|再生|价格|报价/.test(snippet);
+        /??|??|?|??|??|??/.test(snippet);
       if (!likelyRelated) {
         continue;
       }
 
       const price = Number(context[2]);
       const unitRaw = context[3]?.trim();
-      const unit = unitRaw ? `元/${unitRaw}` : '元';
+      const unit = unitRaw ? `?/${unitRaw}` : '?';
       const region = detectRegion(snippet);
 
       quotes.push({
-        id: buildQuoteId(category.id, '变宝网-搜索', snippet, price),
+        id: buildQuoteId(category.id, '???-??', snippet, price),
         title: snippet,
         region,
         price,
         unit,
         priceText: `${price.toLocaleString('zh-CN')} ${unit}`,
-        source: '变宝网-搜索',
+        source: '???-??',
         sourceUrl: searchUrl,
         publishedAt: searchFetchedAt,
         isTianjinPriority: snippet.includes(CITY_PRIORITY) || region === CITY_PRIORITY,
@@ -848,24 +868,24 @@ async function fetchBianbaoTradeFallback(category: CategoryDefinition, limit: nu
 
       const titleMatch = entry.text.match(/<title>([^<]+)<\/title>/i);
       const titleRaw = titleMatch ? cleanTextLine(titleMatch[1]) : cleanTextLine(category.name);
-      const title = titleRaw.length >= 4 ? titleRaw : `${category.name} 回收商机`;
+      const title = titleRaw.length >= 4 ? titleRaw : `${category.name} ????`;
       const price = Number(deal[1]);
       const region = detectRegion(plainText) ?? detectRegion(title);
       const isCategoryRelated =
         includesAny(title, category.quoteKeywords) || includesAny(plainText.slice(0, 800), category.quoteKeywords);
-      const hasPriceContext = /回收|收购|报价|到厂价|采购价|交易金额/.test(plainText);
-      if (!hasPriceContext || (!isCategoryRelated && !/回收|收购|废/.test(title))) {
+      const hasPriceContext = /??|??|??|???|???|????/.test(plainText);
+      if (!hasPriceContext || (!isCategoryRelated && !/??|??|?/.test(title))) {
         return;
       }
 
       quotes.push({
-        id: buildQuoteId(category.id, '变宝网-商机', title, price),
+        id: buildQuoteId(category.id, '???-??', title, price),
         title,
         region,
         price,
-        unit: '元/单',
-        priceText: `${price.toLocaleString('zh-CN')} 元/单`,
-        source: '变宝网-商机',
+        unit: '?/?',
+        priceText: `${price.toLocaleString('zh-CN')} ?/?`,
+        source: '???-??',
         sourceUrl: entry.tradeUrl,
         publishedAt: searchFetchedAt,
         isTianjinPriority: plainText.includes(CITY_PRIORITY) || title.includes(CITY_PRIORITY),
@@ -932,7 +952,7 @@ function collectNews(
       .filter((item) => item.kind === kind)
       .forEach((doc) => {
         parseLinks(doc.text)
-          .filter((link) => /回收|再生|废|recycling|scrap|waste/i.test(link.title))
+          .filter((link) => /??|??|?|recycling|scrap|waste/i.test(link.title))
           .slice(0, 3)
           .forEach((fallback) => {
             news.push({
@@ -957,6 +977,82 @@ function collectNews(
   return [...deduped.values()].slice(0, 10);
 }
 
+function collectRegulationUpdates(category: CategoryDefinition, docs: SourceDoc[]): NewsItem[] {
+  const officialDocs = docs.filter((item) => item.kind === 'official');
+  const normalizedEnKeywords = category.newsKeywordsEn.map((item) => item.toLowerCase());
+  const broadCnKeywords = Array.from(new Set([
+    category.name,
+    category.name.replace(/^?/, ''),
+    category.name.replace(/^??/, ''),
+    ...category.quoteKeywords,
+    ...category.newsKeywordsCn,
+    ...category.subcategories,
+  ]))
+    .map((item) => item.trim())
+    .filter((item) => item.length >= 2);
+  const regulationTitleRe = /????|??|??|??|??|??|??|??|??|??|??|??|??|????|????|????|????/i;
+  const genericRe = /????|????|????|????|??|????|????|?????|?????|??????|??????|????/i;
+  const updates: NewsItem[] = [];
+
+  officialDocs.forEach((doc) => {
+    parseLinks(doc.text).forEach((link) => {
+      const title = link.title.trim();
+      const lowerTitle = title.toLowerCase();
+      if (!regulationTitleRe.test(title)) {
+        return;
+      }
+
+      const matched =
+        includesAny(title, broadCnKeywords) ||
+        normalizedEnKeywords.some((keyword) => lowerTitle.includes(keyword));
+
+      if (!matched && !genericRe.test(title)) {
+        return;
+      }
+
+      updates.push({
+        id: buildNewsId(`${category.id}-official`, title, doc.source),
+        title,
+        source: doc.source,
+        link: link.url,
+        publishedAt: doc.fetchedAt,
+      });
+    });
+  });
+
+  const deduped = new Map<string, NewsItem>();
+  updates.forEach((item) => {
+    if (!deduped.has(item.title)) {
+      deduped.set(item.title, item);
+    }
+  });
+
+  const primary = [...deduped.values()].slice(0, 6);
+  if (primary.length) {
+    return primary;
+  }
+
+  const fallback = new Map<string, NewsItem>();
+  officialDocs.forEach((doc) => {
+    parseLinks(doc.text)
+      .filter((link) => regulationTitleRe.test(link.title) && genericRe.test(link.title))
+      .slice(0, 3)
+      .forEach((link) => {
+        if (!fallback.has(link.title)) {
+          fallback.set(link.title, {
+            id: buildNewsId(`${category.id}-official-fallback`, link.title, doc.source),
+            title: link.title,
+            source: doc.source,
+            link: link.url,
+            publishedAt: doc.fetchedAt,
+          });
+        }
+      });
+  });
+
+  return [...fallback.values()].slice(0, 4);
+}
+
 function mergeNews(primary: NewsItem[], fallback: NewsItem[], limit = 10): NewsItem[] {
   const merged = new Map<string, NewsItem>();
   [...primary, ...fallback].forEach((item) => {
@@ -972,11 +1068,11 @@ function collectGlobalNews(docs: SourceDoc[]): {
   internationalNews: NewsItem[];
 } {
   const includeRe =
-    /再生资源|循环经济|资源回收|回收体系|固废|废弃物|环保|双碳|碳中和|碳排放|行业|产业|政策|标准|监管|绿色制造|green|recycling|circular economy|waste management|scrap/i;
+    /????|????|????|????|??|???|??|??|???|???|??|??|??|??|??|????|green|recycling|circular economy|waste management|scrap/i;
   const verticalRe =
-    /废钢|废铁|废铜|废铝|废纸|纸浆|PET|PP|PE|电池黑粉|动力电池|报废汽车|电子废弃物|废纺织|废橡胶|废木材|厨余|油脂|建筑废弃物|glass|rubber|plastic|paper|steel|copper|aluminum|battery/i;
+    /??|??|??|??|??|??|PET|PP|PE|????|????|????|?????|???|???|???|??|??|?????|glass|rubber|plastic|paper|steel|copper|aluminum|battery/i;
   const preferredSourcesByKind: Record<'domestic' | 'international', string[]> = {
-    domestic: ['中国再生资源回收利用协会'],
+    domestic: ['????????????'],
     international: ['Reccessary'],
   };
 
@@ -996,7 +1092,7 @@ function collectGlobalNews(docs: SourceDoc[]): {
       .forEach((doc) => {
         parseLinks(doc.text).forEach((link) => {
           const title = link.title.trim();
-          if (!includeRe.test(title) && !/回收|再生|废|资源|recycling|scrap|waste/i.test(title)) {
+          if (!includeRe.test(title) && !/??|??|?|??|recycling|scrap|waste/i.test(title)) {
             return;
           }
           const next: NewsItem = {
@@ -1057,12 +1153,12 @@ function toMonthKey(date: Date): string {
 }
 
 function parseDateFromText(text: string): Date | null {
-  const full = text.match(/(20\d{2})年(\d{1,2})月(\d{1,2})日/);
+  const full = text.match(/(20\d{2})?(\d{1,2})?(\d{1,2})?/);
   if (full) {
     return new Date(Number(full[1]), Number(full[2]) - 1, Number(full[3]));
   }
 
-  const partial = text.match(/(\d{1,2})月(\d{1,2})日/);
+  const partial = text.match(/(\d{1,2})?(\d{1,2})?/);
   if (partial) {
     const now = new Date();
     return new Date(now.getFullYear(), Number(partial[1]) - 1, Number(partial[2]));
@@ -1116,7 +1212,7 @@ function buildHistory(category: CategoryDefinition, quotes: QuoteItem[]): Array<
 function buildRegionBars(quotes: QuoteItem[]): Array<{ region: string; avgPrice: number }> {
   const grouped = new Map<string, { sum: number; count: number }>();
   quotes.forEach((item) => {
-    const region = item.region ?? detectRegion(item.title) ?? '全国';
+    const region = item.region ?? detectRegion(item.title) ?? '??';
     const current = grouped.get(region) ?? { sum: 0, count: 0 };
     current.sum += item.price;
     current.count += 1;
@@ -1141,7 +1237,7 @@ function buildSubcategoryShares(
     const name =
       category.subcategories.find((sub) => item.title.includes(sub)) ??
       category.subcategories[0] ??
-      '综合';
+      '??';
     grouped.set(name, (grouped.get(name) ?? 0) + 1);
   });
 
@@ -1206,6 +1302,7 @@ function emptyCategorySnapshot(category: CategoryDefinition): CategorySnapshot {
       costStructure: category.costStructure,
       processFlow: category.processFlow,
       regulations: category.regulations,
+      regulationUpdates: [],
     },
     analytics: {
       history: [],
@@ -1307,10 +1404,12 @@ async function collectCategorySnapshot(
   const quotes = primaryQuotes.slice(0, 10);
   const domesticNews = collectNews(category, docs, 'domestic');
   const internationalNews = collectNews(category, docs, 'international');
+  const regulationUpdates = collectRegulationUpdates(category, docs);
 
   categorySnapshot.quotes = quotes;
   categorySnapshot.domesticNews = mergeNews(domesticNews, globalNews.domesticNews, 10);
   categorySnapshot.internationalNews = mergeNews(internationalNews, globalNews.internationalNews, 10);
+  categorySnapshot.detail.regulationUpdates = regulationUpdates;
   categorySnapshot.analytics = {
     history: buildHistory(category, quotes),
     regionBars: buildRegionBars(quotes),

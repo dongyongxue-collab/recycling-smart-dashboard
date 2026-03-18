@@ -1,4 +1,4 @@
-﻿@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700&display=swap');
 
 :root {
   --bg: #071018;
@@ -379,6 +379,82 @@ body {
   max-height: calc(100vh - 280px);
   overflow: auto;
   padding-right: 4px;
+}
+
+.category-brief-card {
+  border: 1px solid rgba(120, 171, 232, 0.16);
+  border-radius: 14px;
+  background:
+    linear-gradient(180deg, rgba(11, 22, 36, 0.94), rgba(9, 17, 28, 0.92)),
+    radial-gradient(circle at top right, rgba(102, 183, 255, 0.14), transparent 54%);
+  padding: 12px;
+  display: grid;
+  gap: 10px;
+}
+
+.category-brief-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.category-brief-head strong {
+  font-size: 14px;
+}
+
+.category-brief-head span {
+  font-size: 11px;
+  color: var(--text-soft);
+}
+
+.category-brief-stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.category-brief-stats div {
+  border-radius: 12px;
+  border: 1px solid rgba(118, 169, 225, 0.12);
+  background: rgba(12, 24, 39, 0.74);
+  padding: 9px 10px;
+  display: grid;
+  gap: 4px;
+}
+
+.category-brief-stats small {
+  color: var(--text-soft);
+  font-size: 11px;
+}
+
+.category-brief-stats strong {
+  font-size: 18px;
+  line-height: 1;
+  color: #9fffe2;
+}
+
+.category-brief-note {
+  display: grid;
+  gap: 5px;
+}
+
+.category-brief-note span {
+  color: var(--text-soft);
+  font-size: 11px;
+}
+
+.category-brief-note p,
+.category-brief-note a {
+  margin: 0;
+  color: #dcebff;
+  font-size: 12px;
+  line-height: 1.45;
+  text-decoration: none;
+}
+
+.category-brief-note a:hover {
+  text-decoration: underline;
 }
 
 .category-item {
@@ -889,6 +965,27 @@ td a:hover {
 
 .knowledge-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.regulation-stack {
+  display: grid;
+  gap: 12px;
+}
+
+.regulation-block {
+  display: grid;
+  gap: 8px;
+}
+
+.regulation-block h4 {
+  margin: 0;
+  font-size: 13px;
+  color: #9ec1e6;
+  letter-spacing: 0.03em;
+}
+
+.rule-list-compact li {
+  padding: 8px 10px;
 }
 
 .pain-points-panel {
