@@ -1,0 +1,4237 @@
+{
+  "fetchedAt": "2026-04-10T09:23:34.477Z",
+  "cityPriority": "天津",
+  "globalNews": {
+    "domesticNews": [],
+    "internationalNews": []
+  },
+  "categories": [
+    {
+      "id": "scrap-steel",
+      "name": "废钢",
+      "quotes": [
+        {
+          "id": "scrap-steel-450030910",
+          "title": "重废回收参考价（天津）",
+          "region": "天津",
+          "price": 2260,
+          "unit": "元/吨",
+          "priceText": "2,260 元/吨",
+          "source": "中国废品回收网-价格明细",
+          "sourceUrl": "http://www.zgfeipin.cn/expo_17561_1/",
+          "publishedAt": "2026-04-10T09:22:28.053Z",
+          "isTianjinPriority": false
+        },
+        {
+          "id": "scrap-steel-421859303",
+          "title": "钢筋头回收参考价（河北）",
+          "region": "河北",
+          "price": 2380,
+          "unit": "元/吨",
+          "priceText": "2,380 元/吨",
+          "source": "中国废品回收网-2025行情",
+          "sourceUrl": "http://www.zgfeipin.cn/expo_17556_1/",
+          "publishedAt": "2026-04-10T09:22:28.053Z",
+          "isTianjinPriority": false
+        }
+      ],
+      "domesticNews": [],
+      "internationalNews": [],
+      "detail": {
+        "subcategories": [
+          "重废",
+          "中废",
+          "轻薄料",
+          "钢筋压块",
+          "工地料"
+        ],
+        "painPoints": [
+          "钢厂到厂价、基地收购价和社会面流通价分层明显，单一报价难反映真实成交区间。",
+          "轻薄料、压块料和工地料扣杂标准不一，验货后价差波动大。",
+          "物流半径和装卸效率直接吞噬毛利，跨区域调货对时效和现金流要求高。"
+        ],
+        "subBoards": [],
+        "costStructure": [
+          {
+            "label": "收购价",
+            "percent": 72
+          },
+          {
+            "label": "分拣与加工",
+            "percent": 10
+          },
+          {
+            "label": "运输",
+            "percent": 12
+          },
+          {
+            "label": "损耗与管理",
+            "percent": 6
+          }
+        ],
+        "processFlow": [
+          {
+            "step": 1,
+            "title": "回收集货",
+            "description": "回收站按重废、中废、轻薄料分级收货。"
+          },
+          {
+            "step": 2,
+            "title": "预处理",
+            "description": "去杂、剪切、打包，形成钢厂可接收料型。"
+          },
+          {
+            "step": 3,
+            "title": "物流进厂",
+            "description": "按到厂标准过磅、质检、扣杂。"
+          },
+          {
+            "step": 4,
+            "title": "熔炼再生",
+            "description": "进入电炉/转炉配料，形成再生钢原料。"
+          }
+        ],
+        "regulations": [
+          {
+            "title": "中华人民共和国固体废物污染环境防治法",
+            "authority": "全国人大常委会",
+            "referenceUrl": "https://www.gov.cn/xinwen/2020-04/30/content_5507561.htm",
+            "publishedDate": "2020-04-29",
+            "status": "现行有效",
+            "docType": "法律"
+          },
+          {
+            "title": "再生资源回收管理办法",
+            "authority": "商务部",
+            "referenceUrl": "https://www.gov.cn/gongbao/content/2007/content_721184.htm",
+            "publishedDate": "2007-05",
+            "status": "现行有效",
+            "docType": "办法"
+          },
+          {
+            "title": "危险废物转移管理办法",
+            "authority": "生态环境部",
+            "referenceUrl": "https://www.mee.gov.cn/xxgk2018/xxgk/xxgk02/202111/t20211130_962150.html",
+            "publishedDate": "2021-11-30",
+            "status": "现行有效",
+            "docType": "办法"
+          },
+          {
+            "title": "加强废钢铁加工行业规范管理 推动钢铁行业绿色高质量发展",
+            "authority": "工信部",
+            "referenceUrl": "https://www.miit.gov.cn/jgsj/jns/gzdt/art/2024/art_c312348475c6498e8f3a84d4b6f5a058.html"
+          }
+        ],
+        "commonRegulations": [
+          {
+            "title": "中华人民共和国固体废物污染环境防治法",
+            "authority": "全国人大常委会",
+            "referenceUrl": "https://www.gov.cn/xinwen/2020-04/30/content_5507561.htm",
+            "publishedDate": "2020-04-29",
+            "status": "现行有效",
+            "docType": "法律"
+          },
+          {
+            "title": "再生资源回收管理办法",
+            "authority": "商务部",
+            "referenceUrl": "https://www.gov.cn/gongbao/content/2007/content_721184.htm",
+            "publishedDate": "2007-05",
+            "status": "现行有效",
+            "docType": "办法"
+          }
+        ],
+        "categoryRegulations": [
+          {
+            "title": "危险废物转移管理办法",
+            "authority": "生态环境部",
+            "referenceUrl": "https://www.mee.gov.cn/xxgk2018/xxgk/xxgk02/202111/t20211130_962150.html",
+            "publishedDate": "2021-11-30",
+            "status": "现行有效",
+            "docType": "办法"
+          },
+          {
+            "title": "加强废钢铁加工行业规范管理 推动钢铁行业绿色高质量发展",
+            "authority": "工信部",
+            "referenceUrl": "https://www.miit.gov.cn/jgsj/jns/gzdt/art/2024/art_c312348475c6498e8f3a84d4b6f5a058.html"
+          }
+        ],
+        "supportMaterials": [
+          {
+            "id": "scrap-steel-support-live-0",
+            "title": "危险废物转移管理办法",
+            "source": "生态环境部",
+            "link": "https://www.mee.gov.cn/xxgk2018/xxgk/xxgk02/202111/t20211130_962150.html",
+            "publishedAt": "2021-11-30"
+          },
+          {
+            "id": "scrap-steel-support-live-1",
+            "title": "加强废钢铁加工行业规范管理 推动钢铁行业绿色高质量发展",
+            "source": "工信部",
+            "link": "https://www.miit.gov.cn/jgsj/jns/gzdt/art/2024/art_c312348475c6498e8f3a84d4b6f5a058.html",
+            "publishedAt": ""
+          }
+        ],
+        "regulationUpdates": []
+      },
+      "analytics": {
+        "history": [
+          {
+            "month": "2025-11",
+            "price": 2251.75
+          },
+          {
+            "month": "2025-12",
+            "price": 2240.35
+          },
+          {
+            "month": "2026-01",
+            "price": 2387.6
+          },
+          {
+            "month": "2026-02",
+            "price": 2376.2
+          },
+          {
+            "month": "2026-03",
+            "price": 2364.79
+          },
+          {
+            "month": "2026-04",
+            "price": 2320
+          }
+        ],
+        "regionBars": [
+          {
+            "region": "河北",
+            "avgPrice": 2380
+          },
+          {
+            "region": "天津",
+            "avgPrice": 2260
+          }
+        ],
+        "subcategoryShares": [
+          {
+            "name": "重废",
+            "value": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "scrap-copper",
+      "name": "废铜",
+      "quotes": [
+        {
+          "id": "scrap-copper-1332861012",
+          "title": "1#光亮铜回收参考价（天津）",
+          "region": "天津",
+          "price": 69400,
+          "unit": "元/吨",
+          "priceText": "69,400 元/吨",
+          "source": "中国废品回收网-价格明细",
+          "sourceUrl": "http://www.zgfeipin.cn/expo_17561_1/",
+          "publishedAt": "2026-04-10T09:22:26.385Z",
+          "isTianjinPriority": false
+        },
+        {
+          "id": "scrap-copper-503767152",
+          "title": "黄铜回收参考价（华东）",
+          "region": "江苏",
+          "price": 47300,
+          "unit": "元/吨",
+          "priceText": "47,300 元/吨",
+          "source": "中国废品回收网-2025收购价",
+          "sourceUrl": "http://www.zgfeipin.cn/expo_17604_1/",
+          "publishedAt": "2026-04-10T09:22:26.385Z",
+          "isTianjinPriority": false
+        }
+      ],
+      "domesticNews": [],
+      "internationalNews": [],
+      "detail": {
+        "subcategories": [
+          "1#光亮铜",
+          "2#铜",
+          "黄铜",
+          "铜米",
+          "杂铜"
+        ],
+        "painPoints": [
+          "品位判定高度依赖现场拆解和经验，光亮铜、杂铜、黄铜之间的价差极易被误判。",
+          "线缆剥离、损耗和税票处理影响最终净价，公开报价通常低于可落地成交价。",
+          "国际铜价、汇率和下游铜杆订单联动紧，回收端容易出现高波动低锁价的问题。"
+        ],
+        "subBoards": [],
+        "costStructure": [
+          {
+            "label": "收购价",
+            "percent": 78
+          },
+          {
+            "label": "拆解剥离",
+            "percent": 9
+          },
+          {
+            "label": "运输",
+            "percent": 8
+          },
+          {
+            "label": "损耗与税费",
+            "percent": 5
+          }
+        ],
+        "processFlow": [
+          {
+            "step": 1,
+            "title": "分选定级",
+            "description": "按光亮铜、杂铜、黄铜等品级分流。"
+          },
+          {
+            "step": 2,
+            "title": "破碎剥离",
+            "description": "电缆线类进行破碎与物理分选。"
+          },
+          {
+            "step": 3,
+            "title": "精炼处理",
+            "description": "除杂后进入再生铜冶炼环节。"
+          },
+          {
+            "step": 4,
+            "title": "再生利用",
+            "description": "输出再生铜杆、铜锭等产品。"
+          }
+        ],
+        "regulations": [
+          {
+            "title": "中华人民共和国固体废物污染环境防治法",
+            "authority": "全国人大常委会",
+            "referenceUrl": "https://www.gov.cn/xinwen/2020-04/30/content_5507561.htm",
+            "publishedDate": "2020-04-29",
+            "status": "现行有效",
+            "docType": "法律"
+          },
+          {
+            "title": "再生资源回收管理办法",
+            "authority": "商务部",
+            "referenceUrl": "https://www.gov.cn/gongbao/content/2007/content_721184.htm",
+            "publishedDate": "2007-05",
+            "status": "现行有效",
+            "docType": "办法"
+          },
+          {
+            "title": "危险废物转移管理办法",
+            "authority": "生态环境部",
+            "referenceUrl": "https://www.mee.gov.cn/xxgk2018/xxgk/xxgk02/202111/t20211130_962150.html",
+            "publishedDate": "2021-11-30",
+            "status": "现行有效",
+            "docType": "办法"
+          },
+          {
+            "title": "首批符合《废铜铝加工利用行业规范条件》企业名单发布",
+            "authority": "工信部",
+            "referenceUrl": "https://www.miit.gov.cn/jgsj/jns/gzdt/art/2024/art_f830c847b82740a98d8a9eddb975fe74.html"
+          }
+        ],
+        "commonRegulations": [
+          {
+            "title": "中华人民共和国固体废物污染环境防治法",
+            "authority": "全国人大常委会",
+            "referenceUrl": "https://www.gov.cn/xinwen/2020-04/30/content_5507561.htm",
+            "publishedDate": "2020-04-29",
+            "status": "现行有效",
+            "docType": "法律"
+          },
+          {
+            "title": "再生资源回收管理办法",
+            "authority": "商务部",
+            "referenceUrl": "https://www.gov.cn/gongbao/content/2007/content_721184.htm",
+            "publishedDate": "2007-05",
+            "status": "现行有效",
+            "docType": "办法"
+          }
+        ],
+        "categoryRegulations": [
+          {
+            "title": "危险废物转移管理办法",
+            "authority": "生态环境部",
+            "referenceUrl": "https://www.mee.gov.cn/xxgk2018/xxgk/xxgk02/202111/t20211130_962150.html",
+            "publishedDate": "2021-11-30",
+            "status": "现行有效",
+            "docType": "办法"
+          },
+          {
+            "title": "首批符合《废铜铝加工利用行业规范条件》企业名单发布",
+            "authority": "工信部",
+            "referenceUrl": "https://www.miit.gov.cn/jgsj/jns/gzdt/art/2024/art_f830c847b82740a98d8a9eddb975fe74.html"
+          }
+        ],
+        "supportMaterials": [
+          {
+            "id": "scrap-copper-support-live-0",
+            "title": "危险废物转移管理办法",
+            "source": "生态环境部",
+            "link": "https://www.mee.gov.cn/xxgk2018/xxgk/xxgk02/202111/t20211130_962150.html",
+            "publishedAt": "2021-11-30"
+          },
+          {
+            "id": "scrap-copper-support-live-1",
+            "title": "首批符合《废铜铝加工利用行业规范条件》企业名单发布",
+            "source": "工信部",
+            "link": "https://www.miit.gov.cn/jgsj/jns/gzdt/art/2024/art_f830c847b82740a98d8a9eddb975fe74.html",
+            "publishedAt": ""
+          }
+        ],
+        "regulationUpdates": []
+      },
+      "analytics": {
+        "history": [
+          {
+            "month": "2025-11",
+            "price": 56100.86
+          },
+          {
+            "month": "2025-12",
+            "price": 55814.09
+          },
+          {
+            "month": "2026-01",
+            "price": 59517.59
+          },
+          {
+            "month": "2026-02",
+            "price": 59230.81
+          },
+          {
+            "month": "2026-03",
+            "price": 58944.03
+          },
+          {
+            "month": "2026-04",
+            "price": 58350
+          }
+        ],
+        "regionBars": [
+          {
+            "region": "天津",
+            "avgPrice": 69400
+          },
+          {
+            "region": "江苏",
+            "avgPrice": 47300
+          }
+        ],
+        "subcategoryShares": [
+          {
+            "name": "1#光亮铜",
+            "value": 1
+          },
+          {
+            "name": "黄铜",
+            "value": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "scrap-aluminum",
+      "name": "废铝",
+      "quotes": [
+        {
+          "id": "scrap-aluminum-122761946",
+          "title": "工业生铝回收参考价（天津）",
+          "region": "天津",
+          "price": 15400,
+          "unit": "元/吨",
+          "priceText": "15,400 元/吨",
+          "source": "中国废品回收网-价格明细",
+          "sourceUrl": "http://www.zgfeipin.cn/expo_17561_1/",
+          "publishedAt": "2026-04-10T09:22:24.319Z",
+          "isTianjinPriority": false
+        },
+        {
+          "id": "scrap-aluminum-469786502",
+          "title": "易拉罐铝回收参考价（华南）",
+          "region": "广东",
+          "price": 13200,
+          "unit": "元/吨",
+          "priceText": "13,200 元/吨",
+          "source": "中国废品回收网-2025行情",
+          "sourceUrl": "http://www.zgfeipin.cn/expo_17556_1/",
+          "publishedAt": "2026-04-10T09:22:24.319Z",
+          "isTianjinPriority": false
+        }
+      ],
+      "domesticNews": [],
+      "internationalNews": [],
+      "detail": {
+        "subcategories": [
+          "机生铝",
+          "熟铝",
+          "铝合金",
+          "易拉罐铝",
+          "铝屑"
+        ],
+        "painPoints": [
+          "生铝、熟铝、铝合金和铝屑的杂质控制标准差异大，来料一旦混级就会压价。",
+          "除漆、除铁和熔损率直接决定利润，很多公开价格未体现加工损耗。",
+          "再生铝下游需求受汽车、建筑和家电订单影响明显，回收端波动具有周期性。"
+        ],
+        "subBoards": [],
+        "costStructure": [
+          {
+            "label": "收购价",
+            "percent": 75
+          },
+          {
+            "label": "预处理",
+            "percent": 11
+          },
+          {
+            "label": "运输",
+            "percent": 9
+          },
+          {
+            "label": "能耗与管理",
+            "percent": 5
+          }
+        ],
+        "processFlow": [
+          {
+            "step": 1,
+            "title": "来料验级",
+            "description": "按型材、压铸、易拉罐等类别收料。"
+          },
+          {
+            "step": 2,
+            "title": "破碎除杂",
+            "description": "去漆、去铁及杂质分离。"
+          },
+          {
+            "step": 3,
+            "title": "熔炼合金化",
+            "description": "按牌号进行配比熔炼。"
+          },
+          {
+            "step": 4,
+            "title": "铸锭/再加工",
+            "description": "形成再生铝锭和再加工材料。"
+          }
+        ],
+        "regulations": [
+          {
+            "title": "中华人民共和国固体废物污染环境防治法",
+            "authority": "全国人大常委会",
+            "referenceUrl": "https://www.gov.cn/xinwen/2020-04/30/content_5507561.htm",
+            "publishedDate": "2020-04-29",
+            "status": "现行有效",
+            "docType": "法律"
+          },
+          {
+            "title": "再生资源回收管理办法",
+            "authority": "商务部",
+            "referenceUrl": "https://www.gov.cn/gongbao/content/2007/content_721184.htm",
+            "publishedDate": "2007-05",
+            "status": "现行有效",
+            "docType": "办法"
+          },
+          {
+            "title": "危险废物转移管理办法",
+            "authority": "生态环境部",
+            "referenceUrl": "https://www.mee.gov.cn/xxgk2018/xxgk/xxgk02/202111/t20211130_962150.html",
+            "publishedDate": "2021-11-30",
+            "status": "现行有效",
+            "docType": "办法"
+          },
+          {
+            "title": "首批符合《废铜铝加工利用行业规范条件》企业名单发布",
+            "authority": "工信部",
+            "referenceUrl": "https://www.miit.gov.cn/jgsj/jns/gzdt/art/2024/art_f830c847b82740a98d8a9eddb975fe74.html"
+          }
+        ],
+        "commonRegulations": [
+          {
+            "title": "中华人民共和国固体废物污染环境防治法",
+            "authority": "全国人大常委会",
+            "referenceUrl": "https://www.gov.cn/xinwen/2020-04/30/content_5507561.htm",
+            "publishedDate": "2020-04-29",
+            "status": "现行有效",
+            "docType": "法律"
+          },
+          {
+            "title": "再生资源回收管理办法",
+            "authority": "商务部",
+            "referenceUrl": "https://www.gov.cn/gongbao/content/2007/content_721184.htm",
+            "publishedDate": "2007-05",
+            "status": "现行有效",
+            "docType": "办法"
+          }
+        ],
+        "categoryRegulations": [
+          {
+            "title": "危险废物转移管理办法",
+            "authority": "生态环境部",
+            "referenceUrl": "https://www.mee.gov.cn/xxgk2018/xxgk/xxgk02/202111/t20211130_962150.html",
+            "publishedDate": "2021-11-30",
+            "status": "现行有效",
+            "docType": "办法"
+          },
+          {
+            "title": "首批符合《废铜铝加工利用行业规范条件》企业名单发布",
+            "authority": "工信部",
+            "referenceUrl": "https://www.miit.gov.cn/jgsj/jns/gzdt/art/2024/art_f830c847b82740a98d8a9eddb975fe74.html"
+          }
+        ],
+        "supportMaterials": [
+          {
+            "id": "scrap-aluminum-support-live-0",
+            "title": "危险废物转移管理办法",
+            "source": "生态环境部",
+            "link": "https://www.mee.gov.cn/xxgk2018/xxgk/xxgk02/202111/t20211130_962150.html",
+            "publishedAt": "2021-11-30"
+          },
+          {
+            "id": "scrap-aluminum-support-live-1",
+            "title": "首批符合《废铜铝加工利用行业规范条件》企业名单发布",
+            "source": "工信部",
+            "link": "https://www.miit.gov.cn/jgsj/jns/gzdt/art/2024/art_f830c847b82740a98d8a9eddb975fe74.html",
+            "publishedAt": ""
+          }
+        ],
+        "regulationUpdates": []
+      },
+      "analytics": {
+        "history": [
+          {
+            "month": "2025-11",
+            "price": 13674.5
+          },
+          {
+            "month": "2025-12",
+            "price": 13604.22
+          },
+          {
+            "month": "2026-01",
+            "price": 14511.85
+          },
+          {
+            "month": "2026-02",
+            "price": 14441.57
+          },
+          {
+            "month": "2026-03",
+            "price": 14371.28
+          },
+          {
+            "month": "2026-04",
+            "price": 14300
+          }
+        ],
+        "regionBars": [
+          {
+            "region": "天津",
+            "avgPrice": 15400
+          },
+          {
+            "region": "广东",
+            "avgPrice": 13200
+          }
+        ],
+        "subcategoryShares": [
+          {
+            "name": "机生铝",
+            "value": 1
+          },
+          {
+            "name": "易拉罐铝",
+            "value": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "waste-plastic",
+      "name": "废塑料",
+      "quotes": [
+        {
+          "id": "waste-plastic-1780082751",
+          "title": "再生塑料公开回收参考价（PET/通用塑料）",
+          "region": "全国",
+          "price": 3500,
+          "unit": "元/吨",
+          "priceText": "3,500 元/吨",
+          "source": "中国废品回收网-最新各种废品回收价格明细表",
+          "sourceUrl": "http://www.zgfeipin.cn/expo_17561_1/",
+          "publishedAt": "2026-04-10T09:22:32.356Z",
+          "isTianjinPriority": false
+        },
+        {
+          "id": "waste-plastic-1812433561",
+          "title": "废塑料公开回收参考价（高值料）",
+          "region": "全国",
+          "price": 21300,
+          "unit": "元/吨",
+          "priceText": "21,300 元/吨",
+          "source": "中国废品回收网-废塑料价格",
+          "sourceUrl": "http://www.zgfeipin.cn/expo_17606_1/",
+          "publishedAt": "2026-04-10T09:22:32.356Z",
+          "isTianjinPriority": false
+        }
+      ],
+      "domesticNews": [],
+      "internationalNews": [],
+      "detail": {
+        "subcategories": [
+          "PET瓶片",
+          "PP再生料",
+          "PE再生料",
+          "ABS再生料",
+          "混合塑料"
+        ],
+        "painPoints": [
+          "同样是塑料，颜色、树脂牌号、洁净度和含水率都会让回收价产生明显分层。",
+          "清洗、热洗、造粒能耗高，低端料在电价和人工上涨时容易出现倒挂。",
+          "再生料销售受原油和新料价格挤压，公开回收价与终端成交价经常不同步。"
+        ],
+        "subBoards": [],
+        "costStructure": [
+          {
+            "label": "收购价",
+            "percent": 62
+          },
+          {
+            "label": "清洗分选",
+            "percent": 16
+          },
+          {
+            "label": "造粒加工",
+            "percent": 14
+          },
+          {
+            "label": "物流与损耗",
+            "percent": 8
+          }
+        ],
+        "processFlow": [
+          {
+            "step": 1,
+            "title": "分类收集",
+            "description": "按树脂种类和颜色进行分拣。"
+          },
+          {
+            "step": 2,
+            "title": "清洗破碎",
+            "description": "去标、去杂、破碎和热洗。"
+          },
+          {
+            "step": 3,
+            "title": "熔融造粒",
+            "description": "挤出、过滤、切粒形成再生颗粒。"
+          },
+          {
+            "step": 4,
+            "title": "改性应用",
+            "description": "按下游要求进行改性与配方调整。"
+          }
+        ],
+        "regulations": [
+          {
+            "title": "中华人民共和国固体废物污染环境防治法",
+            "authority": "全国人大常委会",
+            "referenceUrl": "https://www.gov.cn/xinwen/2020-04/30/content_5507561.htm",
+            "publishedDate": "2020-04-29",
+            "status": "现行有效",
+            "docType": "法律"
+          },
+          {
+            "title": "再生资源回收管理办法",
+            "authority": "商务部",
+            "referenceUrl": "https://www.gov.cn/gongbao/content/2007/content_721184.htm",
+            "publishedDate": "2007-05",
+            "status": "现行有效",
+            "docType": "办法"
+          },
+          {
+            "title": "危险废物转移管理办法",
+            "authority": "生态环境部",
+            "referenceUrl": "https://www.mee.gov.cn/xxgk2018/xxgk/xxgk02/202111/t20211130_962150.html",
+            "publishedDate": "2021-11-30",
+            "status": "现行有效",
+            "docType": "办法"
+          },
+          {
+            "title": "绿色转型，质效双升：废塑料规范企业树立行业新标杆",
+            "authority": "工信部",
+            "referenceUrl": "https://www.miit.gov.cn/jgsj/jns/gzdt/art/2024/art_9fd8c22ce264428ab312857fe328e3dc.html"
+          }
+        ],
+        "commonRegulations": [
+          {
+            "title": "中华人民共和国固体废物污染环境防治法",
+            "authority": "全国人大常委会",
+            "referenceUrl": "https://www.gov.cn/xinwen/2020-04/30/content_5507561.htm",
+            "publishedDate": "2020-04-29",
+            "status": "现行有效",
+            "docType": "法律"
+          },
+          {
+            "title": "再生资源回收管理办法",
+            "authority": "商务部",
+            "referenceUrl": "https://www.gov.cn/gongbao/content/2007/content_721184.htm",
+            "publishedDate": "2007-05",
+            "status": "现行有效",
+            "docType": "办法"
+          }
+        ],
+        "categoryRegulations": [
+          {
+            "title": "危险废物转移管理办法",
+            "authority": "生态环境部",
+            "referenceUrl": "https://www.mee.gov.cn/xxgk2018/xxgk/xxgk02/202111/t20211130_962150.html",
+            "publishedDate": "2021-11-30",
+            "status": "现行有效",
+            "docType": "办法"
+          },
+          {
+            "title": "绿色转型，质效双升：废塑料规范企业树立行业新标杆",
+            "authority": "工信部",
+            "referenceUrl": "https://www.miit.gov.cn/jgsj/jns/gzdt/art/2024/art_9fd8c22ce264428ab312857fe328e3dc.html"
+          }
+        ],
+        "supportMaterials": [
+          {
+            "id": "waste-plastic-support-live-0",
+            "title": "危险废物转移管理办法",
+            "source": "生态环境部",
+            "link": "https://www.mee.gov.cn/xxgk2018/xxgk/xxgk02/202111/t20211130_962150.html",
+            "publishedAt": "2021-11-30"
+          },
+          {
+            "id": "waste-plastic-support-live-1",
+            "title": "绿色转型，质效双升：废塑料规范企业树立行业新标杆",
+            "source": "工信部",
+            "link": "https://www.miit.gov.cn/jgsj/jns/gzdt/art/2024/art_9fd8c22ce264428ab312857fe328e3dc.html",
+            "publishedAt": ""
+          }
+        ],
+        "regulationUpdates": []
+      },
+      "analytics": {
+        "history": [
+          {
+            "month": "2025-11",
+            "price": 12467.04
+          },
+          {
+            "month": "2025-12",
+            "price": 12406.09
+          },
+          {
+            "month": "2026-01",
+            "price": 13193.13
+          },
+          {
+            "month": "2026-02",
+            "price": 13132.18
+          },
+          {
+            "month": "2026-03",
+            "price": 13071.24
+          },
+          {
+            "month": "2026-04",
+            "price": 12400
+          }
+        ],
+        "regionBars": [
+          {
+            "region": "全国",
+            "avgPrice": 12400
+          }
+        ],
+        "subcategoryShares": [
+          {
+            "name": "PET瓶片",
+            "value": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "waste-paper",
+      "name": "废纸",
+      "quotes": [
+        {
+          "id": "waste-paper-414240112",
+          "title": "AA级黄板纸回收参考价（华北）",
+          "region": "天津",
+          "price": 1480,
+          "unit": "元/吨",
+          "priceText": "1,480 元/吨",
+          "source": "中国废品回收网-2025收购价",
+          "sourceUrl": "http://www.zgfeipin.cn/expo_17604_1/",
+          "publishedAt": "2026-04-10T09:22:41.209Z",
+          "isTianjinPriority": false
+        },
+        {
+          "id": "waste-paper-1352709259",
+          "title": "A级黄板纸回收参考价（华东）",
+          "region": "浙江",
+          "price": 1320,
+          "unit": "元/吨",
+          "priceText": "1,320 元/吨",
+          "source": "中国废品回收网-2025收购价",
+          "sourceUrl": "http://www.zgfeipin.cn/expo_17604_1/",
+          "publishedAt": "2026-04-10T09:22:41.209Z",
+          "isTianjinPriority": false
+        }
+      ],
+      "domesticNews": [],
+      "internationalNews": [],
+      "detail": {
+        "subcategories": [
+          "AA级",
+          "A级",
+          "B级",
+          "统货",
+          "花纸边"
+        ],
+        "painPoints": [
+          "AA级、A级、统货和花纸边等级边界并不统一，纸厂扣点口径差异很大。",
+          "纸厂调价频繁，回收站库存一旦压货，单日价差就可能迅速放大。",
+          "含水率、杂质率和打包密度直接影响到厂结算，公开参考价不等于最终回款价。"
+        ],
+        "subBoards": [],
+        "costStructure": [
+          {
+            "label": "收购价",
+            "percent": 68
+          },
+          {
+            "label": "打包分拣",
+            "percent": 12
+          },
+          {
+            "label": "物流",
+            "percent": 13
+          },
+          {
+            "label": "损耗与管理",
+            "percent": 7
+          }
+        ],
+        "processFlow": [
+          {
+            "step": 1,
+            "title": "回收分类",
+            "description": "按黄板纸、白纸、报纸等等级分类。"
+          },
+          {
+            "step": 2,
+            "title": "打包运输",
+            "description": "压包后进入纸厂到厂体系。"
+          },
+          {
+            "step": 3,
+            "title": "制浆脱墨",
+            "description": "碎解、筛选、净化形成再生浆。"
+          },
+          {
+            "step": 4,
+            "title": "抄纸成品",
+            "description": "进入瓦楞、箱板等纸机生产线。"
+          }
+        ],
+        "regulations": [
+          {
+            "title": "中华人民共和国固体废物污染环境防治法",
+            "authority": "全国人大常委会",
+            "referenceUrl": "https://www.gov.cn/xinwen/2020-04/30/content_5507561.htm",
+            "publishedDate": "2020-04-29",
+            "status": "现行有效",
+            "docType": "法律"
+          },
+          {
+            "title": "再生资源回收管理办法",
+            "authority": "商务部",
+            "referenceUrl": "https://www.gov.cn/gongbao/content/2007/content_721184.htm",
+            "publishedDate": "2007-05",
+            "status": "现行有效",
+            "docType": "办法"
+          },
+          {
+            "title": "危险废物转移管理办法",
+            "authority": "生态环境部",
+            "referenceUrl": "https://www.mee.gov.cn/xxgk2018/xxgk/xxgk02/202111/t20211130_962150.html",
+            "publishedDate": "2021-11-30",
+            "status": "现行有效",
+            "docType": "办法"
+          },
+          {
+            "title": "《废纸加工行业规范条件》实施三年 行业规范发展成效显著",
+            "authority": "工信部",
+            "referenceUrl": "https://www.miit.gov.cn/jgsj/jns/zhlyh/art/2024/art_9011cc395c0f460090e0c36803772ae9.html"
+          }
+        ],
+        "commonRegulations": [
+          {
+            "title": "中华人民共和国固体废物污染环境防治法",
+            "authority": "全国人大常委会",
+            "referenceUrl": "https://www.gov.cn/xinwen/2020-04/30/content_5507561.htm",
+            "publishedDate": "2020-04-29",
+            "status": "现行有效",
+            "docType": "法律"
+          },
+          {
+            "title": "再生资源回收管理办法",
+            "authority": "商务部",
+            "referenceUrl": "https://www.gov.cn/gongbao/content/2007/content_721184.htm",
+            "publishedDate": "2007-05",
+            "status": "现行有效",
+            "docType": "办法"
+          }
+        ],
+        "categoryRegulations": [
+          {
+            "title": "危险废物转移管理办法",
+            "authority": "生态环境部",
+            "referenceUrl": "https://www.mee.gov.cn/xxgk2018/xxgk/xxgk02/202111/t20211130_962150.html",
+            "publishedDate": "2021-11-30",
+            "status": "现行有效",
+            "docType": "办法"
+          },
+          {
+            "title": "《废纸加工行业规范条件》实施三年 行业规范发展成效显著",
+            "authority": "工信部",
+            "referenceUrl": "https://www.miit.gov.cn/jgsj/jns/zhlyh/art/2024/art_9011cc395c0f460090e0c36803772ae9.html"
+          }
+        ],
+        "supportMaterials": [
+          {
+            "id": "waste-paper-support-live-0",
+            "title": "危险废物转移管理办法",
+            "source": "生态环境部",
+            "link": "https://www.mee.gov.cn/xxgk2018/xxgk/xxgk02/202111/t20211130_962150.html",
+            "publishedAt": "2021-11-30"
+          },
+          {
+            "id": "waste-paper-support-live-1",
+            "title": "《废纸加工行业规范条件》实施三年 行业规范发展成效显著",
+            "source": "工信部",
+            "link": "https://www.miit.gov.cn/jgsj/jns/zhlyh/art/2024/art_9011cc395c0f460090e0c36803772ae9.html",
+            "publishedAt": ""
+          }
+        ],
+        "regulationUpdates": []
+      },
+      "analytics": {
+        "history": [
+          {
+            "month": "2025-11",
+            "price": 1470.08
+          },
+          {
+            "month": "2025-12",
+            "price": 1463.2
+          },
+          {
+            "month": "2026-01",
+            "price": 1356.06
+          },
+          {
+            "month": "2026-02",
+            "price": 1349.18
+          },
+          {
+            "month": "2026-03",
+            "price": 1342.3
+          },
+          {
+            "month": "2026-04",
+            "price": 1400
+          }
+        ],
+        "regionBars": [
+          {
+            "region": "天津",
+            "avgPrice": 1480
+          },
+          {
+            "region": "浙江",
+            "avgPrice": 1320
+          }
+        ],
+        "subcategoryShares": [
+          {
+            "name": "AA级",
+            "value": 1
+          },
+          {
+            "name": "A级",
+            "value": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "waste-glass",
+      "name": "废玻璃",
+      "quotes": [
+        {
+          "id": "waste-glass-416871802",
+          "title": "白料玻璃回收参考价（华北）",
+          "region": "河北",
+          "price": 280,
+          "unit": "元/吨",
+          "priceText": "280 元/吨",
+          "source": "中国废品回收网-2025行情",
+          "sourceUrl": "http://www.zgfeipin.cn/expo_17556_1/",
+          "publishedAt": "2026-04-10T09:22:39.839Z",
+          "isTianjinPriority": false
+        },
+        {
+          "id": "waste-glass-1064698412",
+          "title": "青料玻璃回收参考价（华东）",
+          "region": "山东",
+          "price": 190,
+          "unit": "元/吨",
+          "priceText": "190 元/吨",
+          "source": "中国废品回收网-2025行情",
+          "sourceUrl": "http://www.zgfeipin.cn/expo_17556_1/",
+          "publishedAt": "2026-04-10T09:22:39.839Z",
+          "isTianjinPriority": false
+        }
+      ],
+      "domesticNews": [],
+      "internationalNews": [],
+      "detail": {
+        "subcategories": [
+          "白料",
+          "青料",
+          "杂色料",
+          "平板玻璃",
+          "玻璃瓶片"
+        ],
+        "painPoints": [
+          "白料、青料和杂色料价格差异大，但前端分色回收难度高，常导致混级降价。",
+          "运输成本在玻璃回收中占比偏高，低值料跨区域流动空间有限。",
+          "下游窑炉和建材企业对粒径、洁净度要求高，分拣不达标会导致整车退货。"
+        ],
+        "subBoards": [],
+        "costStructure": [
+          {
+            "label": "收购价",
+            "percent": 55
+          },
+          {
+            "label": "分色分拣",
+            "percent": 18
+          },
+          {
+            "label": "破碎清洗",
+            "percent": 17
+          },
+          {
+            "label": "运输",
+            "percent": 10
+          }
+        ],
+        "processFlow": [
+          {
+            "step": 1,
+            "title": "分色回收",
+            "description": "按白料、青料、杂色玻璃分选。"
+          },
+          {
+            "step": 2,
+            "title": "除杂破碎",
+            "description": "去金属、标签与杂质后破碎。"
+          },
+          {
+            "step": 3,
+            "title": "粒度控制",
+            "description": "筛分后形成稳定粒径玻璃砂。"
+          },
+          {
+            "step": 4,
+            "title": "再熔利用",
+            "description": "回到玻璃窑炉或建材体系。"
+          }
+        ],
+        "regulations": [
+          {
+            "title": "中华人民共和国固体废物污染环境防治法",
+            "authority": "全国人大常委会",
+            "referenceUrl": "https://www.gov.cn/xinwen/2020-04/30/content_5507561.htm",
+            "publishedDate": "2020-04-29",
+            "status": "现行有效",
+            "docType": "法律"
+          },
+          {
+            "title": "再生资源回收管理办法",
+            "authority": "商务部",
+            "referenceUrl": "https://www.gov.cn/gongbao/content/2007/content_721184.htm",
+            "publishedDate": "2007-05",
+            "status": "现行有效",
+            "docType": "办法"
+          },
+          {
+            "title": "危险废物转移管理办法",
+            "authority": "生态环境部",
+            "referenceUrl": "https://www.mee.gov.cn/xxgk2018/xxgk/xxgk02/202111/t20211130_962150.html",
+            "publishedDate": "2021-11-30",
+            "status": "现行有效",
+            "docType": "办法"
+          },
+          {
+            "title": "玻璃工业大气污染防治可行技术指南",
+            "authority": "生态环境部",
+            "referenceUrl": "https://www.mee.gov.cn/ywgz/fgbz/bz/bzwb/dqhjbh/dqgdwrywrwpfbz/202601/t20260129_1142888.shtml"
+          }
+        ],
+        "commonRegulations": [
+          {
+            "title": "中华人民共和国固体废物污染环境防治法",
+            "authority": "全国人大常委会",
+            "referenceUrl": "https://www.gov.cn/xinwen/2020-04/30/content_5507561.htm",
+            "publishedDate": "2020-04-29",
+            "status": "现行有效",
+            "docType": "法律"
+          },
+          {
+            "title": "再生资源回收管理办法",
+            "authority": "商务部",
+            "referenceUrl": "https://www.gov.cn/gongbao/content/2007/content_721184.htm",
+            "publishedDate": "2007-05",
+            "status": "现行有效",
+            "docType": "办法"
+          }
+        ],
+        "categoryRegulations": [
+          {
+            "title": "危险废物转移管理办法",
+            "authority": "生态环境部",
+            "referenceUrl": "https://www.mee.gov.cn/xxgk2018/xxgk/xxgk02/202111/t20211130_962150.html",
+            "publishedDate": "2021-11-30",
+            "status": "现行有效",
+            "docType": "办法"
+          },
+          {
+            "title": "玻璃工业大气污染防治可行技术指南",
+            "authority": "生态环境部",
+            "referenceUrl": "https://www.mee.gov.cn/ywgz/fgbz/bz/bzwb/dqhjbh/dqgdwrywrwpfbz/202601/t20260129_1142888.shtml"
+          }
+        ],
+        "supportMaterials": [
+          {
+            "id": "waste-glass-support-live-0",
+            "title": "危险废物转移管理办法",
+            "source": "生态环境部",
+            "link": "https://www.mee.gov.cn/xxgk2018/xxgk/xxgk02/202111/t20211130_962150.html",
+            "publishedAt": "2021-11-30"
+          },
+          {
+            "id": "waste-glass-support-live-1",
+            "title": "玻璃工业大气污染防治可行技术指南",
+            "source": "生态环境部",
+            "link": "https://www.mee.gov.cn/ywgz/fgbz/bz/bzwb/dqhjbh/dqgdwrywrwpfbz/202601/t20260129_1142888.shtml",
+            "publishedAt": ""
+          }
+        ],
+        "regulationUpdates": []
+      },
+      "analytics": {
+        "history": [
+          {
+            "month": "2025-11",
+            "price": 249.8
+          },
+          {
+            "month": "2025-12",
+            "price": 248.65
+          },
+          {
+            "month": "2026-01",
+            "price": 230.66
+          },
+          {
+            "month": "2026-02",
+            "price": 229.51
+          },
+          {
+            "month": "2026-03",
+            "price": 228.35
+          },
+          {
+            "month": "2026-04",
+            "price": 235
+          }
+        ],
+        "regionBars": [
+          {
+            "region": "河北",
+            "avgPrice": 280
+          },
+          {
+            "region": "山东",
+            "avgPrice": 190
+          }
+        ],
+        "subcategoryShares": [
+          {
+            "name": "白料",
+            "value": 1
+          },
+          {
+            "name": "青料",
+            "value": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "power-battery",
+      "name": "动力电池",
+      "quotes": [
+        {
+          "id": "power-battery-1811509119",
+          "title": "动力电池回收参考区间（行业公开样本）",
+          "region": "全国",
+          "price": 25000,
+          "unit": "元/吨",
+          "priceText": "25,000 元/吨",
+          "source": "搜狐-动力电池回收",
+          "sourceUrl": "https://www.sohu.com/a/776725046_121923007",
+          "publishedAt": "2026-04-10T09:22:45.071Z",
+          "isTianjinPriority": false
+        },
+        {
+          "id": "power-battery-2144316570",
+          "title": "磷酸铁锂电池包回收参考价",
+          "region": "江苏",
+          "price": 18000,
+          "unit": "元/吨",
+          "priceText": "18,000 元/吨",
+          "source": "新浪财经-动力电池回收工艺",
+          "sourceUrl": "https://finance.sina.com.cn/roll/2024-12-16/doc-inczrzsr2528559.shtml",
+          "publishedAt": "2026-04-10T09:22:45.071Z",
+          "isTianjinPriority": false
+        }
+      ],
+      "domesticNews": [],
+      "internationalNews": [],
+      "detail": {
+        "subcategories": [
+          "磷酸铁锂电池",
+          "三元电池",
+          "模组",
+          "电池黑粉",
+          "电芯壳体"
+        ],
+        "painPoints": [
+          "包级、模组级和黑粉级报价逻辑不同，公开价格往往只反映局部环节。",
+          "安全放电、拆解资质和危废转运合规门槛高，回收端不是简单比吨价。",
+          "镍钴锂价格波动会快速传导到电池回收端，库存和账期风险都比较高。"
+        ],
+        "subBoards": [],
+        "costStructure": [
+          {
+            "label": "收购价",
+            "percent": 64
+          },
+          {
+            "label": "拆解与放电",
+            "percent": 14
+          },
+          {
+            "label": "湿法/火法提取",
+            "percent": 17
+          },
+          {
+            "label": "环保与合规",
+            "percent": 5
+          }
+        ],
+        "processFlow": [
+          {
+            "step": 1,
+            "title": "回收与溯源",
+            "description": "按编码追溯来源并做安全入库。"
+          },
+          {
+            "step": 2,
+            "title": "拆解放电",
+            "description": "包级/模组级拆解并进行安全放电。"
+          },
+          {
+            "step": 3,
+            "title": "材料提取",
+            "description": "通过物理分选与湿法提取有价金属。"
+          },
+          {
+            "step": 4,
+            "title": "梯次或再生",
+            "description": "可用电芯梯次利用，其余再生冶炼。"
+          }
+        ],
+        "regulations": [
+          {
+            "title": "中华人民共和国固体废物污染环境防治法",
+            "authority": "全国人大常委会",
+            "referenceUrl": "https://www.gov.cn/xinwen/2020-04/30/content_5507561.htm",
+            "publishedDate": "2020-04-29",
+            "status": "现行有效",
+            "docType": "法律"
+          },
+          {
+            "title": "新能源汽车动力蓄电池回收利用管理暂行办法",
+            "authority": "工信部等七部委",
+            "referenceUrl": "https://www.gov.cn/xinwen/2018-02/26/content_5268846.htm"
+          },
+          {
+            "title": "危险废物转移管理办法",
+            "authority": "生态环境部",
+            "referenceUrl": "https://www.mee.gov.cn/xxgk2018/xxgk/xxgk02/202111/t20211130_962150.html",
+            "publishedDate": "2021-11-30",
+            "status": "现行有效",
+            "docType": "办法"
+          },
+          {
+            "title": "《新能源汽车废旧动力电池综合利用行业规范条件（2024年本）》解读",
+            "authority": "工信部",
+            "referenceUrl": "https://www.miit.gov.cn/zwgk/zcjd/art/2024/art_a2042b19234045b5881e7123f46a8d06.html"
+          }
+        ],
+        "commonRegulations": [
+          {
+            "title": "中华人民共和国固体废物污染环境防治法",
+            "authority": "全国人大常委会",
+            "referenceUrl": "https://www.gov.cn/xinwen/2020-04/30/content_5507561.htm",
+            "publishedDate": "2020-04-29",
+            "status": "现行有效",
+            "docType": "法律"
+          },
+          {
+            "title": "再生资源回收管理办法",
+            "authority": "商务部",
+            "referenceUrl": "https://www.gov.cn/gongbao/content/2007/content_721184.htm",
+            "publishedDate": "2007-05",
+            "status": "现行有效",
+            "docType": "办法"
+          }
+        ],
+        "categoryRegulations": [
+          {
+            "title": "新能源汽车动力蓄电池回收利用管理暂行办法",
+            "authority": "工信部等七部委",
+            "referenceUrl": "https://www.gov.cn/xinwen/2018-02/26/content_5268846.htm"
+          },
+          {
+            "title": "危险废物转移管理办法",
+            "authority": "生态环境部",
+            "referenceUrl": "https://www.mee.gov.cn/xxgk2018/xxgk/xxgk02/202111/t20211130_962150.html",
+            "publishedDate": "2021-11-30",
+            "status": "现行有效",
+            "docType": "办法"
+          },
+          {
+            "title": "《新能源汽车废旧动力电池综合利用行业规范条件（2024年本）》解读",
+            "authority": "工信部",
+            "referenceUrl": "https://www.miit.gov.cn/zwgk/zcjd/art/2024/art_a2042b19234045b5881e7123f46a8d06.html"
+          }
+        ],
+        "supportMaterials": [
+          {
+            "id": "power-battery-support-live-0",
+            "title": "新能源汽车动力蓄电池回收利用管理暂行办法",
+            "source": "工信部等七部委",
+            "link": "https://www.gov.cn/xinwen/2018-02/26/content_5268846.htm",
+            "publishedAt": ""
+          },
+          {
+            "id": "power-battery-support-live-1",
+            "title": "危险废物转移管理办法",
+            "source": "生态环境部",
+            "link": "https://www.mee.gov.cn/xxgk2018/xxgk/xxgk02/202111/t20211130_962150.html",
+            "publishedAt": "2021-11-30"
+          },
+          {
+            "id": "power-battery-support-live-2",
+            "title": "《新能源汽车废旧动力电池综合利用行业规范条件（2024年本）》解读",
+            "source": "工信部",
+            "link": "https://www.miit.gov.cn/zwgk/zcjd/art/2024/art_a2042b19234045b5881e7123f46a8d06.html",
+            "publishedAt": ""
+          }
+        ],
+        "regulationUpdates": []
+      },
+      "analytics": {
+        "history": [
+          {
+            "month": "2025-11",
+            "price": 20206.33
+          },
+          {
+            "month": "2025-12",
+            "price": 20100.67
+          },
+          {
+            "month": "2026-01",
+            "price": 21465.28
+          },
+          {
+            "month": "2026-02",
+            "price": 21359.61
+          },
+          {
+            "month": "2026-03",
+            "price": 21253.95
+          },
+          {
+            "month": "2026-04",
+            "price": 21500
+          }
+        ],
+        "regionBars": [
+          {
+            "region": "全国",
+            "avgPrice": 25000
+          },
+          {
+            "region": "江苏",
+            "avgPrice": 18000
+          }
+        ],
+        "subcategoryShares": [
+          {
+            "name": "磷酸铁锂电池",
+            "value": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "scrapped-vehicle",
+      "name": "报废汽车",
+      "quotes": [
+        {
+          "id": "scrapped-vehicle-1747647846",
+          "title": "报废机动车拆解钢料回收参考价（天津）",
+          "region": "天津",
+          "price": 2580,
+          "unit": "元/吨",
+          "priceText": "2,580 元/吨",
+          "source": "中国废品回收网-报废车辆",
+          "sourceUrl": "http://www.zgfeipin.cn/expo_17246_1/",
+          "publishedAt": "2026-04-10T09:22:47.496Z",
+          "isTianjinPriority": false
+        },
+        {
+          "id": "scrapped-vehicle-1616574687",
+          "title": "报废车拆解钢料参考价（华东）",
+          "region": "江苏",
+          "price": 2480,
+          "unit": "元/吨",
+          "priceText": "2,480 元/吨",
+          "source": "中国废品回收网-报废车辆",
+          "sourceUrl": "http://www.zgfeipin.cn/expo_17246_1/",
+          "publishedAt": "2026-04-10T09:22:47.497Z",
+          "isTianjinPriority": false
+        }
+      ],
+      "domesticNews": [],
+      "internationalNews": [],
+      "detail": {
+        "subcategories": [
+          "整车回收",
+          "发动机总成",
+          "前后桥",
+          "车身钢料",
+          "拆车件"
+        ],
+        "painPoints": [
+          "整车收购价、五大总成残值和废钢残值叠加，定价模型比普通废钢复杂得多。",
+          "注销、拆解、危废处理和零部件流向管理要求严格，合规成本高。",
+          "拆解件流通节奏慢、占用场地大，现金回笼周期通常长于其他再生品类。"
+        ],
+        "subBoards": [],
+        "costStructure": [
+          {
+            "label": "收购价",
+            "percent": 70
+          },
+          {
+            "label": "拆解工时",
+            "percent": 11
+          },
+          {
+            "label": "零部件处理",
+            "percent": 11
+          },
+          {
+            "label": "环保合规",
+            "percent": 8
+          }
+        ],
+        "processFlow": [
+          {
+            "step": 1,
+            "title": "回收登记",
+            "description": "车辆注销、验车并完成回收登记。"
+          },
+          {
+            "step": 2,
+            "title": "预处理",
+            "description": "排液、拆除危废部件和气囊等。"
+          },
+          {
+            "step": 3,
+            "title": "精细拆解",
+            "description": "分类拆件，金属与可用件分流。"
+          },
+          {
+            "step": 4,
+            "title": "资源化利用",
+            "description": "钢铁/有色入炉，再制造件流通。"
+          }
+        ],
+        "regulations": [
+          {
+            "title": "中华人民共和国固体废物污染环境防治法",
+            "authority": "全国人大常委会",
+            "referenceUrl": "https://www.gov.cn/xinwen/2020-04/30/content_5507561.htm",
+            "publishedDate": "2020-04-29",
+            "status": "现行有效",
+            "docType": "法律"
+          },
+          {
+            "title": "报废机动车回收管理办法",
+            "authority": "国务院",
+            "referenceUrl": "https://www.gov.cn/zhengce/content/2019-05/06/content_5389987.htm"
+          },
+          {
+            "title": "再生资源回收管理办法",
+            "authority": "商务部",
+            "referenceUrl": "https://www.gov.cn/gongbao/content/2007/content_721184.htm",
+            "publishedDate": "2007-05",
+            "status": "现行有效",
+            "docType": "办法"
+          },
+          {
+            "title": "报废机动车拆解企业污染控制技术规范（HJ 348-2022）",
+            "authority": "生态环境部",
+            "referenceUrl": "https://www.mee.gov.cn/xxgk2018/xxgk/xxgk01/202207/t20220722_989474.html"
+          },
+          {
+            "title": "报废机动车回收拆解企业技术规范（GB22128）",
+            "authority": "商务主管部门公开标准解读",
+            "referenceUrl": "https://zcom.zj.gov.cn/art/2019/12/31/art_1403427_41403438.html"
+          }
+        ],
+        "commonRegulations": [
+          {
+            "title": "中华人民共和国固体废物污染环境防治法",
+            "authority": "全国人大常委会",
+            "referenceUrl": "https://www.gov.cn/xinwen/2020-04/30/content_5507561.htm",
+            "publishedDate": "2020-04-29",
+            "status": "现行有效",
+            "docType": "法律"
+          },
+          {
+            "title": "再生资源回收管理办法",
+            "authority": "商务部",
+            "referenceUrl": "https://www.gov.cn/gongbao/content/2007/content_721184.htm",
+            "publishedDate": "2007-05",
+            "status": "现行有效",
+            "docType": "办法"
+          }
+        ],
+        "categoryRegulations": [
+          {
+            "title": "报废机动车回收管理办法",
+            "authority": "国务院",
+            "referenceUrl": "https://www.gov.cn/zhengce/content/2019-05/06/content_5389987.htm"
+          },
+          {
+            "title": "报废机动车拆解企业污染控制技术规范（HJ 348-2022）",
+            "authority": "生态环境部",
+            "referenceUrl": "https://www.mee.gov.cn/xxgk2018/xxgk/xxgk01/202207/t20220722_989474.html"
+          },
+          {
+            "title": "报废机动车回收拆解企业技术规范（GB22128）",
+            "authority": "商务主管部门公开标准解读",
+            "referenceUrl": "https://zcom.zj.gov.cn/art/2019/12/31/art_1403427_41403438.html"
+          }
+        ],
+        "supportMaterials": [
+          {
+            "id": "scrapped-vehicle-support-live-0",
+            "title": "报废机动车回收管理办法",
+            "source": "国务院",
+            "link": "https://www.gov.cn/zhengce/content/2019-05/06/content_5389987.htm",
+            "publishedAt": ""
+          },
+          {
+            "id": "scrapped-vehicle-support-live-1",
+            "title": "报废机动车拆解企业污染控制技术规范（HJ 348-2022）",
+            "source": "生态环境部",
+            "link": "https://www.mee.gov.cn/xxgk2018/xxgk/xxgk01/202207/t20220722_989474.html",
+            "publishedAt": ""
+          },
+          {
+            "id": "scrapped-vehicle-support-live-2",
+            "title": "报废机动车回收拆解企业技术规范（GB22128）",
+            "source": "商务主管部门公开标准解读",
+            "link": "https://zcom.zj.gov.cn/art/2019/12/31/art_1403427_41403438.html",
+            "publishedAt": ""
+          }
+        ],
+        "regulationUpdates": []
+      },
+      "analytics": {
+        "history": [
+          {
+            "month": "2025-11",
+            "price": 2612.24
+          },
+          {
+            "month": "2025-12",
+            "price": 2599.81
+          },
+          {
+            "month": "2026-01",
+            "price": 2406.19
+          },
+          {
+            "month": "2026-02",
+            "price": 2393.76
+          },
+          {
+            "month": "2026-03",
+            "price": 2381.32
+          },
+          {
+            "month": "2026-04",
+            "price": 2530
+          }
+        ],
+        "regionBars": [
+          {
+            "region": "天津",
+            "avgPrice": 2580
+          },
+          {
+            "region": "江苏",
+            "avgPrice": 2480
+          }
+        ],
+        "subcategoryShares": [
+          {
+            "name": "整车回收",
+            "value": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "e-waste",
+      "name": "电子废弃物",
+      "quotes": [
+        {
+          "id": "e-waste-1866167356",
+          "title": "废电子元器件回收参考价",
+          "region": "全国",
+          "price": 9000,
+          "unit": "元/吨",
+          "priceText": "9,000 元/吨",
+          "source": "中国废品回收网-废电子板",
+          "sourceUrl": "http://www.zgfeipin.cn/expo_17611_1/",
+          "publishedAt": "2026-04-10T09:22:53.283Z",
+          "isTianjinPriority": false
+        },
+        {
+          "id": "e-waste-1474460357",
+          "title": "废电子板高品位回收参考价",
+          "region": "广东",
+          "price": 200000,
+          "unit": "元/吨",
+          "priceText": "200,000 元/吨",
+          "source": "中国废品回收网-废电子板",
+          "sourceUrl": "http://www.zgfeipin.cn/expo_17611_1/",
+          "publishedAt": "2026-04-10T09:22:53.283Z",
+          "isTianjinPriority": false
+        }
+      ],
+      "domesticNews": [],
+      "internationalNews": [],
+      "detail": {
+        "subcategories": [
+          "废电路板",
+          "废旧家电",
+          "旧电脑",
+          "旧手机",
+          "电子元件混合料"
+        ],
+        "painPoints": [
+          "电子废弃物品类极杂，板卡、家电和通信设备的估值逻辑完全不同。",
+          "贵金属回收价值高，但拆解和环保要求也高，非标准操作容易形成损耗。",
+          "回收端普遍存在信息不透明问题，同品类因成色和型号不同价差极大。"
+        ],
+        "subBoards": [],
+        "costStructure": [
+          {
+            "label": "收购价",
+            "percent": 58
+          },
+          {
+            "label": "拆解分选",
+            "percent": 18
+          },
+          {
+            "label": "金属提炼",
+            "percent": 16
+          },
+          {
+            "label": "危废处理",
+            "percent": 8
+          }
+        ],
+        "processFlow": [
+          {
+            "step": 1,
+            "title": "分类收运",
+            "description": "按家电、通讯、板卡等门类收集。"
+          },
+          {
+            "step": 2,
+            "title": "人工拆解",
+            "description": "拆下高价值元器件与危险部件。"
+          },
+          {
+            "step": 3,
+            "title": "破碎分选",
+            "description": "磁选、涡电流和密度分选金属。"
+          },
+          {
+            "step": 4,
+            "title": "冶炼再生",
+            "description": "贵金属、有色金属进入再生链条。"
+          }
+        ],
+        "regulations": [
+          {
+            "title": "中华人民共和国固体废物污染环境防治法",
+            "authority": "全国人大常委会",
+            "referenceUrl": "https://www.gov.cn/xinwen/2020-04/30/content_5507561.htm",
+            "publishedDate": "2020-04-29",
+            "status": "现行有效",
+            "docType": "法律"
+          },
+          {
+            "title": "废弃电器电子产品回收处理管理条例",
+            "authority": "国务院",
+            "referenceUrl": "https://www.gov.cn/zwgk/2011-02/25/content_1815473.htm"
+          },
+          {
+            "title": "危险废物转移管理办法",
+            "authority": "生态环境部",
+            "referenceUrl": "https://www.mee.gov.cn/xxgk2018/xxgk/xxgk02/202111/t20211130_962150.html",
+            "publishedDate": "2021-11-30",
+            "status": "现行有效",
+            "docType": "办法"
+          },
+          {
+            "title": "废弃电器电子产品处理资格许可管理办法",
+            "authority": "生态环境部",
+            "referenceUrl": "https://www.mee.gov.cn/gzk/gz/202112/t20211210_963734.shtml"
+          },
+          {
+            "title": "关于废弃电器电子产品处理专项资金申请企业标准和条件的通知",
+            "authority": "生态环境部",
+            "referenceUrl": "https://www.mee.gov.cn/xxgk2018/xxgk/xxgk04/202502/t20250213_1102236.html"
+          }
+        ],
+        "commonRegulations": [
+          {
+            "title": "中华人民共和国固体废物污染环境防治法",
+            "authority": "全国人大常委会",
+            "referenceUrl": "https://www.gov.cn/xinwen/2020-04/30/content_5507561.htm",
+            "publishedDate": "2020-04-29",
+            "status": "现行有效",
+            "docType": "法律"
+          },
+          {
+            "title": "再生资源回收管理办法",
+            "authority": "商务部",
+            "referenceUrl": "https://www.gov.cn/gongbao/content/2007/content_721184.htm",
+            "publishedDate": "2007-05",
+            "status": "现行有效",
+            "docType": "办法"
+          }
+        ],
+        "categoryRegulations": [
+          {
+            "title": "废弃电器电子产品回收处理管理条例",
+            "authority": "国务院",
+            "referenceUrl": "https://www.gov.cn/zwgk/2011-02/25/content_1815473.htm"
+          },
+          {
+            "title": "危险废物转移管理办法",
+            "authority": "生态环境部",
+            "referenceUrl": "https://www.mee.gov.cn/xxgk2018/xxgk/xxgk02/202111/t20211130_962150.html",
+            "publishedDate": "2021-11-30",
+            "status": "现行有效",
+            "docType": "办法"
+          },
+          {
+            "title": "废弃电器电子产品处理资格许可管理办法",
+            "authority": "生态环境部",
+            "referenceUrl": "https://www.mee.gov.cn/gzk/gz/202112/t20211210_963734.shtml"
+          },
+          {
+            "title": "关于废弃电器电子产品处理专项资金申请企业标准和条件的通知",
+            "authority": "生态环境部",
+            "referenceUrl": "https://www.mee.gov.cn/xxgk2018/xxgk/xxgk04/202502/t20250213_1102236.html"
+          }
+        ],
+        "supportMaterials": [
+          {
+            "id": "e-waste-support-live-0",
+            "title": "废弃电器电子产品回收处理管理条例",
+            "source": "国务院",
+            "link": "https://www.gov.cn/zwgk/2011-02/25/content_1815473.htm",
+            "publishedAt": ""
+          },
+          {
+            "id": "e-waste-support-live-1",
+            "title": "危险废物转移管理办法",
+            "source": "生态环境部",
+            "link": "https://www.mee.gov.cn/xxgk2018/xxgk/xxgk02/202111/t20211130_962150.html",
+            "publishedAt": "2021-11-30"
+          },
+          {
+            "id": "e-waste-support-live-2",
+            "title": "废弃电器电子产品处理资格许可管理办法",
+            "source": "生态环境部",
+            "link": "https://www.mee.gov.cn/gzk/gz/202112/t20211210_963734.shtml",
+            "publishedAt": ""
+          },
+          {
+            "id": "e-waste-support-live-3",
+            "title": "关于废弃电器电子产品处理专项资金申请企业标准和条件的通知",
+            "source": "生态环境部",
+            "link": "https://www.mee.gov.cn/xxgk2018/xxgk/xxgk04/202502/t20250213_1102236.html",
+            "publishedAt": ""
+          }
+        ],
+        "regulationUpdates": []
+      },
+      "analytics": {
+        "history": [
+          {
+            "month": "2025-11",
+            "price": 104287.23
+          },
+          {
+            "month": "2025-12",
+            "price": 103773.64
+          },
+          {
+            "month": "2026-01",
+            "price": 110406.29
+          },
+          {
+            "month": "2026-02",
+            "price": 109892.7
+          },
+          {
+            "month": "2026-03",
+            "price": 109379.11
+          },
+          {
+            "month": "2026-04",
+            "price": 104500
+          }
+        ],
+        "regionBars": [
+          {
+            "region": "广东",
+            "avgPrice": 200000
+          },
+          {
+            "region": "全国",
+            "avgPrice": 9000
+          }
+        ],
+        "subcategoryShares": [
+          {
+            "name": "废电路板",
+            "value": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "waste-textile",
+      "name": "废旧纺织品",
+      "quotes": [
+        {
+          "id": "waste-textile-1925387577",
+          "title": "废纺织品回收参考价（普通布料）",
+          "region": "全国",
+          "price": 500,
+          "unit": "元/吨",
+          "priceText": "500 元/吨",
+          "source": "再生资源回收平台-废纺织品报价",
+          "sourceUrl": "https://www.zgzszyhs.cn/quote/show.php?itemid=243",
+          "publishedAt": "2026-04-10T09:23:02.226Z",
+          "isTianjinPriority": false
+        },
+        {
+          "id": "waste-textile-1018804221",
+          "title": "废纺织品回收参考价（高档面料）",
+          "region": "全国",
+          "price": 1200,
+          "unit": "元/吨",
+          "priceText": "1,200 元/吨",
+          "source": "再生资源回收平台-废纺织品报价",
+          "sourceUrl": "https://www.zgzszyhs.cn/quote/show.php?itemid=243",
+          "publishedAt": "2026-04-10T09:23:02.226Z",
+          "isTianjinPriority": false
+        }
+      ],
+      "domesticNews": [],
+      "internationalNews": [],
+      "detail": {
+        "subcategories": [
+          "旧衣",
+          "棉布料",
+          "化纤料",
+          "牛仔料",
+          "毛纺料"
+        ],
+        "painPoints": [
+          "旧衣、棉布、化纤和工业边角料流向不同，混装会直接降低分拣价值。",
+          "分拣人工依赖度高，成色和材质识别标准难完全标准化。",
+          "可再穿戴流通、再生纤维和终端消纳渠道不稳定，导致库存周转慢。"
+        ],
+        "subBoards": [],
+        "costStructure": [
+          {
+            "label": "收购价",
+            "percent": 60
+          },
+          {
+            "label": "分拣人工",
+            "percent": 20
+          },
+          {
+            "label": "清洗/消毒",
+            "percent": 12
+          },
+          {
+            "label": "物流",
+            "percent": 8
+          }
+        ],
+        "processFlow": [
+          {
+            "step": 1,
+            "title": "前端回收",
+            "description": "社区与企业端旧纺织品集中收集。"
+          },
+          {
+            "step": 2,
+            "title": "分级分拣",
+            "description": "按成色、材质与用途进行分级。"
+          },
+          {
+            "step": 3,
+            "title": "再制造",
+            "description": "可穿戴品复用，不可穿戴品开松再生。"
+          },
+          {
+            "step": 4,
+            "title": "终端利用",
+            "description": "进入再生纤维、保温材料等场景。"
+          }
+        ],
+        "regulations": [
+          {
+            "title": "中华人民共和国固体废物污染环境防治法",
+            "authority": "全国人大常委会",
+            "referenceUrl": "https://www.gov.cn/xinwen/2020-04/30/content_5507561.htm",
+            "publishedDate": "2020-04-29",
+            "status": "现行有效",
+            "docType": "法律"
+          },
+          {
+            "title": "再生资源回收管理办法",
+            "authority": "商务部",
+            "referenceUrl": "https://www.gov.cn/gongbao/content/2007/content_721184.htm",
+            "publishedDate": "2007-05",
+            "status": "现行有效",
+            "docType": "办法"
+          },
+          {
+            "title": "危险废物转移管理办法",
+            "authority": "生态环境部",
+            "referenceUrl": "https://www.mee.gov.cn/xxgk2018/xxgk/xxgk02/202111/t20211130_962150.html",
+            "publishedDate": "2021-11-30",
+            "status": "现行有效",
+            "docType": "办法"
+          },
+          {
+            "title": "废旧织物回收及综合利用规范",
+            "authority": "深圳市市场监管部门政策解读",
+            "referenceUrl": "https://www.sz.gov.cn/zfgb/zcjd/content/post_4978963.html"
+          }
+        ],
+        "commonRegulations": [
+          {
+            "title": "中华人民共和国固体废物污染环境防治法",
+            "authority": "全国人大常委会",
+            "referenceUrl": "https://www.gov.cn/xinwen/2020-04/30/content_5507561.htm",
+            "publishedDate": "2020-04-29",
+            "status": "现行有效",
+            "docType": "法律"
+          },
+          {
+            "title": "再生资源回收管理办法",
+            "authority": "商务部",
+            "referenceUrl": "https://www.gov.cn/gongbao/content/2007/content_721184.htm",
+            "publishedDate": "2007-05",
+            "status": "现行有效",
+            "docType": "办法"
+          }
+        ],
+        "categoryRegulations": [
+          {
+            "title": "危险废物转移管理办法",
+            "authority": "生态环境部",
+            "referenceUrl": "https://www.mee.gov.cn/xxgk2018/xxgk/xxgk02/202111/t20211130_962150.html",
+            "publishedDate": "2021-11-30",
+            "status": "现行有效",
+            "docType": "办法"
+          },
+          {
+            "title": "废旧织物回收及综合利用规范",
+            "authority": "深圳市市场监管部门政策解读",
+            "referenceUrl": "https://www.sz.gov.cn/zfgb/zcjd/content/post_4978963.html"
+          }
+        ],
+        "supportMaterials": [
+          {
+            "id": "waste-textile-support-live-0",
+            "title": "危险废物转移管理办法",
+            "source": "生态环境部",
+            "link": "https://www.mee.gov.cn/xxgk2018/xxgk/xxgk02/202111/t20211130_962150.html",
+            "publishedAt": "2021-11-30"
+          },
+          {
+            "id": "waste-textile-support-live-1",
+            "title": "废旧织物回收及综合利用规范",
+            "source": "深圳市市场监管部门政策解读",
+            "link": "https://www.sz.gov.cn/zfgb/zcjd/content/post_4978963.html",
+            "publishedAt": ""
+          }
+        ],
+        "regulationUpdates": []
+      },
+      "analytics": {
+        "history": [
+          {
+            "month": "2025-11",
+            "price": 873.33
+          },
+          {
+            "month": "2025-12",
+            "price": 869.16
+          },
+          {
+            "month": "2026-01",
+            "price": 804.11
+          },
+          {
+            "month": "2026-02",
+            "price": 799.93
+          },
+          {
+            "month": "2026-03",
+            "price": 795.75
+          },
+          {
+            "month": "2026-04",
+            "price": 850
+          }
+        ],
+        "regionBars": [
+          {
+            "region": "全国",
+            "avgPrice": 850
+          }
+        ],
+        "subcategoryShares": [
+          {
+            "name": "旧衣",
+            "value": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "waste-rubber",
+      "name": "废橡胶",
+      "quotes": [
+        {
+          "id": "waste-rubber-834275776",
+          "title": "废旧轮胎回收参考价",
+          "region": "全国",
+          "price": 2500,
+          "unit": "元/吨",
+          "priceText": "2,500 元/吨",
+          "source": "中国废品回收网-废轮胎回收",
+          "sourceUrl": "http://www.zgfeipin.cn/expo_17245_1/",
+          "publishedAt": "2026-04-10T09:23:04.372Z",
+          "isTianjinPriority": false
+        },
+        {
+          "id": "waste-rubber-999772244",
+          "title": "天然橡胶回收参考价",
+          "region": "全国",
+          "price": 14000,
+          "unit": "元/吨",
+          "priceText": "14,000 元/吨",
+          "source": "中国废品回收网-废橡胶行情",
+          "sourceUrl": "http://www.zgfeipin.cn/expo_15_1_0/",
+          "publishedAt": "2026-04-10T09:23:04.372Z",
+          "isTianjinPriority": false
+        }
+      ],
+      "domesticNews": [],
+      "internationalNews": [],
+      "detail": {
+        "subcategories": [
+          "废轮胎",
+          "橡胶块",
+          "橡胶粉",
+          "丁基胶",
+          "三元乙丙胶"
+        ],
+        "painPoints": [
+          "废轮胎、胶块、橡胶粉和热解料价值链不同，前端回收很难统一计价。",
+          "钢丝分离、纤维去除和粒径控制成本高，很多报价未反映加工深度差异。",
+          "下游再生胶、改性料和燃料市场波动大，回收端利润空间易被压缩。"
+        ],
+        "subBoards": [],
+        "costStructure": [
+          {
+            "label": "收购价",
+            "percent": 63
+          },
+          {
+            "label": "切块钢丝分离",
+            "percent": 16
+          },
+          {
+            "label": "粉碎与筛分",
+            "percent": 14
+          },
+          {
+            "label": "物流",
+            "percent": 7
+          }
+        ],
+        "processFlow": [
+          {
+            "step": 1,
+            "title": "回收集货",
+            "description": "轮胎和橡胶边角料分类收运。"
+          },
+          {
+            "step": 2,
+            "title": "预处理",
+            "description": "切块并进行钢丝和纤维分离。"
+          },
+          {
+            "step": 3,
+            "title": "深加工",
+            "description": "制备橡胶粉、再生胶或热解料。"
+          },
+          {
+            "step": 4,
+            "title": "下游应用",
+            "description": "路面材料、橡胶制品与燃料利用。"
+          }
+        ],
+        "regulations": [
+          {
+            "title": "中华人民共和国固体废物污染环境防治法",
+            "authority": "全国人大常委会",
+            "referenceUrl": "https://www.gov.cn/xinwen/2020-04/30/content_5507561.htm",
+            "publishedDate": "2020-04-29",
+            "status": "现行有效",
+            "docType": "法律"
+          },
+          {
+            "title": "再生资源回收管理办法",
+            "authority": "商务部",
+            "referenceUrl": "https://www.gov.cn/gongbao/content/2007/content_721184.htm",
+            "publishedDate": "2007-05",
+            "status": "现行有效",
+            "docType": "办法"
+          },
+          {
+            "title": "危险废物转移管理办法",
+            "authority": "生态环境部",
+            "referenceUrl": "https://www.mee.gov.cn/xxgk2018/xxgk/xxgk02/202111/t20211130_962150.html",
+            "publishedDate": "2021-11-30",
+            "status": "现行有效",
+            "docType": "办法"
+          },
+          {
+            "title": "解读《废旧轮胎综合利用行业规范条件》",
+            "authority": "工信部",
+            "referenceUrl": "https://www.miit.gov.cn/jgsj/jns/zyjy/art/2020/art_832784e7b19248c7bc49aa4e1844e29f.html"
+          }
+        ],
+        "commonRegulations": [
+          {
+            "title": "中华人民共和国固体废物污染环境防治法",
+            "authority": "全国人大常委会",
+            "referenceUrl": "https://www.gov.cn/xinwen/2020-04/30/content_5507561.htm",
+            "publishedDate": "2020-04-29",
+            "status": "现行有效",
+            "docType": "法律"
+          },
+          {
+            "title": "再生资源回收管理办法",
+            "authority": "商务部",
+            "referenceUrl": "https://www.gov.cn/gongbao/content/2007/content_721184.htm",
+            "publishedDate": "2007-05",
+            "status": "现行有效",
+            "docType": "办法"
+          }
+        ],
+        "categoryRegulations": [
+          {
+            "title": "危险废物转移管理办法",
+            "authority": "生态环境部",
+            "referenceUrl": "https://www.mee.gov.cn/xxgk2018/xxgk/xxgk02/202111/t20211130_962150.html",
+            "publishedDate": "2021-11-30",
+            "status": "现行有效",
+            "docType": "办法"
+          },
+          {
+            "title": "解读《废旧轮胎综合利用行业规范条件》",
+            "authority": "工信部",
+            "referenceUrl": "https://www.miit.gov.cn/jgsj/jns/zyjy/art/2020/art_832784e7b19248c7bc49aa4e1844e29f.html"
+          }
+        ],
+        "supportMaterials": [
+          {
+            "id": "waste-rubber-support-live-0",
+            "title": "危险废物转移管理办法",
+            "source": "生态环境部",
+            "link": "https://www.mee.gov.cn/xxgk2018/xxgk/xxgk02/202111/t20211130_962150.html",
+            "publishedAt": "2021-11-30"
+          },
+          {
+            "id": "waste-rubber-support-live-1",
+            "title": "解读《废旧轮胎综合利用行业规范条件》",
+            "source": "工信部",
+            "link": "https://www.miit.gov.cn/jgsj/jns/zyjy/art/2020/art_832784e7b19248c7bc49aa4e1844e29f.html",
+            "publishedAt": ""
+          }
+        ],
+        "regulationUpdates": []
+      },
+      "analytics": {
+        "history": [
+          {
+            "month": "2025-11",
+            "price": 8240.15
+          },
+          {
+            "month": "2025-12",
+            "price": 8199.61
+          },
+          {
+            "month": "2026-01",
+            "price": 8723.24
+          },
+          {
+            "month": "2026-02",
+            "price": 8682.69
+          },
+          {
+            "month": "2026-03",
+            "price": 8642.14
+          },
+          {
+            "month": "2026-04",
+            "price": 8250
+          }
+        ],
+        "regionBars": [
+          {
+            "region": "全国",
+            "avgPrice": 8250
+          }
+        ],
+        "subcategoryShares": [
+          {
+            "name": "废轮胎",
+            "value": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "waste-wood",
+      "name": "废木材",
+      "quotes": [
+        {
+          "id": "waste-wood-1154080815",
+          "title": "废木托盘回收参考价（华北）",
+          "region": "河北",
+          "price": 760,
+          "unit": "元/吨",
+          "priceText": "760 元/吨",
+          "source": "中国废品回收网-2025行情",
+          "sourceUrl": "http://www.zgfeipin.cn/expo_17556_1/",
+          "publishedAt": "2026-04-10T09:23:02.408Z",
+          "isTianjinPriority": false
+        },
+        {
+          "id": "waste-wood-590259146",
+          "title": "混合废木料回收参考价（华东）",
+          "region": "山东",
+          "price": 430,
+          "unit": "元/吨",
+          "priceText": "430 元/吨",
+          "source": "中国废品回收网-2025行情",
+          "sourceUrl": "http://www.zgfeipin.cn/expo_17556_1/",
+          "publishedAt": "2026-04-10T09:23:02.408Z",
+          "isTianjinPriority": false
+        }
+      ],
+      "domesticNews": [],
+      "internationalNews": [],
+      "detail": {
+        "subcategories": [
+          "废木托盘",
+          "模板木",
+          "锯末",
+          "木片",
+          "混合木料"
+        ],
+        "painPoints": [
+          "木托盘、模板木和混合木料品质差异大，水分和含钉率直接影响成交价。",
+          "前端拆钉、去杂和破碎成本高，低值木料很容易被物流吃掉利润。",
+          "板材厂、生物质厂和园林终端需求并不稳定，价格弹性有限。"
+        ],
+        "subBoards": [],
+        "costStructure": [
+          {
+            "label": "收购价",
+            "percent": 58
+          },
+          {
+            "label": "拆钉分选",
+            "percent": 17
+          },
+          {
+            "label": "破碎加工",
+            "percent": 17
+          },
+          {
+            "label": "运输",
+            "percent": 8
+          }
+        ],
+        "processFlow": [
+          {
+            "step": 1,
+            "title": "拆解分类",
+            "description": "托盘、模板、家具木料分类。"
+          },
+          {
+            "step": 2,
+            "title": "除杂预处理",
+            "description": "去钉去杂，控制含水率。"
+          },
+          {
+            "step": 3,
+            "title": "破碎成料",
+            "description": "制备木片、木粉或压块。"
+          },
+          {
+            "step": 4,
+            "title": "资源化利用",
+            "description": "用于板材、燃料和园林覆盖物。"
+          }
+        ],
+        "regulations": [
+          {
+            "title": "中华人民共和国固体废物污染环境防治法",
+            "authority": "全国人大常委会",
+            "referenceUrl": "https://www.gov.cn/xinwen/2020-04/30/content_5507561.htm",
+            "publishedDate": "2020-04-29",
+            "status": "现行有效",
+            "docType": "法律"
+          },
+          {
+            "title": "再生资源回收管理办法",
+            "authority": "商务部",
+            "referenceUrl": "https://www.gov.cn/gongbao/content/2007/content_721184.htm",
+            "publishedDate": "2007-05",
+            "status": "现行有效",
+            "docType": "办法"
+          },
+          {
+            "title": "危险废物转移管理办法",
+            "authority": "生态环境部",
+            "referenceUrl": "https://www.mee.gov.cn/xxgk2018/xxgk/xxgk02/202111/t20211130_962150.html",
+            "publishedDate": "2021-11-30",
+            "status": "现行有效",
+            "docType": "办法"
+          },
+          {
+            "title": "木材剩余物基质化利用助力绿色循环发展",
+            "authority": "福建省林业局",
+            "referenceUrl": "https://lyj.fujian.gov.cn/zwgk/hygl/202507/t20250714_6967107.htm"
+          }
+        ],
+        "commonRegulations": [
+          {
+            "title": "中华人民共和国固体废物污染环境防治法",
+            "authority": "全国人大常委会",
+            "referenceUrl": "https://www.gov.cn/xinwen/2020-04/30/content_5507561.htm",
+            "publishedDate": "2020-04-29",
+            "status": "现行有效",
+            "docType": "法律"
+          },
+          {
+            "title": "再生资源回收管理办法",
+            "authority": "商务部",
+            "referenceUrl": "https://www.gov.cn/gongbao/content/2007/content_721184.htm",
+            "publishedDate": "2007-05",
+            "status": "现行有效",
+            "docType": "办法"
+          }
+        ],
+        "categoryRegulations": [
+          {
+            "title": "危险废物转移管理办法",
+            "authority": "生态环境部",
+            "referenceUrl": "https://www.mee.gov.cn/xxgk2018/xxgk/xxgk02/202111/t20211130_962150.html",
+            "publishedDate": "2021-11-30",
+            "status": "现行有效",
+            "docType": "办法"
+          },
+          {
+            "title": "木材剩余物基质化利用助力绿色循环发展",
+            "authority": "福建省林业局",
+            "referenceUrl": "https://lyj.fujian.gov.cn/zwgk/hygl/202507/t20250714_6967107.htm"
+          }
+        ],
+        "supportMaterials": [
+          {
+            "id": "waste-wood-support-live-0",
+            "title": "危险废物转移管理办法",
+            "source": "生态环境部",
+            "link": "https://www.mee.gov.cn/xxgk2018/xxgk/xxgk02/202111/t20211130_962150.html",
+            "publishedAt": "2021-11-30"
+          },
+          {
+            "id": "waste-wood-support-live-1",
+            "title": "木材剩余物基质化利用助力绿色循环发展",
+            "source": "福建省林业局",
+            "link": "https://lyj.fujian.gov.cn/zwgk/hygl/202507/t20250714_6967107.htm",
+            "publishedAt": ""
+          }
+        ],
+        "regulationUpdates": []
+      },
+      "analytics": {
+        "history": [
+          {
+            "month": "2025-11",
+            "price": 625.7
+          },
+          {
+            "month": "2025-12",
+            "price": 622.78
+          },
+          {
+            "month": "2026-01",
+            "price": 577.25
+          },
+          {
+            "month": "2026-02",
+            "price": 574.32
+          },
+          {
+            "month": "2026-03",
+            "price": 571.4
+          },
+          {
+            "month": "2026-04",
+            "price": 595
+          }
+        ],
+        "regionBars": [
+          {
+            "region": "河北",
+            "avgPrice": 760
+          },
+          {
+            "region": "山东",
+            "avgPrice": 430
+          }
+        ],
+        "subcategoryShares": [
+          {
+            "name": "废木托盘",
+            "value": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "kitchen-grease",
+      "name": "厨余/油脂",
+      "quotes": [
+        {
+          "id": "kitchen-grease-1868700900",
+          "title": "(1)居民生活垃圾处理：收费标准：收费3.5~5元/户·月，具体收费标准见各市、县相关文件。(2)非居民生活垃圾处理 ：收费标准：收费机关、社会团体、企事业单位及驻并部队40~105元/吨;宾馆、旅店业2~12元/床·月;商业门店及其他商业用房0.2~1.2元/㎡·月;长途客运车辆1.5~2元/座·月;餐厨垃圾：2~18元/间·天。具体收费标准见各市、县相关文件。",
+          "price": 105,
+          "unit": "元/吨",
+          "priceText": "105 元/吨",
+          "source": "搜狐-危废处置价格",
+          "sourceUrl": "https://www.sohu.com/a/783437146_121123779",
+          "publishedAt": "2026-04-10T09:21:07.926Z",
+          "isTianjinPriority": false
+        },
+        {
+          "id": "kitchen-grease-298582364",
+          "title": "餐厨废油回收参考价（华北送到）",
+          "region": "华北",
+          "price": 6000,
+          "unit": "元/吨",
+          "priceText": "6,000 元/吨",
+          "source": "China5e-餐厨废油市场",
+          "sourceUrl": "https://www.china5e.com/news/news-1188528-1.html",
+          "publishedAt": "2026-04-10T09:23:23.650Z",
+          "isTianjinPriority": false
+        }
+      ],
+      "domesticNews": [],
+      "internationalNews": [],
+      "detail": {
+        "subcategories": [
+          "餐厨废油",
+          "地沟油",
+          "潲水油",
+          "油脂残渣",
+          "餐厨固形物"
+        ],
+        "painPoints": [
+          "餐厨废油和固形厨余回收逻辑不同，混收会影响精炼效率和结算口径。",
+          "收运合规、台账管理和流向监管严格，回收商运营门槛高。",
+          "油脂酸价、水分和杂质含量波动大，公开报价很难完全反映真实质量差异。"
+        ],
+        "subBoards": [],
+        "costStructure": [
+          {
+            "label": "收购价",
+            "percent": 61
+          },
+          {
+            "label": "收运",
+            "percent": 15
+          },
+          {
+            "label": "预处理提纯",
+            "percent": 17
+          },
+          {
+            "label": "环保合规",
+            "percent": 7
+          }
+        ],
+        "processFlow": [
+          {
+            "step": 1,
+            "title": "定点回收",
+            "description": "餐饮端定点收运和台账管理。"
+          },
+          {
+            "step": 2,
+            "title": "固液分离",
+            "description": "去渣、脱水、酸价调节。"
+          },
+          {
+            "step": 3,
+            "title": "精炼转化",
+            "description": "制备工业级油脂或生物柴油原料。"
+          },
+          {
+            "step": 4,
+            "title": "终端利用",
+            "description": "进入生物燃料和化工体系。"
+          }
+        ],
+        "regulations": [
+          {
+            "title": "中华人民共和国固体废物污染环境防治法",
+            "authority": "全国人大常委会",
+            "referenceUrl": "https://www.gov.cn/xinwen/2020-04/30/content_5507561.htm",
+            "publishedDate": "2020-04-29",
+            "status": "现行有效",
+            "docType": "法律"
+          },
+          {
+            "title": "再生资源回收管理办法",
+            "authority": "商务部",
+            "referenceUrl": "https://www.gov.cn/gongbao/content/2007/content_721184.htm",
+            "publishedDate": "2007-05",
+            "status": "现行有效",
+            "docType": "办法"
+          },
+          {
+            "title": "危险废物转移管理办法",
+            "authority": "生态环境部",
+            "referenceUrl": "https://www.mee.gov.cn/xxgk2018/xxgk/xxgk02/202111/t20211130_962150.html",
+            "publishedDate": "2021-11-30",
+            "status": "现行有效",
+            "docType": "办法"
+          },
+          {
+            "title": "国务院办公厅关于加强地沟油整治和餐厨废弃物管理的意见",
+            "authority": "国务院办公厅",
+            "referenceUrl": "https://www.mee.gov.cn/zcwj/gwywj/201811/t20181129_676494.shtml"
+          }
+        ],
+        "commonRegulations": [
+          {
+            "title": "中华人民共和国固体废物污染环境防治法",
+            "authority": "全国人大常委会",
+            "referenceUrl": "https://www.gov.cn/xinwen/2020-04/30/content_5507561.htm",
+            "publishedDate": "2020-04-29",
+            "status": "现行有效",
+            "docType": "法律"
+          },
+          {
+            "title": "再生资源回收管理办法",
+            "authority": "商务部",
+            "referenceUrl": "https://www.gov.cn/gongbao/content/2007/content_721184.htm",
+            "publishedDate": "2007-05",
+            "status": "现行有效",
+            "docType": "办法"
+          }
+        ],
+        "categoryRegulations": [
+          {
+            "title": "危险废物转移管理办法",
+            "authority": "生态环境部",
+            "referenceUrl": "https://www.mee.gov.cn/xxgk2018/xxgk/xxgk02/202111/t20211130_962150.html",
+            "publishedDate": "2021-11-30",
+            "status": "现行有效",
+            "docType": "办法"
+          },
+          {
+            "title": "国务院办公厅关于加强地沟油整治和餐厨废弃物管理的意见",
+            "authority": "国务院办公厅",
+            "referenceUrl": "https://www.mee.gov.cn/zcwj/gwywj/201811/t20181129_676494.shtml"
+          }
+        ],
+        "supportMaterials": [
+          {
+            "id": "kitchen-grease-support-live-0",
+            "title": "危险废物转移管理办法",
+            "source": "生态环境部",
+            "link": "https://www.mee.gov.cn/xxgk2018/xxgk/xxgk02/202111/t20211130_962150.html",
+            "publishedAt": "2021-11-30"
+          },
+          {
+            "id": "kitchen-grease-support-live-1",
+            "title": "国务院办公厅关于加强地沟油整治和餐厨废弃物管理的意见",
+            "source": "国务院办公厅",
+            "link": "https://www.mee.gov.cn/zcwj/gwywj/201811/t20181129_676494.shtml",
+            "publishedAt": ""
+          }
+        ],
+        "regulationUpdates": []
+      },
+      "analytics": {
+        "history": [
+          {
+            "month": "2025-11",
+            "price": 2924.98
+          },
+          {
+            "month": "2025-12",
+            "price": 2909.98
+          },
+          {
+            "month": "2026-01",
+            "price": 3103.72
+          },
+          {
+            "month": "2026-02",
+            "price": 3088.72
+          },
+          {
+            "month": "2026-03",
+            "price": 3073.72
+          },
+          {
+            "month": "2026-04",
+            "price": 3052.5
+          }
+        ],
+        "regionBars": [
+          {
+            "region": "华北",
+            "avgPrice": 6000
+          },
+          {
+            "region": "全国",
+            "avgPrice": 105
+          }
+        ],
+        "subcategoryShares": [
+          {
+            "name": "餐厨废油",
+            "value": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "industrial-slag",
+      "name": "工业废渣",
+      "quotes": [
+        {
+          "id": "industrial-slag-33900799",
+          "title": "工业废渣资源化处理参考价（物化）",
+          "region": "全国",
+          "price": 1300,
+          "unit": "元/吨",
+          "priceText": "1,300 元/吨",
+          "source": "搜狐-危废处理价格",
+          "sourceUrl": "https://www.sohu.com/a/783437146_121123779",
+          "publishedAt": "2026-04-10T09:23:25.687Z",
+          "isTianjinPriority": false
+        },
+        {
+          "id": "industrial-slag-933738602",
+          "title": "工业废渣资源化处理参考价（固化）",
+          "region": "全国",
+          "price": 2000,
+          "unit": "元/吨",
+          "priceText": "2,000 元/吨",
+          "source": "搜狐-危废处理价格",
+          "sourceUrl": "https://www.sohu.com/a/783437146_121123779",
+          "publishedAt": "2026-04-10T09:23:25.687Z",
+          "isTianjinPriority": false
+        }
+      ],
+      "domesticNews": [],
+      "internationalNews": [],
+      "detail": {
+        "subcategories": [
+          "钢渣",
+          "高炉矿渣",
+          "粉煤灰",
+          "有色冶炼渣",
+          "炉底渣"
+        ],
+        "painPoints": [
+          "工业废渣危险属性和可利用属性需要先判断，不同来源处理路径差异大。",
+          "检测、稳定化和资源化加工投入高，价格不仅看吨位还看处置难度。",
+          "终端消纳依赖建材和道路工程项目，需求释放往往带有明显项目周期。"
+        ],
+        "subBoards": [],
+        "costStructure": [
+          {
+            "label": "收购价",
+            "percent": 57
+          },
+          {
+            "label": "检测与分级",
+            "percent": 15
+          },
+          {
+            "label": "破碎筛分",
+            "percent": 18
+          },
+          {
+            "label": "运输",
+            "percent": 10
+          }
+        ],
+        "processFlow": [
+          {
+            "step": 1,
+            "title": "来源核验",
+            "description": "核验来源与危险属性判定。"
+          },
+          {
+            "step": 2,
+            "title": "分级处理",
+            "description": "按组分和活性进行分级。"
+          },
+          {
+            "step": 3,
+            "title": "加工改性",
+            "description": "破碎、筛分、稳定化处理。"
+          },
+          {
+            "step": 4,
+            "title": "建材利用",
+            "description": "进入水泥掺合料和道路材料。"
+          }
+        ],
+        "regulations": [
+          {
+            "title": "中华人民共和国固体废物污染环境防治法",
+            "authority": "全国人大常委会",
+            "referenceUrl": "https://www.gov.cn/xinwen/2020-04/30/content_5507561.htm",
+            "publishedDate": "2020-04-29",
+            "status": "现行有效",
+            "docType": "法律"
+          },
+          {
+            "title": "危险废物转移管理办法",
+            "authority": "生态环境部",
+            "referenceUrl": "https://www.mee.gov.cn/xxgk2018/xxgk/xxgk02/202111/t20211130_962150.html",
+            "publishedDate": "2021-11-30",
+            "status": "现行有效",
+            "docType": "办法"
+          },
+          {
+            "title": "再生资源回收管理办法",
+            "authority": "商务部",
+            "referenceUrl": "https://www.gov.cn/gongbao/content/2007/content_721184.htm",
+            "publishedDate": "2007-05",
+            "status": "现行有效",
+            "docType": "办法"
+          },
+          {
+            "title": "一般工业固体废物规范化环境管理指南（征求意见稿）",
+            "authority": "生态环境部",
+            "referenceUrl": "https://www.mee.gov.cn/xxgk2018/xxgk/xxgk06/202407/t20240725_1082448.html"
+          }
+        ],
+        "commonRegulations": [
+          {
+            "title": "中华人民共和国固体废物污染环境防治法",
+            "authority": "全国人大常委会",
+            "referenceUrl": "https://www.gov.cn/xinwen/2020-04/30/content_5507561.htm",
+            "publishedDate": "2020-04-29",
+            "status": "现行有效",
+            "docType": "法律"
+          },
+          {
+            "title": "再生资源回收管理办法",
+            "authority": "商务部",
+            "referenceUrl": "https://www.gov.cn/gongbao/content/2007/content_721184.htm",
+            "publishedDate": "2007-05",
+            "status": "现行有效",
+            "docType": "办法"
+          }
+        ],
+        "categoryRegulations": [
+          {
+            "title": "危险废物转移管理办法",
+            "authority": "生态环境部",
+            "referenceUrl": "https://www.mee.gov.cn/xxgk2018/xxgk/xxgk02/202111/t20211130_962150.html",
+            "publishedDate": "2021-11-30",
+            "status": "现行有效",
+            "docType": "办法"
+          },
+          {
+            "title": "一般工业固体废物规范化环境管理指南（征求意见稿）",
+            "authority": "生态环境部",
+            "referenceUrl": "https://www.mee.gov.cn/xxgk2018/xxgk/xxgk06/202407/t20240725_1082448.html"
+          }
+        ],
+        "supportMaterials": [
+          {
+            "id": "industrial-slag-support-live-0",
+            "title": "危险废物转移管理办法",
+            "source": "生态环境部",
+            "link": "https://www.mee.gov.cn/xxgk2018/xxgk/xxgk02/202111/t20211130_962150.html",
+            "publishedAt": "2021-11-30"
+          },
+          {
+            "id": "industrial-slag-support-live-1",
+            "title": "一般工业固体废物规范化环境管理指南（征求意见稿）",
+            "source": "生态环境部",
+            "link": "https://www.mee.gov.cn/xxgk2018/xxgk/xxgk06/202407/t20240725_1082448.html",
+            "publishedAt": ""
+          }
+        ],
+        "regulationUpdates": []
+      },
+      "analytics": {
+        "history": [
+          {
+            "month": "2025-11",
+            "price": 1585.47
+          },
+          {
+            "month": "2025-12",
+            "price": 1577.36
+          },
+          {
+            "month": "2026-01",
+            "price": 1682.09
+          },
+          {
+            "month": "2026-02",
+            "price": 1673.98
+          },
+          {
+            "month": "2026-03",
+            "price": 1665.87
+          },
+          {
+            "month": "2026-04",
+            "price": 1650
+          }
+        ],
+        "regionBars": [
+          {
+            "region": "全国",
+            "avgPrice": 1650
+          }
+        ],
+        "subcategoryShares": [
+          {
+            "name": "钢渣",
+            "value": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "hazardous-waste",
+      "name": "危险废弃物",
+      "quotes": [
+        {
+          "id": "hazardous-waste-1145940943",
+          "title": "(1)其他危废处置费：收费标准：般危险废物类。采用焚烧工艺处置：不超过4.5元/千克。固化填埋：不超过3.5元/千克。直接填埋：不超过3元/千克。废液处理：不超过3元/千克。特殊危险废物类及其包装物：一般废弃化学品及其包装物：不超过20元/千克。废弃剧毒化学品和废弃易燃易爆化学品及其包装物：不超过3000元/千克。",
+          "price": 3000000,
+          "unit": "元/吨",
+          "priceText": "3,000,000 元/吨",
+          "source": "搜狐-危废处置价格",
+          "sourceUrl": "https://www.sohu.com/a/783437146_121123779",
+          "publishedAt": "2026-04-10T09:21:07.926Z",
+          "isTianjinPriority": false
+        },
+        {
+          "id": "hazardous-waste-967025230",
+          "title": "特种危险废物处置20-2000元/公斤。",
+          "price": 2000000,
+          "unit": "元/吨",
+          "priceText": "2,000,000 元/吨",
+          "source": "搜狐-危废处置价格",
+          "sourceUrl": "https://www.sohu.com/a/783437146_121123779",
+          "publishedAt": "2026-04-10T09:21:07.926Z",
+          "isTianjinPriority": false
+        },
+        {
+          "id": "hazardous-waste-1714725133",
+          "title": "(2)其他危废处置费：收费标准：不超过500元/公斤。具体收费标准见各市、县相关文件。",
+          "price": 500000,
+          "unit": "元/吨",
+          "priceText": "500,000 元/吨",
+          "source": "搜狐-危废处置价格",
+          "sourceUrl": "https://www.sohu.com/a/783437146_121123779",
+          "publishedAt": "2026-04-10T09:21:07.926Z",
+          "isTianjinPriority": false
+        },
+        {
+          "id": "hazardous-waste-514775848",
+          "title": "(2)其他危废处置费：收费标准：焚烧方式处置(含灰渣的固化及安全填埋)：4.5元/公斤。固化填埋处置(含安全填埋)：3.6元/公斤。物化填埋处置(含滤渣的固化及安全填埋)：3.6元/公斤。直接填埋处置：2.4元/公斤。剧毒类处置：400元/公斤(含直接接触包装物)。实验室试剂类处置：20元/公斤(含技术分类和直接接触包装物)。含易制毒化学品类处置：65元/公斤(含直接接触包装物)。",
+          "price": 400000,
+          "unit": "元/吨",
+          "priceText": "400,000 元/吨",
+          "source": "搜狐-危废处置价格",
+          "sourceUrl": "https://www.sohu.com/a/783437146_121123779",
+          "publishedAt": "2026-04-10T09:21:07.926Z",
+          "isTianjinPriority": false
+        },
+        {
+          "id": "hazardous-waste-54863342",
+          "title": "(2)其他危废处置费：收费标准：1-100元/公斤。具体收费标准见各市、县相关文件。",
+          "price": 100000,
+          "unit": "元/吨",
+          "priceText": "100,000 元/吨",
+          "source": "搜狐-危废处置价格",
+          "sourceUrl": "https://www.sohu.com/a/783437146_121123779",
+          "publishedAt": "2026-04-10T09:21:07.926Z",
+          "isTianjinPriority": false
+        },
+        {
+          "id": "hazardous-waste-1126980325",
+          "title": "(2)其他危废处置费：收费标准：焚烧方式处置(含灰渣的固化及安全填埋)：4.5元/公斤。固化填埋处置(含安全填埋)：3.6元/公斤。物化填埋处置(含滤渣的固化及安全填埋)：3.6元/公斤。直接填埋处置：2.4元/公斤。剧毒类处置：400元/公斤(含直接接触包装物)。实验室试剂类处置：20元/公斤(含技术分类和直接接触包装物)。含易制毒化学品类处置：65元/公斤(含直接接触包装物)。",
+          "price": 65000,
+          "unit": "元/吨",
+          "priceText": "65,000 元/吨",
+          "source": "搜狐-危废处置价格",
+          "sourceUrl": "https://www.sohu.com/a/783437146_121123779",
+          "publishedAt": "2026-04-10T09:21:07.926Z",
+          "isTianjinPriority": false
+        },
+        {
+          "id": "hazardous-waste-2016538378",
+          "title": "(2)其他危废处置费：收费标准：1.3-5.85元/公斤;工业危废、社会源危废和剧毒品废弃物：焚烧2-20元/公斤;填埋2.8-3.2元/公斤。具体收费标准见各市、县相关文件。",
+          "price": 20000,
+          "unit": "元/吨",
+          "priceText": "20,000 元/吨",
+          "source": "搜狐-危废处置价格",
+          "sourceUrl": "https://www.sohu.com/a/783437146_121123779",
+          "publishedAt": "2026-04-10T09:21:07.926Z",
+          "isTianjinPriority": false
+        },
+        {
+          "id": "hazardous-waste-1123137286",
+          "title": "(2)其他危废处置费：收费标准：焚烧方式处置(含灰渣的固化及安全填埋)：4.5元/公斤。固化填埋处置(含安全填埋)：3.6元/公斤。物化填埋处置(含滤渣的固化及安全填埋)：3.6元/公斤。直接填埋处置：2.4元/公斤。剧毒类处置：400元/公斤(含直接接触包装物)。实验室试剂类处置：20元/公斤(含技术分类和直接接触包装物)。含易制毒化学品类处置：65元/公斤(含直接接触包装物)。",
+          "price": 20000,
+          "unit": "元/吨",
+          "priceText": "20,000 元/吨",
+          "source": "搜狐-危废处置价格",
+          "sourceUrl": "https://www.sohu.com/a/783437146_121123779",
+          "publishedAt": "2026-04-10T09:21:07.926Z",
+          "isTianjinPriority": false
+        },
+        {
+          "id": "hazardous-waste-462687984",
+          "title": "(1)其他危废处置费：收费标准：般危险废物类。采用焚烧工艺处置：不超过4.5元/千克。固化填埋：不超过3.5元/千克。直接填埋：不超过3元/千克。废液处理：不超过3元/千克。特殊危险废物类及其包装物：一般废弃化学品及其包装物：不超过20元/千克。废弃剧毒化学品和废弃易燃易爆化学品及其包装物：不超过3000元/千克。",
+          "price": 20000,
+          "unit": "元/吨",
+          "priceText": "20,000 元/吨",
+          "source": "搜狐-危废处置价格",
+          "sourceUrl": "https://www.sohu.com/a/783437146_121123779",
+          "publishedAt": "2026-04-10T09:21:07.926Z",
+          "isTianjinPriority": false
+        },
+        {
+          "id": "hazardous-waste-1498144610",
+          "title": "(3)其他危废处置费：收费标准：危险废物分类处置收费：1.2-10元/公斤。具体收费标准见各市(州)、县相关文件。",
+          "price": 10000,
+          "unit": "元/吨",
+          "priceText": "10,000 元/吨",
+          "source": "搜狐-危废处置价格",
+          "sourceUrl": "https://www.sohu.com/a/783437146_121123779",
+          "publishedAt": "2026-04-10T09:21:07.926Z",
+          "isTianjinPriority": false
+        }
+      ],
+      "domesticNews": [],
+      "internationalNews": [],
+      "detail": {
+        "subcategories": [
+          "废矿物油",
+          "废活性炭",
+          "废酸/废碱",
+          "污泥",
+          "含重金属残渣"
+        ],
+        "painPoints": [
+          "危废并不是简单按重量计价，处置类别、热值、含水率和危害代码都会显著影响单吨价值。",
+          "跨省转移、经营许可和联单管理要求严格，任何合规缺口都会直接影响接单能力。",
+          "资源化危废和无害化处置危废的商业模式完全不同，公开报价往往只反映局部环节。"
+        ],
+        "subBoards": [],
+        "costStructure": [
+          {
+            "label": "收购/接收费",
+            "percent": 52
+          },
+          {
+            "label": "检测分级",
+            "percent": 14
+          },
+          {
+            "label": "包装转运",
+            "percent": 16
+          },
+          {
+            "label": "环保合规",
+            "percent": 18
+          }
+        ],
+        "processFlow": [
+          {
+            "step": 1,
+            "title": "来源鉴别",
+            "description": "按危废代码、组分和危险特性完成来源鉴别。"
+          },
+          {
+            "step": 2,
+            "title": "分类贮存",
+            "description": "按酸碱、油类、污泥和含重金属物料分类暂存。"
+          },
+          {
+            "step": 3,
+            "title": "转运处置",
+            "description": "联单转移后进入资源化利用或无害化处置。"
+          },
+          {
+            "step": 4,
+            "title": "闭环留痕",
+            "description": "形成经营许可、转移联单和末端去向闭环台账。"
+          }
+        ],
+        "regulations": [
+          {
+            "title": "中华人民共和国固体废物污染环境防治法",
+            "authority": "全国人大常委会",
+            "referenceUrl": "https://www.gov.cn/xinwen/2020-04/30/content_5507561.htm",
+            "publishedDate": "2020-04-29",
+            "status": "现行有效",
+            "docType": "法律"
+          },
+          {
+            "title": "危险废物转移管理办法",
+            "authority": "生态环境部",
+            "referenceUrl": "https://www.mee.gov.cn/xxgk2018/xxgk/xxgk02/202111/t20211130_962150.html",
+            "publishedDate": "2021-11-30",
+            "status": "现行有效",
+            "docType": "办法"
+          },
+          {
+            "title": "危险废物经营许可证管理办法",
+            "authority": "国务院",
+            "referenceUrl": "https://www.gov.cn/gongbao/content/2016/content_5139367.htm",
+            "publishedDate": "2016-02",
+            "status": "现行有效",
+            "docType": "办法"
+          },
+          {
+            "title": "国家危险废物名录（2025年版）",
+            "authority": "生态环境部",
+            "referenceUrl": "https://www.mee.gov.cn/xxgk2018/xxgk/xxgk01/202501/t20250120_1100287.html",
+            "publishedDate": "2025-01-20",
+            "status": "现行有效",
+            "docType": "名录"
+          },
+          {
+            "title": "危险废物贮存污染控制标准（GB 18597-2023）",
+            "authority": "生态环境部",
+            "referenceUrl": "https://www.mee.gov.cn/ywgz/fgbz/bz/bzwb/other/qt/202308/t20230824_1039320.shtml",
+            "publishedDate": "2023-08-24",
+            "status": "现行有效",
+            "docType": "国标"
+          }
+        ],
+        "commonRegulations": [
+          {
+            "title": "中华人民共和国固体废物污染环境防治法",
+            "authority": "全国人大常委会",
+            "referenceUrl": "https://www.gov.cn/xinwen/2020-04/30/content_5507561.htm",
+            "publishedDate": "2020-04-29",
+            "status": "现行有效",
+            "docType": "法律"
+          },
+          {
+            "title": "再生资源回收管理办法",
+            "authority": "商务部",
+            "referenceUrl": "https://www.gov.cn/gongbao/content/2007/content_721184.htm",
+            "publishedDate": "2007-05",
+            "status": "现行有效",
+            "docType": "办法"
+          }
+        ],
+        "categoryRegulations": [
+          {
+            "title": "危险废物转移管理办法",
+            "authority": "生态环境部",
+            "referenceUrl": "https://www.mee.gov.cn/xxgk2018/xxgk/xxgk02/202111/t20211130_962150.html",
+            "publishedDate": "2021-11-30",
+            "status": "现行有效",
+            "docType": "办法"
+          },
+          {
+            "title": "危险废物经营许可证管理办法",
+            "authority": "国务院",
+            "referenceUrl": "https://www.gov.cn/gongbao/content/2016/content_5139367.htm",
+            "publishedDate": "2016-02",
+            "status": "现行有效",
+            "docType": "办法"
+          },
+          {
+            "title": "国家危险废物名录（2025年版）",
+            "authority": "生态环境部",
+            "referenceUrl": "https://www.mee.gov.cn/xxgk2018/xxgk/xxgk01/202501/t20250120_1100287.html",
+            "publishedDate": "2025-01-20",
+            "status": "现行有效",
+            "docType": "名录"
+          },
+          {
+            "title": "危险废物贮存污染控制标准（GB 18597-2023）",
+            "authority": "生态环境部",
+            "referenceUrl": "https://www.mee.gov.cn/ywgz/fgbz/bz/bzwb/other/qt/202308/t20230824_1039320.shtml",
+            "publishedDate": "2023-08-24",
+            "status": "现行有效",
+            "docType": "国标"
+          }
+        ],
+        "supportMaterials": [
+          {
+            "id": "hazardous-waste-support-live-0",
+            "title": "危险废物转移管理办法",
+            "source": "生态环境部",
+            "link": "https://www.mee.gov.cn/xxgk2018/xxgk/xxgk02/202111/t20211130_962150.html",
+            "publishedAt": "2021-11-30"
+          },
+          {
+            "id": "hazardous-waste-support-live-1",
+            "title": "危险废物经营许可证管理办法",
+            "source": "国务院",
+            "link": "https://www.gov.cn/gongbao/content/2016/content_5139367.htm",
+            "publishedAt": "2016-02"
+          },
+          {
+            "id": "hazardous-waste-support-live-2",
+            "title": "国家危险废物名录（2025年版）",
+            "source": "生态环境部",
+            "link": "https://www.mee.gov.cn/xxgk2018/xxgk/xxgk01/202501/t20250120_1100287.html",
+            "publishedAt": "2025-01-20"
+          },
+          {
+            "id": "hazardous-waste-support-live-3",
+            "title": "危险废物贮存污染控制标准（GB 18597-2023）",
+            "source": "生态环境部",
+            "link": "https://www.mee.gov.cn/ywgz/fgbz/bz/bzwb/other/qt/202308/t20230824_1039320.shtml",
+            "publishedAt": "2023-08-24"
+          }
+        ],
+        "regulationUpdates": []
+      },
+      "analytics": {
+        "history": [
+          {
+            "month": "2025-11",
+            "price": 616472.12
+          },
+          {
+            "month": "2025-12",
+            "price": 613456.93
+          },
+          {
+            "month": "2026-01",
+            "price": 652396.02
+          },
+          {
+            "month": "2026-02",
+            "price": 649380.83
+          },
+          {
+            "month": "2026-03",
+            "price": 646365.63
+          },
+          {
+            "month": "2026-04",
+            "price": 613500
+          }
+        ],
+        "regionBars": [
+          {
+            "region": "全国",
+            "avgPrice": 613500
+          }
+        ],
+        "subcategoryShares": [
+          {
+            "name": "废矿物油",
+            "value": 10
+          }
+        ]
+      }
+    },
+    {
+      "id": "medical-waste",
+      "name": "医疗废弃物",
+      "quotes": [
+        {
+          "id": "medical-waste-1617265921",
+          "title": "(1)医疗废物处置费：收费标准：有固定床位的医疗机构，每床1.6-5元/日，无固定床位的按实际产生废弃物数量2.7-6元/公斤收取。具体收费标准见各市、县相关文件。",
+          "price": 6000,
+          "unit": "元/吨",
+          "priceText": "6,000 元/吨",
+          "source": "搜狐-危废处置价格",
+          "sourceUrl": "https://www.sohu.com/a/783437146_121123779",
+          "publishedAt": "2026-04-10T09:21:07.926Z",
+          "isTianjinPriority": false
+        },
+        {
+          "id": "medical-waste-604250530",
+          "title": "医疗废物处置费：收费标准：按床位计费：1.9-2.6元/床日;按时间计费：30-2000元/月;按重量计费：3-6元/公斤。",
+          "price": 6000,
+          "unit": "元/吨",
+          "priceText": "6,000 元/吨",
+          "source": "搜狐-危废处置价格",
+          "sourceUrl": "https://www.sohu.com/a/783437146_121123779",
+          "publishedAt": "2026-04-10T09:21:07.926Z",
+          "isTianjinPriority": false
+        },
+        {
+          "id": "medical-waste-1852383706",
+          "title": "(1)医疗废物处置费：收费标准：1.2-3.5元/床·日，80-600元/月，3-6元/千克。具体收费标准见相关文件。",
+          "price": 6000,
+          "unit": "元/吨",
+          "priceText": "6,000 元/吨",
+          "source": "搜狐-危废处置价格",
+          "sourceUrl": "https://www.sohu.com/a/783437146_121123779",
+          "publishedAt": "2026-04-10T09:21:07.926Z",
+          "isTianjinPriority": false
+        },
+        {
+          "id": "medical-waste-2050975496",
+          "title": "对产生医疗废物数量不稳定的单位，按照2元-6元/千克的标准收取，或参照此标准，由医疗废物处置单位与产生单位协商确定。",
+          "price": 6000,
+          "unit": "元/吨",
+          "priceText": "6,000 元/吨",
+          "source": "搜狐-危废处置价格",
+          "sourceUrl": "https://www.sohu.com/a/783437146_121123779",
+          "publishedAt": "2026-04-10T09:21:07.926Z",
+          "isTianjinPriority": false
+        },
+        {
+          "id": "medical-waste-873221536",
+          "title": "(1)医疗废物处置费：收费标准：计重收取2.5-5.85元/公斤;按病床数收取1.55-2.2元/床·日。具体收费标准见各市、县相关文件。",
+          "price": 5850,
+          "unit": "元/吨",
+          "priceText": "5,850 元/吨",
+          "source": "搜狐-危废处置价格",
+          "sourceUrl": "https://www.sohu.com/a/783437146_121123779",
+          "publishedAt": "2026-04-10T09:21:07.926Z",
+          "isTianjinPriority": false
+        },
+        {
+          "id": "medical-waste-1253566515",
+          "title": "(1)医疗废物处置费：收费标准：按床位数计收的，1-3.4元/床‧日;按医疗废物产生量计收的：2-5元/公斤或50-1200元/月。具体收费标准见设区市相关文件。",
+          "price": 5000,
+          "unit": "元/吨",
+          "priceText": "5,000 元/吨",
+          "source": "搜狐-危废处置价格",
+          "sourceUrl": "https://www.sohu.com/a/783437146_121123779",
+          "publishedAt": "2026-04-10T09:21:07.926Z",
+          "isTianjinPriority": false
+        },
+        {
+          "id": "medical-waste-118347858",
+          "title": "收费标准：有固定床位的医疗机构医疗废物处置收费1.1-3元/床·日;无固定床位的医疗机构医疗废物处置收费，按医疗单位收费40-70元/单位·月、按医疗废物重量收费2-3.5元/公斤。",
+          "price": 3500,
+          "unit": "元/吨",
+          "priceText": "3,500 元/吨",
+          "source": "搜狐-危废处置价格",
+          "sourceUrl": "https://www.sohu.com/a/783437146_121123779",
+          "publishedAt": "2026-04-10T09:21:07.926Z",
+          "isTianjinPriority": false
+        },
+        {
+          "id": "medical-waste-753030490",
+          "title": "(1)医疗废物处置费：收费标准：有床位医疗卫生机构：按床位缴费的 N=3.9×M/1.25元/床.日(M为按床位计费的医疗卫生机构全年平均每床日产生医废重量)，按医疗废物重量缴费的3.3元/公斤",
+          "price": 3300,
+          "unit": "元/吨",
+          "priceText": "3,300 元/吨",
+          "source": "搜狐-危废处置价格",
+          "sourceUrl": "https://www.sohu.com/a/783437146_121123779",
+          "publishedAt": "2026-04-10T09:21:07.926Z",
+          "isTianjinPriority": false
+        },
+        {
+          "id": "medical-waste-1878647968",
+          "title": "无床位医疗卫生机构：月产生医疗废物100公斤以上3.3元/公斤，月产生医疗废物30-100公斤的260元/月，月产生医疗废物10-30公斤的145元/月，月产生医疗废物10公斤以下的90元/月",
+          "price": 3300,
+          "unit": "元/吨",
+          "priceText": "3,300 元/吨",
+          "source": "搜狐-危废处置价格",
+          "sourceUrl": "https://www.sohu.com/a/783437146_121123779",
+          "publishedAt": "2026-04-10T09:21:07.926Z",
+          "isTianjinPriority": false
+        },
+        {
+          "id": "medical-waste-1182154776",
+          "title": "(1)医疗废物处置费：收费标准：按最高3.3元/公斤或1.5~2.5元/日不等的标准收费。具体收费标准见各市、县相关文件。",
+          "price": 3300,
+          "unit": "元/吨",
+          "priceText": "3,300 元/吨",
+          "source": "搜狐-危废处置价格",
+          "sourceUrl": "https://www.sohu.com/a/783437146_121123779",
+          "publishedAt": "2026-04-10T09:21:07.926Z",
+          "isTianjinPriority": false
+        }
+      ],
+      "domesticNews": [],
+      "internationalNews": [],
+      "detail": {
+        "subcategories": [
+          "感染性废物",
+          "损伤性废物",
+          "病理性废物",
+          "药物性废物",
+          "化学性废物"
+        ],
+        "painPoints": [
+          "医疗废弃物虽然纳入危废监管体系，但医院、疾控、实验室和宠物诊疗机构的收集口径差异很大，单一报价难反映真实处置成本。",
+          "感染性、损伤性、病理性、药物性和化学性废物必须分流，任何混装都会抬高收运和末端处置风险。",
+          "回收端本质上更接近“收运处置服务”，合规台账、冷链/专车转运和应急能力往往比单吨价格更关键。"
+        ],
+        "subBoards": [
+          {
+            "name": "感染性废物",
+            "focus": "重点覆盖被病原体污染的敷料、拭子、一次性耗材和隔离防护用品。",
+            "handling": "以黄色包装密闭收集，优先走高温焚烧或高温蒸汽灭菌后焚烧协同路线。",
+            "compliance": "核心关注院感分类、日产日清、专车转运和全过程台账。"
+          },
+          {
+            "name": "损伤性废物",
+            "focus": "主要是针头、刀片、安瓿和其他可能刺伤作业人员的锐器类废物。",
+            "handling": "必须进入防穿刺专用利器盒，严禁压缩混装，末端以焚烧或破碎灭菌路线处置。",
+            "compliance": "重点检查利器盒标识、封口状态和转运交接记录。"
+          },
+          {
+            "name": "病理性废物",
+            "focus": "包括组织、器官、胎盘和病理切片等高敏感、高风险废物。",
+            "handling": "要求独立包装、冷藏暂存或快速转运，优先进入独立焚烧处置环节。",
+            "compliance": "最看重人员权限、封闭管理和高风险场景下的留痕链路。"
+          },
+          {
+            "name": "药物性废物",
+            "focus": "覆盖过期药品、淘汰制剂、疫苗残余和含药污染物。",
+            "handling": "按药性和包装形态分类，避免与普通医废混合，必要时走危废协同焚烧。",
+            "compliance": "需同步满足药监销毁要求与医疗废物联单管理要求。"
+          },
+          {
+            "name": "化学性废物",
+            "focus": "主要是实验室废液、显影液、消毒剂残液及含重金属化学残渣。",
+            "handling": "先按酸碱、有机溶剂、含汞等属性分流，再决定中和、回收或焚烧处置路径。",
+            "compliance": "既受医疗废物制度约束，也可能叠加危废代码判定与转移要求。"
+          }
+        ],
+        "costStructure": [
+          {
+            "label": "收运/处置费",
+            "percent": 58
+          },
+          {
+            "label": "分类收集",
+            "percent": 12
+          },
+          {
+            "label": "专车转运",
+            "percent": 14
+          },
+          {
+            "label": "焚烧/灭菌与监测",
+            "percent": 16
+          }
+        ],
+        "processFlow": [
+          {
+            "step": 1,
+            "title": "分类收集",
+            "description": "院内按感染性、损伤性、病理性、药物性和化学性废物分类收集。"
+          },
+          {
+            "step": 2,
+            "title": "密闭暂存",
+            "description": "使用专用包装、周转箱和警示标志，在规定时限内完成密闭暂存。"
+          },
+          {
+            "step": 3,
+            "title": "专车转运",
+            "description": "联单留痕、专车专运，进入集中处置设施或应急处置体系。"
+          },
+          {
+            "step": 4,
+            "title": "高温处置",
+            "description": "采用焚烧或高温灭菌等工艺，实现无害化处置和全过程监测。"
+          }
+        ],
+        "regulations": [
+          {
+            "title": "中华人民共和国固体废物污染环境防治法",
+            "authority": "全国人大常委会",
+            "referenceUrl": "https://www.gov.cn/xinwen/2020-04/30/content_5507561.htm",
+            "publishedDate": "2020-04-29",
+            "status": "现行有效",
+            "docType": "法律"
+          },
+          {
+            "title": "危险废物转移管理办法",
+            "authority": "生态环境部",
+            "referenceUrl": "https://www.mee.gov.cn/xxgk2018/xxgk/xxgk02/202111/t20211130_962150.html",
+            "publishedDate": "2021-11-30",
+            "status": "现行有效",
+            "docType": "办法"
+          },
+          {
+            "title": "国家危险废物名录（2025年版）",
+            "authority": "生态环境部",
+            "referenceUrl": "https://www.mee.gov.cn/xxgk2018/xxgk/xxgk01/202501/t20250120_1100287.html",
+            "publishedDate": "2025-01-20",
+            "status": "现行有效",
+            "docType": "名录"
+          },
+          {
+            "title": "医疗废物管理条例",
+            "authority": "国务院",
+            "referenceUrl": "https://www.nhc.gov.cn/fzs/s3576/200804/fe983d6a8c7b4c8b8ca284b8af31e01e.shtml",
+            "publishedDate": "2003-06",
+            "status": "现行有效",
+            "docType": "条例"
+          },
+          {
+            "title": "医疗卫生机构医疗废物管理办法",
+            "authority": "国家卫生健康委",
+            "referenceUrl": "https://www.nhc.gov.cn/fzs/c100048/201808/e1f12130a00248558abaea83c77719d0.shtml",
+            "publishedDate": "2018-08",
+            "status": "现行有效",
+            "docType": "办法"
+          },
+          {
+            "title": "医疗废物分类目录（2021年版）",
+            "authority": "国家卫生健康委",
+            "referenceUrl": "https://www.nhc.gov.cn/wjw/c100175/202112/cbfa50d4a049466586741e2d6de55d92.shtml",
+            "publishedDate": "2021-12",
+            "status": "现行有效",
+            "docType": "目录"
+          },
+          {
+            "title": "医疗废物处理处置污染控制标准（GB 39707-2020）",
+            "authority": "生态环境部",
+            "referenceUrl": "https://www.mee.gov.cn/ywgz/fgbz/bz/bzwb/gthw/gtfwwrkzbz/202012/t20201218_813930.shtml",
+            "publishedDate": "2020-12-18",
+            "status": "现行有效",
+            "docType": "国标"
+          },
+          {
+            "title": "医疗废物专用包装袋、容器和警示标志标准（HJ 421-2008）",
+            "authority": "生态环境部",
+            "referenceUrl": "https://www.mee.gov.cn/ywgz/fgbz/bz/bzwb/gthw/qtxgbz/200803/t20080306_119048.htm",
+            "publishedDate": "2008-03-06",
+            "status": "现行有效",
+            "docType": "行标"
+          },
+          {
+            "title": "医疗机构废弃物综合治理工作方案",
+            "authority": "国家卫生健康委等10部门",
+            "referenceUrl": "https://www.nhc.gov.cn/yzygj/c100067/202002/66036c7db7b3410d8ebbc4cb7f80ff97.shtml",
+            "publishedDate": "2020-02",
+            "status": "现行有效",
+            "docType": "方案"
+          }
+        ],
+        "commonRegulations": [
+          {
+            "title": "中华人民共和国固体废物污染环境防治法",
+            "authority": "全国人大常委会",
+            "referenceUrl": "https://www.gov.cn/xinwen/2020-04/30/content_5507561.htm",
+            "publishedDate": "2020-04-29",
+            "status": "现行有效",
+            "docType": "法律"
+          },
+          {
+            "title": "再生资源回收管理办法",
+            "authority": "商务部",
+            "referenceUrl": "https://www.gov.cn/gongbao/content/2007/content_721184.htm",
+            "publishedDate": "2007-05",
+            "status": "现行有效",
+            "docType": "办法"
+          }
+        ],
+        "categoryRegulations": [
+          {
+            "title": "危险废物转移管理办法",
+            "authority": "生态环境部",
+            "referenceUrl": "https://www.mee.gov.cn/xxgk2018/xxgk/xxgk02/202111/t20211130_962150.html",
+            "publishedDate": "2021-11-30",
+            "status": "现行有效",
+            "docType": "办法"
+          },
+          {
+            "title": "国家危险废物名录（2025年版）",
+            "authority": "生态环境部",
+            "referenceUrl": "https://www.mee.gov.cn/xxgk2018/xxgk/xxgk01/202501/t20250120_1100287.html",
+            "publishedDate": "2025-01-20",
+            "status": "现行有效",
+            "docType": "名录"
+          },
+          {
+            "title": "医疗废物管理条例",
+            "authority": "国务院",
+            "referenceUrl": "https://www.nhc.gov.cn/fzs/s3576/200804/fe983d6a8c7b4c8b8ca284b8af31e01e.shtml",
+            "publishedDate": "2003-06",
+            "status": "现行有效",
+            "docType": "条例"
+          },
+          {
+            "title": "医疗卫生机构医疗废物管理办法",
+            "authority": "国家卫生健康委",
+            "referenceUrl": "https://www.nhc.gov.cn/fzs/c100048/201808/e1f12130a00248558abaea83c77719d0.shtml",
+            "publishedDate": "2018-08",
+            "status": "现行有效",
+            "docType": "办法"
+          },
+          {
+            "title": "医疗废物分类目录（2021年版）",
+            "authority": "国家卫生健康委",
+            "referenceUrl": "https://www.nhc.gov.cn/wjw/c100175/202112/cbfa50d4a049466586741e2d6de55d92.shtml",
+            "publishedDate": "2021-12",
+            "status": "现行有效",
+            "docType": "目录"
+          },
+          {
+            "title": "医疗废物处理处置污染控制标准（GB 39707-2020）",
+            "authority": "生态环境部",
+            "referenceUrl": "https://www.mee.gov.cn/ywgz/fgbz/bz/bzwb/gthw/gtfwwrkzbz/202012/t20201218_813930.shtml",
+            "publishedDate": "2020-12-18",
+            "status": "现行有效",
+            "docType": "国标"
+          },
+          {
+            "title": "医疗废物专用包装袋、容器和警示标志标准（HJ 421-2008）",
+            "authority": "生态环境部",
+            "referenceUrl": "https://www.mee.gov.cn/ywgz/fgbz/bz/bzwb/gthw/qtxgbz/200803/t20080306_119048.htm",
+            "publishedDate": "2008-03-06",
+            "status": "现行有效",
+            "docType": "行标"
+          },
+          {
+            "title": "医疗机构废弃物综合治理工作方案",
+            "authority": "国家卫生健康委等10部门",
+            "referenceUrl": "https://www.nhc.gov.cn/yzygj/c100067/202002/66036c7db7b3410d8ebbc4cb7f80ff97.shtml",
+            "publishedDate": "2020-02",
+            "status": "现行有效",
+            "docType": "方案"
+          }
+        ],
+        "supportMaterials": [
+          {
+            "id": "medical-waste-support-live-0",
+            "title": "危险废物转移管理办法",
+            "source": "生态环境部",
+            "link": "https://www.mee.gov.cn/xxgk2018/xxgk/xxgk02/202111/t20211130_962150.html",
+            "publishedAt": "2021-11-30"
+          },
+          {
+            "id": "medical-waste-support-live-1",
+            "title": "国家危险废物名录（2025年版）",
+            "source": "生态环境部",
+            "link": "https://www.mee.gov.cn/xxgk2018/xxgk/xxgk01/202501/t20250120_1100287.html",
+            "publishedAt": "2025-01-20"
+          },
+          {
+            "id": "medical-waste-support-live-2",
+            "title": "医疗废物管理条例",
+            "source": "国务院",
+            "link": "https://www.nhc.gov.cn/fzs/s3576/200804/fe983d6a8c7b4c8b8ca284b8af31e01e.shtml",
+            "publishedAt": "2003-06"
+          },
+          {
+            "id": "medical-waste-support-live-3",
+            "title": "医疗卫生机构医疗废物管理办法",
+            "source": "国家卫生健康委",
+            "link": "https://www.nhc.gov.cn/fzs/c100048/201808/e1f12130a00248558abaea83c77719d0.shtml",
+            "publishedAt": "2018-08"
+          },
+          {
+            "id": "medical-waste-support-live-4",
+            "title": "医疗废物分类目录（2021年版）",
+            "source": "国家卫生健康委",
+            "link": "https://www.nhc.gov.cn/wjw/c100175/202112/cbfa50d4a049466586741e2d6de55d92.shtml",
+            "publishedAt": "2021-12"
+          },
+          {
+            "id": "medical-waste-support-live-5",
+            "title": "医疗废物处理处置污染控制标准（GB 39707-2020）",
+            "source": "生态环境部",
+            "link": "https://www.mee.gov.cn/ywgz/fgbz/bz/bzwb/gthw/gtfwwrkzbz/202012/t20201218_813930.shtml",
+            "publishedAt": "2020-12-18"
+          },
+          {
+            "id": "medical-waste-support-live-6",
+            "title": "医疗废物专用包装袋、容器和警示标志标准（HJ 421-2008）",
+            "source": "生态环境部",
+            "link": "https://www.mee.gov.cn/ywgz/fgbz/bz/bzwb/gthw/qtxgbz/200803/t20080306_119048.htm",
+            "publishedAt": "2008-03-06"
+          },
+          {
+            "id": "medical-waste-support-live-7",
+            "title": "医疗机构废弃物综合治理工作方案",
+            "source": "国家卫生健康委等10部门",
+            "link": "https://www.nhc.gov.cn/yzygj/c100067/202002/66036c7db7b3410d8ebbc4cb7f80ff97.shtml",
+            "publishedAt": "2020-02"
+          }
+        ],
+        "regulationUpdates": []
+      },
+      "analytics": {
+        "history": [
+          {
+            "month": "2025-11",
+            "price": 4929.68
+          },
+          {
+            "month": "2025-12",
+            "price": 4905.97
+          },
+          {
+            "month": "2026-01",
+            "price": 4536.71
+          },
+          {
+            "month": "2026-02",
+            "price": 4513
+          },
+          {
+            "month": "2026-03",
+            "price": 4489.28
+          },
+          {
+            "month": "2026-04",
+            "price": 4825
+          }
+        ],
+        "regionBars": [
+          {
+            "region": "全国",
+            "avgPrice": 4825
+          }
+        ],
+        "subcategoryShares": [
+          {
+            "name": "感染性废物",
+            "value": 10
+          }
+        ]
+      }
+    },
+    {
+      "id": "municipal-solid-waste",
+      "name": "生活垃圾",
+      "quotes": [
+        {
+          "id": "municipal-solid-waste-490568791",
+          "title": "(1)居民生活垃圾处理：收费标准：收费3.5~5元/户·月，具体收费标准见各市、县相关文件。(2)非居民生活垃圾处理 ：收费标准：收费机关、社会团体、企事业单位及驻并部队40~105元/吨;宾馆、旅店业2~12元/床·月;商业门店及其他商业用房0.2~1.2元/㎡·月;长途客运车辆1.5~2元/座·月;餐厨垃圾：2~18元/间·天。具体收费标准见各市、县相关文件。",
+          "price": 105,
+          "unit": "元/吨",
+          "priceText": "105 元/吨",
+          "source": "搜狐-危废处置价格",
+          "sourceUrl": "https://www.sohu.com/a/783437146_121123779",
+          "publishedAt": "2026-04-10T09:21:07.926Z",
+          "isTianjinPriority": false
+        },
+        {
+          "id": "municipal-solid-waste-439975041",
+          "title": "生活可回收物参考价（低值混合）",
+          "region": "全国",
+          "price": 230,
+          "unit": "元/吨",
+          "priceText": "230 元/吨",
+          "source": "中国废品回收网-2025行情",
+          "sourceUrl": "http://www.zgfeipin.cn/expo_17556_1/",
+          "publishedAt": "2026-04-10T09:23:19.405Z",
+          "isTianjinPriority": false
+        }
+      ],
+      "domesticNews": [],
+      "internationalNews": [],
+      "detail": {
+        "subcategories": [
+          "可回收纸类",
+          "可回收塑料",
+          "可回收金属",
+          "玻璃可回收物",
+          "其他可回收物"
+        ],
+        "painPoints": [
+          "生活垃圾中的可回收物价值被分拣效率决定，前端分类质量直接影响回收价。",
+          "低值可回收物运费和人工占比高，很多场景只能靠规模化摊薄成本。",
+          "各城市分类标准和回收体系差异大，全国价格参考的可比性并不强。"
+        ],
+        "subBoards": [],
+        "costStructure": [
+          {
+            "label": "分拣后回收价",
+            "percent": 54
+          },
+          {
+            "label": "分拣人工",
+            "percent": 22
+          },
+          {
+            "label": "运输",
+            "percent": 14
+          },
+          {
+            "label": "场站运营",
+            "percent": 10
+          }
+        ],
+        "processFlow": [
+          {
+            "step": 1,
+            "title": "分类投放",
+            "description": "居民端完成四分类或多分类投放。"
+          },
+          {
+            "step": 2,
+            "title": "中转分拣",
+            "description": "分拣中心提取可回收物。"
+          },
+          {
+            "step": 3,
+            "title": "资源化处理",
+            "description": "金属、塑料、纸类进入再生链条。"
+          },
+          {
+            "step": 4,
+            "title": "闭环去向",
+            "description": "不可回收部分焚烧或填埋处置。"
+          }
+        ],
+        "regulations": [
+          {
+            "title": "中华人民共和国固体废物污染环境防治法",
+            "authority": "全国人大常委会",
+            "referenceUrl": "https://www.gov.cn/xinwen/2020-04/30/content_5507561.htm",
+            "publishedDate": "2020-04-29",
+            "status": "现行有效",
+            "docType": "法律"
+          },
+          {
+            "title": "再生资源回收管理办法",
+            "authority": "商务部",
+            "referenceUrl": "https://www.gov.cn/gongbao/content/2007/content_721184.htm",
+            "publishedDate": "2007-05",
+            "status": "现行有效",
+            "docType": "办法"
+          },
+          {
+            "title": "危险废物转移管理办法",
+            "authority": "生态环境部",
+            "referenceUrl": "https://www.mee.gov.cn/xxgk2018/xxgk/xxgk02/202111/t20211130_962150.html",
+            "publishedDate": "2021-11-30",
+            "status": "现行有效",
+            "docType": "办法"
+          },
+          {
+            "title": "国务院办公厅转发国家发展改革委住房城乡建设部生活垃圾分类制度实施方案的通知",
+            "authority": "国务院办公厅",
+            "referenceUrl": "https://www.nhc.gov.cn/bgt/gwywj2/201703/8201a29abb7a442390c30a0056612c18.shtml"
+          }
+        ],
+        "commonRegulations": [
+          {
+            "title": "中华人民共和国固体废物污染环境防治法",
+            "authority": "全国人大常委会",
+            "referenceUrl": "https://www.gov.cn/xinwen/2020-04/30/content_5507561.htm",
+            "publishedDate": "2020-04-29",
+            "status": "现行有效",
+            "docType": "法律"
+          },
+          {
+            "title": "再生资源回收管理办法",
+            "authority": "商务部",
+            "referenceUrl": "https://www.gov.cn/gongbao/content/2007/content_721184.htm",
+            "publishedDate": "2007-05",
+            "status": "现行有效",
+            "docType": "办法"
+          }
+        ],
+        "categoryRegulations": [
+          {
+            "title": "危险废物转移管理办法",
+            "authority": "生态环境部",
+            "referenceUrl": "https://www.mee.gov.cn/xxgk2018/xxgk/xxgk02/202111/t20211130_962150.html",
+            "publishedDate": "2021-11-30",
+            "status": "现行有效",
+            "docType": "办法"
+          },
+          {
+            "title": "国务院办公厅转发国家发展改革委住房城乡建设部生活垃圾分类制度实施方案的通知",
+            "authority": "国务院办公厅",
+            "referenceUrl": "https://www.nhc.gov.cn/bgt/gwywj2/201703/8201a29abb7a442390c30a0056612c18.shtml"
+          }
+        ],
+        "supportMaterials": [
+          {
+            "id": "municipal-solid-waste-support-live-0",
+            "title": "危险废物转移管理办法",
+            "source": "生态环境部",
+            "link": "https://www.mee.gov.cn/xxgk2018/xxgk/xxgk02/202111/t20211130_962150.html",
+            "publishedAt": "2021-11-30"
+          },
+          {
+            "id": "municipal-solid-waste-support-live-1",
+            "title": "国务院办公厅转发国家发展改革委住房城乡建设部生活垃圾分类制度实施方案的通知",
+            "source": "国务院办公厅",
+            "link": "https://www.nhc.gov.cn/bgt/gwywj2/201703/8201a29abb7a442390c30a0056612c18.shtml",
+            "publishedAt": ""
+          }
+        ],
+        "regulationUpdates": []
+      },
+      "analytics": {
+        "history": [
+          {
+            "month": "2025-11",
+            "price": 168.08
+          },
+          {
+            "month": "2025-12",
+            "price": 167.25
+          },
+          {
+            "month": "2026-01",
+            "price": 177.88
+          },
+          {
+            "month": "2026-02",
+            "price": 177.06
+          },
+          {
+            "month": "2026-03",
+            "price": 176.24
+          },
+          {
+            "month": "2026-04",
+            "price": 167.5
+          }
+        ],
+        "regionBars": [
+          {
+            "region": "全国",
+            "avgPrice": 167.5
+          }
+        ],
+        "subcategoryShares": [
+          {
+            "name": "可回收纸类",
+            "value": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "construction-waste",
+      "name": "建筑废弃物",
+      "quotes": [
+        {
+          "id": "construction-waste-447236863",
+          "title": "建筑废弃物资源化处理参考价",
+          "region": "全国",
+          "price": 150,
+          "unit": "元/吨",
+          "priceText": "150 元/吨",
+          "source": "Baidu Legal-建筑垃圾处置费",
+          "sourceUrl": "https://ailegal.baidu.com/legalarticle/qadetail?id=000ca241cf9d36241227",
+          "publishedAt": "2026-04-10T09:23:34.477Z",
+          "isTianjinPriority": false
+        },
+        {
+          "id": "construction-waste-1299859181",
+          "title": "建筑垃圾处理参考价（政策口径）",
+          "region": "全国",
+          "price": 45,
+          "unit": "元/吨",
+          "priceText": "45 元/吨",
+          "source": "红星机器-建筑垃圾处理成本",
+          "sourceUrl": "https://www.hnhxjq.com/news/news4286.htm",
+          "publishedAt": "2026-04-10T09:23:34.477Z",
+          "isTianjinPriority": false
+        }
+      ],
+      "domesticNews": [],
+      "internationalNews": [],
+      "detail": {
+        "subcategories": [
+          "混凝土块",
+          "砖瓦料",
+          "沥青料",
+          "木质装修料",
+          "轻质混合料"
+        ],
+        "painPoints": [
+          "建筑垃圾含土率、轻物质比例和粒径差异大，再生骨料定价标准不完全统一。",
+          "现场分类不到位会抬高后端破碎筛分成本，直接压缩处置利润。",
+          "再生骨料终端接受度和项目招标政策密切相关，价格受政策驱动明显。"
+        ],
+        "subBoards": [],
+        "costStructure": [
+          {
+            "label": "收购价",
+            "percent": 50
+          },
+          {
+            "label": "分拣破碎",
+            "percent": 24
+          },
+          {
+            "label": "运输",
+            "percent": 16
+          },
+          {
+            "label": "场站与设备",
+            "percent": 10
+          }
+        ],
+        "processFlow": [
+          {
+            "step": 1,
+            "title": "现场分类",
+            "description": "拆除现场进行土、砖、混凝土分离。"
+          },
+          {
+            "step": 2,
+            "title": "破碎筛分",
+            "description": "多级破碎形成再生骨料粒级。"
+          },
+          {
+            "step": 3,
+            "title": "杂质剔除",
+            "description": "去除木材、塑料和轻质杂物。"
+          },
+          {
+            "step": 4,
+            "title": "再生应用",
+            "description": "用于垫层、再生砖和道路基层。"
+          }
+        ],
+        "regulations": [
+          {
+            "title": "中华人民共和国固体废物污染环境防治法",
+            "authority": "全国人大常委会",
+            "referenceUrl": "https://www.gov.cn/xinwen/2020-04/30/content_5507561.htm",
+            "publishedDate": "2020-04-29",
+            "status": "现行有效",
+            "docType": "法律"
+          },
+          {
+            "title": "再生资源回收管理办法",
+            "authority": "商务部",
+            "referenceUrl": "https://www.gov.cn/gongbao/content/2007/content_721184.htm",
+            "publishedDate": "2007-05",
+            "status": "现行有效",
+            "docType": "办法"
+          },
+          {
+            "title": "危险废物转移管理办法",
+            "authority": "生态环境部",
+            "referenceUrl": "https://www.mee.gov.cn/xxgk2018/xxgk/xxgk02/202111/t20211130_962150.html",
+            "publishedDate": "2021-11-30",
+            "status": "现行有效",
+            "docType": "办法"
+          },
+          {
+            "title": "国务院办公厅转发住房城乡建设部《关于进一步加强城市建筑垃圾治理的意见》的通知",
+            "authority": "国务院办公厅",
+            "referenceUrl": "https://www.gov.cn/zhengce/content/202506/content_7027026.htm"
+          }
+        ],
+        "commonRegulations": [
+          {
+            "title": "中华人民共和国固体废物污染环境防治法",
+            "authority": "全国人大常委会",
+            "referenceUrl": "https://www.gov.cn/xinwen/2020-04/30/content_5507561.htm",
+            "publishedDate": "2020-04-29",
+            "status": "现行有效",
+            "docType": "法律"
+          },
+          {
+            "title": "再生资源回收管理办法",
+            "authority": "商务部",
+            "referenceUrl": "https://www.gov.cn/gongbao/content/2007/content_721184.htm",
+            "publishedDate": "2007-05",
+            "status": "现行有效",
+            "docType": "办法"
+          }
+        ],
+        "categoryRegulations": [
+          {
+            "title": "危险废物转移管理办法",
+            "authority": "生态环境部",
+            "referenceUrl": "https://www.mee.gov.cn/xxgk2018/xxgk/xxgk02/202111/t20211130_962150.html",
+            "publishedDate": "2021-11-30",
+            "status": "现行有效",
+            "docType": "办法"
+          },
+          {
+            "title": "国务院办公厅转发住房城乡建设部《关于进一步加强城市建筑垃圾治理的意见》的通知",
+            "authority": "国务院办公厅",
+            "referenceUrl": "https://www.gov.cn/zhengce/content/202506/content_7027026.htm"
+          }
+        ],
+        "supportMaterials": [
+          {
+            "id": "construction-waste-support-live-0",
+            "title": "危险废物转移管理办法",
+            "source": "生态环境部",
+            "link": "https://www.mee.gov.cn/xxgk2018/xxgk/xxgk02/202111/t20211130_962150.html",
+            "publishedAt": "2021-11-30"
+          },
+          {
+            "id": "construction-waste-support-live-1",
+            "title": "国务院办公厅转发住房城乡建设部《关于进一步加强城市建筑垃圾治理的意见》的通知",
+            "source": "国务院办公厅",
+            "link": "https://www.gov.cn/zhengce/content/202506/content_7027026.htm",
+            "publishedAt": ""
+          }
+        ],
+        "regulationUpdates": []
+      },
+      "analytics": {
+        "history": [
+          {
+            "month": "2025-11",
+            "price": 96.25
+          },
+          {
+            "month": "2025-12",
+            "price": 95.77
+          },
+          {
+            "month": "2026-01",
+            "price": 101.96
+          },
+          {
+            "month": "2026-02",
+            "price": 101.48
+          },
+          {
+            "month": "2026-03",
+            "price": 101
+          },
+          {
+            "month": "2026-04",
+            "price": 97.5
+          }
+        ],
+        "regionBars": [
+          {
+            "region": "全国",
+            "avgPrice": 97.5
+          }
+        ],
+        "subcategoryShares": [
+          {
+            "name": "混凝土块",
+            "value": 2
+          }
+        ]
+      }
+    }
+  ]
+}

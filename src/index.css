@@ -157,6 +157,10 @@ body {
   color: #95ffd8;
 }
 
+.status.snapshot {
+  color: #7ed7ff;
+}
+
 .status.offline,
 .status.connecting {
   color: #ffd2b0;
@@ -1444,14 +1448,25 @@ td a:hover {
   background: rgba(127, 176, 230, 0.45);
 }
 
+.info-tip,
 .error-tip,
 .empty-screen {
   border-radius: 14px;
+  padding: 10px 12px;
+  font-size: 13px;
+}
+
+.info-tip {
+  border: 1px solid rgba(104, 190, 255, 0.34);
+  background: rgba(16, 46, 82, 0.42);
+  color: #b9e6ff;
+}
+
+.error-tip,
+.empty-screen {
   border: 1px solid rgba(255, 132, 146, 0.38);
   background: rgba(77, 20, 32, 0.36);
   color: #ffb8c1;
-  padding: 10px 12px;
-  font-size: 13px;
 }
 
 @media (max-width: 1250px) {

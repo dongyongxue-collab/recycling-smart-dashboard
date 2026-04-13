@@ -777,7 +777,9 @@ function App() {
           <p>分类展示回收价、新闻、技术流程与法规标准，支持实时刷新与快速查阅。</p>
         </div>
         <div className="header-actions">
-          <span className={`status ${connection}`}>{connection === 'online' ? '实时更新中' : '连接中断'}</span>
+          <span className={`status ${connection}`}>
+            {connection === 'online' ? '实时更新中' : connection === 'snapshot' ? '静态快照模式' : '连接中断'}
+          </span>
           <span className="status muted"><RefreshCw size={14} /> 数据更新 {snapshot ? formatTime(snapshot.fetchedAt) : '--:--:--'}</span>
           <span className="status muted"><Sparkles size={14} /> 系统时间 {formatTime(new Date(nowTick).toISOString())}</span>
           <span className="status muted">最近刷新 {snapshot ? Math.max(0, Math.floor((nowTick - new Date(snapshot.fetchedAt).getTime()) / 1000)) : 0} 秒前</span>
@@ -1151,7 +1153,7 @@ function App() {
               </section>
             </section>
           </> : <section className="glass section-card empty-screen">正在加载分类数据...</section>}
-          {error && <div className="error-tip">{error}</div>}
+          {error && <div className={connection === 'snapshot' ? 'info-tip' : 'error-tip'}>{error}</div>}
         </main>
       </section>
 
