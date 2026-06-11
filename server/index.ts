@@ -1,7 +1,7 @@
 import 'dotenv/config';
 import cors from 'cors';
 import express from 'express';
-import { existsSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { buildRecyclingSnapshot, RECYCLING_POLL_INTERVAL_MS } from './recycling-store.js';
@@ -18,7 +18,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-let snapshot: RecyclingKnowledgeSnapshot = {
+const createEmptySnapshot = (): RecyclingKnowledgeSnapshot => ({
   fetchedAt: new Date().toISOString(),
   cityPriority: CITY_PRIORITY,
   globalNews: {
@@ -62,7 +62,34 @@ let snapshot: RecyclingKnowledgeSnapshot = {
       },
     };
   }),
-};
+});
+
+function loadBootstrapSnapshot(): RecyclingKnowledgeSnapshot | null {
+  const candidates = [
+    path.join(distDir, 'bootstrap-snapshot.json'),
+    path.resolve(__dirname, '../public/bootstrap-snapshot.json'),
+  ];
+
+  for (const filePath of candidates) {
+    if (!existsSync(filePath)) {
+      continue;
+    }
+
+    try {
+      const parsed = JSON.parse(readFileSync(filePath, 'utf8')) as RecyclingKnowledgeSnapshot;
+      const totalQuotes = parsed.categories?.reduce((sum, item) => sum + item.quotes.length, 0) ?? 0;
+      if (parsed.categories?.length && totalQuotes > 0) {
+        return parsed;
+      }
+    } catch (error) {
+      console.warn(`Unable to load bootstrap snapshot from ${filePath}:`, error);
+    }
+  }
+
+  return null;
+}
+
+let snapshot: RecyclingKnowledgeSnapshot = loadBootstrapSnapshot() ?? createEmptySnapshot();
 
 let refreshing = false;
 

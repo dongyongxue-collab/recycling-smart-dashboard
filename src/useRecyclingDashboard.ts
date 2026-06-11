@@ -20,6 +20,10 @@ async function fetchFallbackSnapshot(): Promise<RecyclingKnowledgeSnapshot> {
   return fetchSnapshot(FALLBACK_SNAPSHOT_PATH);
 }
 
+function countQuotes(snapshot: RecyclingKnowledgeSnapshot): number {
+  return snapshot.categories.reduce((sum, category) => sum + category.quotes.length, 0);
+}
+
 export function useRecyclingDashboard() {
   const [snapshot, setSnapshot] = useState<RecyclingKnowledgeSnapshot | null>(null);
   const [connection, setConnection] = useState<'connecting' | 'online' | 'snapshot' | 'offline'>('connecting');
@@ -29,6 +33,16 @@ export function useRecyclingDashboard() {
     () => async () => {
       try {
         const next = await fetchDashboard();
+        if (countQuotes(next) === 0) {
+          const fallback = await fetchFallbackSnapshot();
+          if (countQuotes(fallback) > 0) {
+            setSnapshot(fallback);
+            setConnection('snapshot');
+            setError('实时接口暂时没有返回有效报价，已切换为最近可用快照。');
+            return;
+          }
+        }
+
         setSnapshot(next);
         setConnection('online');
         setError(null);
@@ -37,7 +51,7 @@ export function useRecyclingDashboard() {
           const fallback = await fetchFallbackSnapshot();
           setSnapshot(fallback);
           setConnection('snapshot');
-          setError('实时接口暂不可用，已切换为最近静态快照。');
+          setError('实时接口暂时不可用，已切换为最近静态快照。');
         } catch {
           setConnection('offline');
           setError(loadError instanceof Error ? loadError.message : '加载失败');

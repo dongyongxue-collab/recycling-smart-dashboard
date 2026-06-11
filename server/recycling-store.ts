@@ -1506,18 +1506,18 @@ async function collectCategorySnapshot(
   });
 
   const primaryQuotes = ranked.slice(0, 10);
-  if (primaryQuotes.length < 10) {
-    const fallback = await fetchBianbaoTradeFallback(category, 10 - primaryQuotes.length);
+  applyReferenceQuoteFallback(category, dedupedQuotes, primaryQuotes, 2);
+
+  if (primaryQuotes.length < 2) {
+    const fallback = await fetchBianbaoTradeFallback(category, 2 - primaryQuotes.length);
     fallback.forEach((item) => {
       const key = `${item.title}|${item.price}|${item.unit}|${item.region ?? ''}`;
-      if (!dedupedQuotes.has(key) && primaryQuotes.length < 10) {
+      if (!dedupedQuotes.has(key) && primaryQuotes.length < 2) {
         dedupedQuotes.set(key, item);
         primaryQuotes.push(item);
       }
     });
   }
-
-  applyReferenceQuoteFallback(category, dedupedQuotes, primaryQuotes, 2);
 
   const quotes = primaryQuotes.slice(0, 10);
   const domesticNews = collectNews(category, docs, 'domestic');
