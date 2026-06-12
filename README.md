@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./docs/repo-cover.svg" alt="再生资源智慧看板 / Smart Recycling Intelligence Dashboard" width="100%" />
+  <img src="./docs/repo-cover.png" alt="再生资源智慧看板 / Smart Recycling Intelligence Dashboard" width="100%" />
 </p>
 
 # 再生资源智慧看板 / Smart Recycling Intelligence Dashboard
