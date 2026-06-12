@@ -1,201 +1,138 @@
 <p align="center">
-  <img src="./docs/repo-cover.svg" alt="再生资源智慧看板封面" width="100%" />
+  <img src="./docs/repo-cover.svg" alt="再生资源智慧看板 / Smart Recycling Intelligence Dashboard" width="100%" />
 </p>
 
-# 再生资源智慧看板
+# 再生资源智慧看板 / Smart Recycling Intelligence Dashboard
 
-**Smart Recycling Intelligence Dashboard**
+**中文**：一个面向再生资源行业的行情、资讯、法规、工艺与趋势智能中枢。它把分散在行业网站、协会资讯、政策文件和公开市场报价中的信息，整理为可持续更新、可对比、可追踪的专业看板。
 
-一个面向再生资源行业的实时知识与行情看板，聚合回收价格、行业资讯、法规标准、技术流程、区域热度与趋势分析，帮助使用者快速理解不同再生资源板块的价格波动、市场结构和政策环境。
+**English**: An intelligence dashboard for the recycling and secondary-resource market. It consolidates fragmented public market prices, industry news, policy documents, process knowledge, and regional signals into a structured, continuously refreshable decision interface.
 
-项目由 **人工智能观星策划，摘星制作**。
+> 由 **人工智能观星策划，摘星制作**。  
+> Planned by **AI Stargazer** and crafted by **Zhaixing**.
 
-## 项目定位
+---
 
-再生资源行业的信息高度分散：价格散落在行业门户、协会网站、企业调价通知、地方市场报价和新闻资讯中；法规标准又分布在生态环境、工信、商务、住建、卫健等多个官方体系内。
+## 项目定位 / Positioning
 
-本项目的目标不是做一个普通资讯页，而是做一个可以长期迭代的 **再生资源行业智能信息中枢**：
+再生资源行业的信息来源高度分散：价格来自行业门户、企业调价通知、地方市场和回收端报价；资讯来自协会、产业媒体和国际机构；法规标准又分布在生态环境、工信、商务、住建、卫健等不同主管体系中。
 
-- 对价格：按品类、地区、来源、时间进行结构化展示。
-- 对资讯：区分全局行业新闻与品类相关新闻。
-- 对法规：区分共性法规、品类专属法规和官方最新动态。
-- 对工艺：用流程化方式说明回收、分选、预处理、资源化利用路径。
-- 对趋势：用曲线、分布、区域热力和结构分析辅助判断市场变化。
+本项目把这些信息组织成一个专业化的 **再生资源行业知识与行情驾驶舱**，重点不是“展示网页”，而是建立一套可迭代的数据认知框架：先看报价，再看区域，再看新闻，再看法规与工艺，最后形成对品类趋势和行业结构的判断。
 
-## 核心能力
+The project is designed as an industry-grade intelligence cockpit rather than a static information page. It follows an analyst workflow: monitor prices, compare regions, read signals, verify regulations, understand process constraints, and interpret market trends by category.
 
-| 能力模块 | 说明 |
-| --- | --- |
-| 实时报价监测 | 后端按周期采集公开来源数据，前端定时刷新，报价统一归一到 `元/吨` 口径。 |
-| 品类知识库 | 覆盖 18 个再生资源大类，每类包含细分品类、价格结构、痛点、流程和法规。 |
-| 新闻分层 | 全局新闻展示行业层面信息，品类新闻展示单一板块的市场异动。 |
-| 法规标准 | 共性法规前置，品类专属法规分层展示，并保留官方动态入口。 |
-| 技术流程 | 用流程节点表达回收、预处理、分选、处置和再利用路径。 |
-| 地图热力 | 使用中国地图表达不同区域报价与资讯覆盖度。 |
-| 快照兜底 | 当第三方网站临时不可用或抓取失败时，自动切换到最近可用数据快照，避免页面空白。 |
-| 本地一键启动 | 提供 Windows 一键启动脚本，适合个人电脑长期查看。 |
+## 核心价值 / Core Value
 
-## 覆盖品类
+| 维度 / Dimension | 中文说明 | English |
+| --- | --- | --- |
+| 行情优先 | 回收价是第一层信息，按品类、区域、来源、时间统一展示，并尽量归一到 `元/吨`。 | Prices are the primary layer, normalized by category, region, source, time, and where applicable into RMB per ton. |
+| 知识分层 | 全局行业新闻、品类新闻、法规标准、工艺流程、行业痛点分层展示，减少信息混杂。 | News, category signals, regulations, process flows, and pain points are separated into clear layers. |
+| 品类完整 | 覆盖金属、塑料、纸、玻璃、电池、车辆、电子废弃物、危废、医废等 18 个板块。 | Covers 18 recycling sectors, from metals and plastics to batteries, vehicles, e-waste, hazardous waste, and medical waste. |
+| 近实时更新 | 后端周期性抓取公开来源，前端轮询刷新；抓取失败时使用最近快照兜底，避免页面空白。 | The backend polls public sources periodically, while the frontend refreshes continuously with snapshot fallback. |
+| 专业可扩展 | 数据结构按“品类 - 细分品类 - 报价 - 新闻 - 法规 - 工艺 - 趋势”建模，便于后续扩展。 | The schema is built around category, subcategory, quotes, news, regulations, process, and analytics for long-term expansion. |
 
-当前覆盖 18 个板块：
+## 覆盖品类 / Category Coverage
 
 `废钢`、`废铜`、`废铝`、`废塑料`、`废纸`、`废玻璃`、`动力电池`、`报废汽车`、`电子废弃物`、`废旧纺织品`、`废橡胶`、`废木材`、`厨余/油脂`、`工业废渣`、`危险废弃物`、`医疗废弃物`、`生活垃圾`、`建筑废弃物`。
 
-每个板块都包含：
+Steel scrap, copper scrap, aluminum scrap, recycled plastics, waste paper, waste glass, power batteries, end-of-life vehicles, e-waste, waste textiles, waste rubber, waste wood, kitchen waste and grease, industrial slag, hazardous waste, medical waste, municipal waste, and construction waste.
 
-- 回收价 Top 条目
-- 细分品类标签
-- 成本架构
-- 技术流程
-- 行业痛点
-- 共性法规
-- 品类专属法规
-- 官方动态和标准资料
-- 国内/国际资讯
-- 区域报价分布
-- 历史趋势参考
+每个板块默认包含以下分析层：
 
-## 数据架构
+- 回收价 Top 条目 / Top recycling price records
+- 细分品类标签 / Subcategory taxonomy
+- 成本架构 / Cost structure
+- 技术流程 / Technical process flow
+- 行业痛点 / Industry pain points
+- 共性法规 / Common regulatory layer
+- 品类专属法规 / Category-specific regulation layer
+- 官方动态与标准资料 / Official updates and standards references
+- 国内与国际资讯 / Domestic and international news
+- 区域分布与趋势参考 / Regional distribution and trend reference
+
+## 信息架构 / Intelligence Architecture
 
 ```mermaid
 flowchart LR
-  A["公开行业网站 / 协会 / 官方部门 / 行业资讯"] --> B["Node.js 数据采集层"]
-  B --> C["价格解析与单位归一"]
-  B --> D["新闻与法规链接提取"]
-  C --> E["品类知识快照"]
-  D --> E
-  E --> F["Express API"]
-  F --> G["React 智慧看板"]
-  H["bootstrap-snapshot.json"] --> F
-  H --> G
+  A["Public industry sites<br/>公开行业网站"] --> B["Collection layer<br/>数据采集层"]
+  C["Associations and media<br/>协会与产业媒体"] --> B
+  D["Government and standards<br/>政府与标准资料"] --> B
+  B --> E["Normalization<br/>报价解析与单位归一"]
+  B --> F["Knowledge extraction<br/>新闻/法规/工艺抽取"]
+  E --> G["Category snapshot<br/>品类知识快照"]
+  F --> G
+  G --> H["Express API"]
+  H --> I["React dashboard<br/>智慧看板"]
+  J["Bootstrap snapshot<br/>离线快照兜底"] --> H
+  J --> I
 ```
 
-## 数据说明
+## 数据策略 / Data Policy
 
-本项目采用 **公开网页采集 + 本地知识配置 + 快照兜底** 的方式组织数据。
+本项目采用 **公开网页采集 + 本地知识配置 + 快照兜底** 的组合方式。它适合用于行业观察、个人研究、行情跟踪和知识整理，不等同于交易所级别的低延迟行情系统。
 
-- 价格数据优先从行业公开页面中抽取含价格的报价内容。
-- 报价统一过滤为回收价格口径，并尽量排除“上调/下调幅度”这类非真实价格。
-- 金额单位统一转换为 `元/吨`，不适合按吨计价的条目会被过滤。
-- 法规标准以公开官方链接和行业监管口径为基础维护。
-- 由于第三方网站没有统一 API，数据实时性受目标网站更新频率、访问限制和页面结构变化影响。
-- 生产环境如用于经营决策，建议接入授权行情 API 或自有数据源。
+The system combines public-source crawling, curated local knowledge, and snapshot fallback. It is designed for market observation, research, and industry intelligence, not exchange-grade low-latency trading.
 
-## 技术栈
+- 报价优先抓取含真实金额的回收价内容，尽量排除“上涨 20 元/吨”“下调 30 元/吨”这类调价幅度。
+- 单位优先统一为 `元/吨`；不适合吨计价的品类，会在数据层保留原始描述并标注来源。
+- 新闻按全局行业新闻与品类相关新闻拆分，避免所有内容混在同一列表中。
+- 法规标准分为共性法规、品类专属法规和官方最新动态三层。
+- 第三方网站不可用、限流或页面变化时，系统保留最近可用快照，保证看板可读。
 
-| 层级 | 技术 |
+## 设计方向 / Design Direction
+
+视觉目标是“专业行情终端 + 产业研究杂志”：深色玻璃质感、清晰卡片层级、强数据密度、克制的发光效果、顺滑但不过度的交互。界面优先服务快速判断，而不是装饰性堆叠。
+
+The visual language combines a professional market terminal with an editorial intelligence magazine: dark glass panels, crisp hierarchy, high data density, controlled glow, and smooth interactions that support rapid interpretation.
+
+## 技术栈 / Technology Stack
+
+| Layer | Technology |
 | --- | --- |
-| 前端 | React 19、Vite、TypeScript、Framer Motion、Recharts、D3 Geo |
-| 后端 | Node.js、Express、TypeScript、Axios |
-| 数据处理 | 网页文本化、价格正则解析、单位归一、快照缓存 |
-| 部署 | Render / Railway / 轻量服务器 / 本地 Windows |
+| Frontend | React, TypeScript, Vite, Recharts, D3 Geo, Framer Motion |
+| Backend | Node.js, Express, TypeScript, Cheerio, Axios, fast-xml-parser |
+| Data | Public web extraction, curated category config, bootstrap snapshot fallback |
+| Delivery | Local Windows launcher, Railway/Node deployment compatible |
 
-## 本地运行
-
-安装依赖：
+## 本地运行 / Local Development
 
 ```bash
 npm install
-```
-
-启动前端和后端：
-
-```bash
 npm run dev
 ```
 
-访问：
+默认地址：
 
-```text
-http://localhost:5173/
-```
+- 前端 / Frontend: `http://localhost:5173/`
+- 后端 / API: `http://localhost:8787/api/health`
 
-Windows 用户也可以直接运行：
+Windows 用户也可以双击项目根目录中的 `start-dashboard.cmd` 一键启动。
 
-```text
-start-dashboard.cmd
-```
+Windows users can launch the dashboard directly with `start-dashboard.cmd` in the project root.
 
-## 生产部署
-
-### Render / Railway / 云服务器
-
-适合需要实时刷新的部署方式。
+## 生产部署 / Production Deployment
 
 ```bash
-npm install
 npm run build
-npm start
+npm run start
 ```
 
-后端默认端口：
+The server serves both the API and the built frontend. It is compatible with common Node.js hosting services such as Railway, Render, and lightweight cloud servers.
 
-```text
-8787
-```
+## 项目边界 / Scope
 
-平台可通过环境变量指定：
+- 本项目只采集和整理公开可访问的信息，不绕过登录、付费墙或反爬限制。
+- 本项目不提供投资、交易或采购决策承诺，数据需要结合原始来源复核。
+- 如果未来接入付费数据源或官方 API，应优先走授权接口，而不是非授权抓取。
 
-```text
-PORT=10000
-NODE_VERSION=22
-```
+## Roadmap
 
-### Netlify
-
-Netlify 适合静态展示，但不适合长期运行实时采集后端。当前项目保留 Netlify 配置，主要用于静态兜底展示。
-
-## 目录结构
-
-```text
-.
-├── public/
-│   ├── bootstrap-snapshot.json   # 最近可用数据快照
-│   ├── china.geo.json            # 中国地图数据
-│   └── logo / favicon / app icon
-├── server/
-│   ├── index.ts                  # API 服务入口
-│   ├── recycling-store.ts         # 数据采集、解析、快照生成
-│   ├── recycling-config.ts        # 品类、法规、流程、痛点配置
-│   └── types.ts
-├── src/
-│   ├── App.tsx                   # 看板主界面
-│   ├── useRecyclingDashboard.ts   # 前端数据加载与兜底逻辑
-│   └── types.ts
-├── docs/
-│   └── repo-cover.svg             # GitHub 仓库封面
-├── render.yaml
-├── netlify.toml
-└── start-dashboard.cmd
-```
-
-## 项目边界
-
-这个项目适合：
-
-- 行业行情观察
-- 再生资源知识库建设
-- 市场波动监控
-- 品类研究
-- 内部经营看板原型
-- 数据源接入前的产品验证
-
-这个项目不直接承诺：
-
-- 交易级实时行情
-- 付费平台深度数据替代
-- 对第三方网页结构变化的永久兼容
-- 未授权数据的商业再分发
-
-## 后续可扩展方向
-
-- 接入授权行情 API。
-- 增加企业自有成交价和采购价录入。
-- 增加价格预警、涨跌提醒和微信通知。
-- 增加账号体系和收藏板块。
-- 增加服务器定时任务和持久化数据库。
-- 增加移动端独立布局。
+- 增强每个品类的历史曲线样本和区域对比。
+- 增加可配置的数据源权重与可信度评分。
+- 增加法规标准的更新时间监控和失效提示。
+- 增加移动端快捷入口和家庭局域网访问方案。
+- 增加按品类导出的行业快报与日报能力。
 
 ## License
 
-Private project. All rights reserved.
+Private project. All third-party data belongs to its original source. Use responsibly and verify important decisions against source materials.
