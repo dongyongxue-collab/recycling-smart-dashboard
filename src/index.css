@@ -99,10 +99,11 @@ body {
 }
 
 .brand-logo {
-  width: 44px;
-  height: 44px;
+  width: 54px;
+  height: 54px;
   border-radius: 999px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+  object-fit: contain;
+  filter: drop-shadow(0 0 18px rgba(91, 235, 255, 0.34));
 }
 
 .brand-meta {

@@ -85,6 +85,16 @@ The system combines public-source crawling, curated local knowledge, and snapsho
 
 The visual language combines a professional market terminal with an editorial intelligence magazine: dark glass panels, crisp hierarchy, high data density, controlled glow, and smooth interactions that support rapid interpretation.
 
+## 视觉品牌 / Brand Identity
+
+<p align="center">
+  <img src="./docs/brand-logo.png" alt="再生资源智慧看板品牌 Logo" width="180" />
+</p>
+
+品牌图形采用“机械观测镜头 + 星芒 + 绿色循环叶片”的组合：镜头代表实时观测与数据洞察，绿色叶片代表资源循环，青蓝发光代表科技感和行情刷新。它不是单纯装饰，而是整个看板的视觉锚点：用于网页顶栏、favicon、PWA 图标和 GitHub 封面主视觉。
+
+The brand mark combines a mechanical observation lens, a starlight core, and green-blue recycling blades. The lens represents market observation and data intelligence; the circular blades represent resource recovery; the cyan glow reinforces the real-time technology layer.
+
 ## 技术栈 / Technology Stack
 
 | Layer | Technology |

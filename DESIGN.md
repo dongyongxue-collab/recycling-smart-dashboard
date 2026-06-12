@@ -8,6 +8,7 @@
 
 ## Brand
 - Personality: 专业、冷静、数据密集、有行业研究深度；像“行情终端 + 产业研究杂志”，不是普通后台模板。
+- Brand mark: 使用机械观测镜头 Logo 作为核心视觉锚点；它代表实时观测、数据洞察、资源循环和 AI 观星策划。
 - Trust signals: 明确数据来源、报价口径、法规层级、快照兜底、更新时间和限制说明。
 - Avoid: 过度炫光、廉价赛博风、纯装饰动效、无来源的绝对化实时承诺、把新闻和报价混成一团。
 
@@ -39,6 +40,7 @@
 - Shape/radius/elevation: 玻璃质感卡片、细线边框、柔和阴影，圆角控制在专业范围内。
 - Motion: 仅用于价格滚动、地图点位、悬浮解释、卡片进入和焦点状态。
 - Imagery/iconography: 使用科技观测、环形镜头、地图热区、行情曲线等隐喻；图标保持线性、克制、同一粗细。
+- Brand usage: 顶栏、favicon、PWA 图标和仓库封面都应使用同一套透明背景品牌图，避免白底图标和不一致的替代图形。
 
 ## Components
 - Existing components to reuse: KPI cards, news ribbon, map heat section, category sidebar, quote table, regulation cards, process flow cards.

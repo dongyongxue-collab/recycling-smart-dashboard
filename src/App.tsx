@@ -764,7 +764,7 @@ function App() {
       <header className="top-header glass">
         <div>
           <div className="brand-line">
-            <img src="/logo.png" alt="再生资源智慧看板 Logo" className="brand-logo" />
+            <img src="/logo.png?v=20260612b" alt="再生资源智慧看板 Logo" className="brand-logo" />
             <div className="brand-meta">
               <strong>实时智慧看板</strong>
               <small>人工智能观星策划，摘星制作</small>
